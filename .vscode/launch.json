@@ -1,0 +1,105 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Anagram",
+            "request": "launch",
+            "mainClass": "Anagram",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "BracketCompare",
+            "request": "launch",
+            "mainClass": "BracketCompare",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "CommonPrefix",
+            "request": "launch",
+            "mainClass": "CommonPrefix",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "DecimalToRoman",
+            "request": "launch",
+            "mainClass": "DecimalToRoman",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "EasyTaskPOTD",
+            "request": "launch",
+            "mainClass": "EasyTaskPOTD",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Eval_postfix",
+            "request": "launch",
+            "mainClass": "Eval_postfix",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "LargestRectangle",
+            "request": "launch",
+            "mainClass": "LargestRectangle",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "MapPosition",
+            "request": "launch",
+            "mainClass": "MapPosition",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "RomanToDecimal",
+            "request": "launch",
+            "mainClass": "RomanToDecimal",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "SeatArrange",
+            "request": "launch",
+            "mainClass": "SeatArrange",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "SimpleCalculator",
+            "request": "launch",
+            "mainClass": "SimpleCalculator",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "SpellChecker",
+            "request": "launch",
+            "mainClass": "SpellChecker",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "VillageWell",
+            "request": "launch",
+            "mainClass": "VillageWell",
+            "projectName": "Practice Questions_d6f3e3bc"
+        }
+    ]
+}
