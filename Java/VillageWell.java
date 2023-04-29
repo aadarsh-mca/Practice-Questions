@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
 n = 3
@@ -54,9 +53,11 @@ public class VillageWell {
 	{{'H', 'H', 'H'}, {'N', 'H', 'H'}, {'H', 'N', 'H'}}  // 20 (left bottom)
 	{{'H', 'H', 'H'}, {'H', 'N', 'H'}, {'N', 'H', 'N'}}  // 21 (middle bottom)
 	{{'H', 'H', 'H'}, {'H', 'H', 'N'}, {'H', 'N', 'H'}}  // 22 (right bottom)
+
+	{{'H', 'H', 'N'}, {'N', 'N', 'H'}, {'H', 'N', 'N'}}  // (special case)
 */
 
-        char[][] c = {{'H', 'H', 'N'}, {'H', 'N', 'H'}, {'H', 'H', 'N'}};
+        char[][] c = {{'H', 'H', 'H'}, {'H', 'W', 'H'}, {'H', 'H', 'H'}};
         obj.chefAndWells(3, 3, c);
     }
 
@@ -73,12 +74,16 @@ public class VillageWell {
 
 		int[][] result = new int[n][m];
 		ArrayList<String> wellPos = new ArrayList<>();
+		ArrayList<String> nPos = new ArrayList<>();
 		ArrayList<String> housePos = new ArrayList<>();
 		
 		for(int i=0; i < n; i++) {
 			for(int j=0; j < m; j++) {
 				if(c[i][j] == 'W' || c[i][j] == 'N' || c[i][j] == '.') {
 					result[i][j] = 0;
+					if(c[i][j] == 'N') {
+						nPos.add("" + i + j);
+					}
 					if(c[i][j] == 'W') {
 						wellPos.add("" + i + j);
 					}
@@ -92,22 +97,47 @@ public class VillageWell {
 					// ( i==n-1 && j==m-1 && c[i][j-1] == 'N' && c[i-1][j] == 'N')   ) {
 
 					if( ((j-1 < 0 && c[i][j+1] == 'N') || (j>0 && c[i][j-1] == 'N')) && 
-					((j+1 >= m && c[i][j-1] == 'N') || (j<m-1 && c[i][j+1] == 'N')) && 
-					((i-1 < 0 && c[i+1][j] == 'N') || (i>0 && c[i-1][j] == 'N')) && 
-					((i+1 >= n && c[i-1][j] == 'N') || (i<n-1 && c[i+1][j] == 'N')) ) {
+						((j+1 >= m && c[i][j-1] == 'N') || (j<m-1 && c[i][j+1] == 'N')) && 
+						((i-1 < 0 && c[i+1][j] == 'N') || (i>0 && c[i-1][j] == 'N')) && 
+						((i+1 >= n && c[i-1][j] == 'N') || (i<n-1 && c[i+1][j] == 'N')) ) {
 
 						result[i][j] = -1;
 
 					} else {
-						if(wellPos.size() != 0) {
-							result[i][j] = distanceCal(i, j);
-						}
+						housePos.add("" + i + j);
+						// if(wellPos.size() != 0) {
+						// 	result[i][j] = distanceCal(i, j);
+						// } else {
+						// 	result[i][j] = 1;
+						// }
 					}
 				}
 			}
 		}
 
 		System.out.println(wellPos);
+		System.out.println(housePos);
+
+		for(int h = 0; h < housePos.size(); h++) {
+			int smallestDistance = 0, temp = 0;
+			int hX = Character.getNumericValue(housePos.get(h).charAt(0));
+			int hY = Character.getNumericValue(housePos.get(h).charAt(1));
+
+			for(int w = 0; w < wellPos.size(); w++) {
+				int wX = Character.getNumericValue(wellPos.get(w).charAt(0));
+				int wY = Character.getNumericValue(wellPos.get(w).charAt(1));
+
+				if(w == 0) {
+					smallestDistance = distanceCal(hX, hY, wX, wY);
+				} else {
+					temp = distanceCal(hX, hY, wX, wY);
+					if(smallestDistance > temp) {
+						smallestDistance = temp;
+					}
+				}
+			}
+			result[hX][hY] = smallestDistance;
+		}
 
 
 
@@ -124,7 +154,14 @@ public class VillageWell {
 		return result;
     }
 
-	int distanceCal(int i, int j) {
+	int distanceCal(int hX, int hY, int wX, int wY) {
+		// System.out.println("(" + i + "," + j + ")");
+		int count = 0;
+		if(hX != wX) {
+			hX = hX + 1;
+
+		}
+
 
 		return 0;
 	}

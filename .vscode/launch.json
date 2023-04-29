@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FindNthOdd",
+            "request": "launch",
+            "mainClass": "FindNthOdd",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

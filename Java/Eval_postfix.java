@@ -1,6 +1,4 @@
-package DSA;
 import java.lang.Math;
-import java.util.Scanner;
 
 /**  46+32+/)
  *  22*34*+

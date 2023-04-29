@@ -12,7 +12,7 @@ class LargestRectangle {
 		
 		int temp = 0, min = 0, minIndex = 0, max = 0, maxIndex = 0;
 		for(int i = 0; i < height.size(); i++) {
-			temp = 
+			// temp = 
 			if(temp > i) {
 				temp = i;
 			}
