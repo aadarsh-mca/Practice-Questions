@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Powerfull_Integer",
+            "request": "launch",
+            "mainClass": "Powerfull_Integer",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "FindNthOdd",
             "request": "launch",
             "mainClass": "FindNthOdd",
