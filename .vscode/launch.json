@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MatrixSpiralTravel",
+            "request": "launch",
+            "mainClass": "MatrixSpiralTravel",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "ExceptionHandling",
+            "request": "launch",
+            "mainClass": "ExceptionHandling",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "BalancedBracket",
+            "request": "launch",
+            "mainClass": "BalancedBracket",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "DateTimeAPI",
             "request": "launch",
             "mainClass": "DateTimeAPI",

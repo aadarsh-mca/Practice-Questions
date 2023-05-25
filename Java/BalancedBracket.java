@@ -1,7 +1,7 @@
 import java.util.Stack;
 import java.util.HashMap;
 
-class BracketCompare {
+class BalancedBracket {
 	public static void main(String[] args) {
 		String str = "[()](()";	//{[()]}	//]]]]]]	{[()()[()]]}
 		
