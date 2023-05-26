@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MissingLetter",
+            "request": "launch",
+            "mainClass": "MissingLetter",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "CyclicOrder",
+            "request": "launch",
+            "mainClass": "CyclicOrder",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "MatrixSpiralTravel",
             "request": "launch",
             "mainClass": "MatrixSpiralTravel",
