@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DoubleLL",
+            "request": "launch",
+            "mainClass": "DSA.DoubleLL",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "SingleLL",
+            "request": "launch",
+            "mainClass": "DSA.SingleLL",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Largest0SubArr",
+            "request": "launch",
+            "mainClass": "Largest0SubArr",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "MissingLetter",
             "request": "launch",
             "mainClass": "MissingLetter",
