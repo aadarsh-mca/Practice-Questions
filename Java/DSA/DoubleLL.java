@@ -40,12 +40,26 @@ public class DoubleLL {
         }
     }
 
-    void deleteFromBegin() {
-        
+    void deleteFromHead() {
+        if(head == null) {
+            System.out.println("Empty Linked List");
+        } else if(head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            head.previous = null;
+        }
     }
 
-    void deleteFromEnd() {
-
+    void deleteFromTail() {
+        if(head == null) {
+            System.out.println("Empty Linked List");
+        } else if(head == tail) {
+            head = tail = null;
+        } else {
+            tail = tail.previous;
+            tail.next = null;
+        }
     }
 
     void displayFromHead() {
@@ -88,5 +102,31 @@ public class DoubleLL {
         obj.displayFromHead();
         obj.displayFromTail();
         
+        obj.deleteFromHead();
+
+        obj.displayFromHead();
+        obj.displayFromTail();
+
+        obj.deleteFromTail();
+
+        obj.displayFromHead();
+        obj.displayFromTail();
+
+        obj.reverseLinkedList();
     }
+
+    void reverseLinkedList() {
+        // DNode temp;
+        // temp = head;
+        // temp.previous = tail.previous;
+        // head = tail;
+        // head.previous = null;
+        // head.next = temp.next;
+        // tail = temp;
+        // tail.next = null;
+
+        displayFromHead();
+        displayFromTail();
+    }
+
 }

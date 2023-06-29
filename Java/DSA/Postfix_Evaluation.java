@@ -1,3 +1,4 @@
+package DSA;
 import java.lang.Math;
 
 /**  46+32+/)
@@ -14,14 +15,14 @@ import java.lang.Math;
             10 / 5 = " 2 "
 **/
 
-public class Eval_postfix {
+public class Postfix_Evaluation {
     
     String exp = "12+34*-42^6*3/7/3*+2+)";
     int stack[] = new int[exp.length()];
     int stackTop = -1;
     
     public static void main(String[] args) {
-        Eval_postfix obj = new Eval_postfix();
+        Postfix_Evaluation obj = new Postfix_Evaluation();
 
         for(int i=0; i<obj.exp.length(); i++) {
             char ch = obj.exp.charAt(i);

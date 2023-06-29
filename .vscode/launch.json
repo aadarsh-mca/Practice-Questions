@@ -6,6 +6,62 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Sorting",
+            "request": "launch",
+            "mainClass": "DSA.Sorting",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "InsertionSort",
+            "request": "launch",
+            "mainClass": "DSA.InsertionSort",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "SelectionSort",
+            "request": "launch",
+            "mainClass": "DSA.SelectionSort",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "BubbleSort",
+            "request": "launch",
+            "mainClass": "DSA.BubbleSort",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Palindrome",
+            "request": "launch",
+            "mainClass": "Palindrome",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "FirstLastChar",
+            "request": "launch",
+            "mainClass": "FirstLastChar",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "SimpleTree",
+            "request": "launch",
+            "mainClass": "DSA.SimpleTree",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "CircularLL",
+            "request": "launch",
+            "mainClass": "DSA.CircularLL",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "DoubleLL",
             "request": "launch",
             "mainClass": "DSA.DoubleLL",
