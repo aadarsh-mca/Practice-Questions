@@ -1,5 +1,8 @@
 import time
 
+
+
+
 # list = [[1, "Aadarsh", "Delhi", 8588098667], [37, "Deeksha", "Bhopal", 9165590773]]
 # print(list)
 # list[1].remove(1)

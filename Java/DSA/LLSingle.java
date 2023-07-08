@@ -5,7 +5,7 @@ class Node {
     Node next;
 }
 
-public class SingleLL {
+public class LLSingle {
     Node head;
     Node tail;
 
@@ -27,8 +27,7 @@ public class SingleLL {
         n.data = data;
         n.next = null;
         if(head == null) {
-            head = n;
-            tail = n;
+            head = tail = n;
         } else {
             tail.next = n;
             tail = n;
@@ -84,7 +83,7 @@ public class SingleLL {
     }
 
     public static void main(String[] args) {
-        SingleLL obj = new SingleLL();
+        LLSingle obj = new LLSingle();
         obj.insertAtEnd(10);
         obj.insertAtEnd(20);
         obj.insertAtEnd(30);

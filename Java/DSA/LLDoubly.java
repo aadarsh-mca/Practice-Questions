@@ -6,7 +6,7 @@ class DNode {
     DNode next;
 }
 
-public class DoubleLL {
+public class LLDoubly {
     DNode head;
     DNode tail;
 
@@ -89,7 +89,7 @@ public class DoubleLL {
     }
 
     public static void main(String[] args) {
-        DoubleLL obj = new DoubleLL();
+        LLDoubly obj = new LLDoubly();
         obj.insertAtBegin(10);
         obj.insertAtBegin(20);
         obj.insertAtBegin(30);

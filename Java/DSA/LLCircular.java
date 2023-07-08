@@ -11,7 +11,7 @@ class CDNode {
     CDNode next;
 }
 
-public class CircularLL {
+public class LLCircular {
     CSNode sHead;
     CSNode sTail;
 
@@ -67,7 +67,7 @@ public class CircularLL {
     }
     
     public static void main(String[] args) {
-        CircularLL obj = new CircularLL();
+        LLCircular obj = new LLCircular();
 
         obj.insertFromBegin(10);
         obj.insertFromBegin(20);

@@ -6,6 +6,69 @@
     "configurations": [
         {
             "type": "java",
+            "name": "anything",
+            "request": "launch",
+            "mainClass": "anything",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "EquilibriumPoint",
+            "request": "launch",
+            "mainClass": "EquilibriumPoint",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "LargestSubArray_0Sum",
+            "request": "launch",
+            "mainClass": "LargestSubArray_0Sum",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "ArrayZigZag",
+            "request": "launch",
+            "mainClass": "ArrayZigZag",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Queue",
+            "request": "launch",
+            "mainClass": "DSA.Queue",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "TreeTravel_Stack",
+            "request": "launch",
+            "mainClass": "DSA.TreeTravel_Stack",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "TreeTraversal_Stack",
+            "request": "launch",
+            "mainClass": "DSA.TreeTraversal_Stack",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "TreeTraversal_Recursion",
+            "request": "launch",
+            "mainClass": "DSA.TreeTraversal_Recursion",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "TreeTraversal",
+            "request": "launch",
+            "mainClass": "DSA.TreeTraversal",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "Sorting",
             "request": "launch",
             "mainClass": "DSA.Sorting",
