@@ -6,6 +6,69 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SortEmployee",
+            "request": "launch",
+            "mainClass": "SortEmployee",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "SortAbsDiff",
+            "request": "launch",
+            "mainClass": "SortAbsDiff",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "EvenOddPlace",
+            "request": "launch",
+            "mainClass": "EvenOddPlace",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "DistinctInWindow",
+            "request": "launch",
+            "mainClass": "DistinctInWindow",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "PascalTriangle",
+            "request": "launch",
+            "mainClass": "PascalTriangle",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "RemoveDuplicateEle",
+            "request": "launch",
+            "mainClass": "RemoveDuplicateEle",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "MaxSumPath",
+            "request": "launch",
+            "mainClass": "MaxSumPath",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "ContiBinarySearch",
+            "request": "launch",
+            "mainClass": "ContiBinarySearch",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Distinct_Largest_2nd",
+            "request": "launch",
+            "mainClass": "Distinct_Largest_2nd",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "anything",
             "request": "launch",
             "mainClass": "anything",

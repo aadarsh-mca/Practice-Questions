@@ -1,5 +1,6 @@
 import time
 
+print((0+0)/0)
 
 
 
