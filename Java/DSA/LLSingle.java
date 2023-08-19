@@ -104,5 +104,25 @@ public class LLSingle {
         obj.deleteAtBegin();
 
         obj.displayLL();
+
+        obj.displayLL();
     }
+
+    Node reverseList(Node head)
+    {
+        // // code here
+        // Node curr = head.next;
+        // head.next = null;
+        
+        // while(curr != null) {
+        //     Node n = new Node(curr.data);
+        //     n.next = head;
+        //     head = n;
+        //     curr = curr.next;
+        // }
+
+        return head;    
+    }
+
+
 }

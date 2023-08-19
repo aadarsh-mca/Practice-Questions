@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LLSingle",
+            "request": "launch",
+            "mainClass": "DSA.LLSingle",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "Rotate90Matrix",
+            "request": "launch",
+            "mainClass": "Rotate90Matrix",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
+            "name": "KadaneAlgo",
+            "request": "launch",
+            "mainClass": "KadaneAlgo",
+            "projectName": "Practice Questions_d6f3e3bc"
+        },
+        {
+            "type": "java",
             "name": "SortEmployee",
             "request": "launch",
             "mainClass": "SortEmployee",
