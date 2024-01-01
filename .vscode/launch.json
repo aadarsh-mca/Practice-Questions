@@ -6,6 +6,146 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ZeroCount",
+            "request": "launch",
+            "mainClass": "TCS_MockVita.ZeroCount",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "MaxGCD",
+            "request": "launch",
+            "mainClass": "MaxGCD",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "MatrixRotate",
+            "request": "launch",
+            "mainClass": "MatrixRotate",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "MatrixSpiralTravel",
+            "request": "launch",
+            "mainClass": "MatrixSpiralTravel",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "MatrixZero",
+            "request": "launch",
+            "mainClass": "MatrixZero",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "CellReachInGivenTime",
+            "request": "launch",
+            "mainClass": "CellReachInGivenTime",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "PrimeConstruction",
+            "request": "launch",
+            "mainClass": "TCS_MockVita.PrimeConstruction",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "DuplicateNumber",
+            "request": "launch",
+            "mainClass": "DuplicateNumber",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "ExcelAlphaNumber",
+            "request": "launch",
+            "mainClass": "ExcelAlphaNumber",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "MajorityElement",
+            "request": "launch",
+            "mainClass": "MajorityElement",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "Palindrome",
+            "request": "launch",
+            "mainClass": "Palindrome",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "Segregate01",
+            "request": "launch",
+            "mainClass": "Segregate01",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "MergeSortedArray",
+            "request": "launch",
+            "mainClass": "MergeSortedArray",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "AddBinary",
+            "request": "launch",
+            "mainClass": "AddBinary",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "CommonCharacter",
+            "request": "launch",
+            "mainClass": "CommonCharacter",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "RemoveDupliSortedArray",
+            "request": "launch",
+            "mainClass": "RemoveDupliSortedArray",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "PalindromeNumber",
+            "request": "launch",
+            "mainClass": "PalindromeNumber",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "RankTransform",
+            "request": "launch",
+            "mainClass": "RankTransform",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "BitDiff",
+            "request": "launch",
+            "mainClass": "BitDiff",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
             "name": "LLSingle",
             "request": "launch",
             "mainClass": "DSA.LLSingle",

@@ -3,14 +3,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
+import java.util.Scanner;
 import java.util.Stack;
-
+import java.util.TreeMap;
 import java.util.Map.Entry;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -20,46 +23,79 @@ import java.util.regex.Pattern;
 public class Test {
     
     public static void main(String[] args) {
-        Math.sqrt(0);
-        Math.round(0);
+        Scanner scanner = new Scanner(System.in);
 
-        ArrayList<Integer> intList = new ArrayList<>();
-        StringBuilder stb = new StringBuilder();
-
-        Long A = (long)10, B = (long)5;
-
-        Long[] lcmGcd = new Long[2];
-        Long min = Math.min(A, B);
-        Long max = Math.max(A, B);
-
-        System.out.println(min);
-        System.out.println(max);
+        int n = 3;
+        // int max = n*2-1;
         
-        // for(long i=2; i<=min; i++) {
-        //     if(A % i == 0 && B % i == 0) {
-        //         lcmGcd[1] = i;
+        // int max = n*2;
+        // for(int i=1; i<=n; i++) {
+        //     for(int j=1; j<=i; j++) {
+        //         System.out.print(j);
         //     }
-            
-        //     if(min % i == 0 && max % i == 0) {
-        //         lcmGcd[0] = lcmGcd[0] * i;
-        //         min /= i;
-        //         max /= i;
-        //         continue;
-        //     } else if(min % i == 0) {
-        //         lcmGcd[0] = lcmGcd[0] * i;
-        //         min /= i;
-        //     } else if(max % i == 0) {
-        //         lcmGcd[0] = lcmGcd[0] * i;
-        //         max /= i;
+        //     int spaces = max - (i*2);
+        //     for(int j=1; j<=spaces; j++) {
+        //         System.out.print(" ");
         //     }
+        //     for(int j=i; j>=1; j--) {
+        //         System.out.print(j);
+        //     }
+        //     System.out.println();
         // }
-        
-        // if(max > 1) {
-        //     lcmGcd[0] = lcmGcd[0] * max;
+
+        for(int i=1; i<=n; i++) {
+            for(int j=1; j<=i; j++) {
+                System.out.print(j + " ");
+            }
+            int spaces = 2*(n-i);
+            for(int j=1; j<=spaces; j++) {
+                System.out.print(" ");
+            }
+            for(int j=i; j>=1; j--) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+
+
+        // int spaces = 2*(n-1);
+        // for(int i=1; i<=n; i++){
+        //     //number
+        //     for(int j=1; j<=i;j++){
+        //         System.out.print(j+" ");
+        //     }
+        //     //spaces
+        //     for(int j=1; j<=spaces;j++){
+        //         System.out.print(" ");
+        //     }
+        //     //number
+        //     for(int j=i; j>=1; j--){
+        //         System.out.print(j+" ");
+        //     }
+        //     System.out.println();
+        //     spaces -= 2;
         // }
-        
-        System.out.println(Arrays.toString(lcmGcd));
+
+
+        // numberCrown(3);
+
 
     }
+
+    public static void numberCrown(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i+1; j++) {
+                System.out.print((j+1)+" ");
+            }
+            for(int k = 0; k < 2*(n-1-i); k++) {
+                System.out.print(" ");
+            }
+            for(int l = 0; l < i + 1; l++) {
+                System.out.print((i+1-l)+" ");
+            }
+            System.out.println();
+        }
+    }
+
 
 }
