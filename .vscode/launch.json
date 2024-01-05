@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Pattern",
+            "request": "launch",
+            "mainClass": "Pattern",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
             "name": "ZeroCount",
             "request": "launch",
             "mainClass": "TCS_MockVita.ZeroCount",
