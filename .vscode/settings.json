@@ -1,5 +1,9 @@
 {
     "files.associations": {
         "iostream": "cpp"
-    }
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true
+    } 
 }

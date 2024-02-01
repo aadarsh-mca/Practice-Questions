@@ -4,6 +4,69 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+		{
+            "type": "java",
+            "name": "ReverseArrayUsingRecursion",
+            "request": "launch",
+            "mainClass": "ReverseArrayUsingRecursion",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "Recursion",
+            "request": "launch",
+            "mainClass": "Recursion",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "SumOfAllDivisor",
+            "request": "launch",
+            "mainClass": "SumOfAllDivisor",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "DivisorOfNumber",
+            "request": "launch",
+            "mainClass": "DivisorOfNumber",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "GCDorHCF",
+            "request": "launch",
+            "mainClass": "GCDorHCF",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "ReverseInteger",
+            "request": "launch",
+            "mainClass": "ReverseInteger",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "ReverseInteger",
+            "request": "launch",
+            "mainClass": "ReverseInteger",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
+        {
+            "type": "java",
+            "name": "DecimalToBinary",
+            "request": "launch",
+            "mainClass": "DecimalToBinary",
+            "projectName": "Practice-Questions_3eaea24f"
+        },
         {
             "type": "java",
             "name": "Pattern",
