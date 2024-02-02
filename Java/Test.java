@@ -25,7 +25,39 @@ import java.util.regex.Pattern;
 public class Test {
     
     public static void main(String[] args) {
-        System.out.println((char)('A' << 1));
+        // System.out.println(Arrays.toString(fibonacciHelper(5, new int[5])));
+
+        System.out.println(fib(4));
+    }
+
+    static int[] fibonacciHelper(int n, int[] res) {
+        if(n < 3) {
+            res[0] = 0;
+            res[1] = 1;
+            return res;
+        }
+        fibonacciHelper(n-1, res);
+        res[n-1] = res[n-2] + res[n-3];
+        return res;
+    }
+
+    public static int fibo(int[] arr, int n)
+    {
+        if(n>=0 && n<= 30) //constraint
+        {
+            if(arr[n]==0)    //DP logic
+                if(n==0 || n==1)
+                    return n;
+                else
+                    return arr[n]=fibo(arr,n-1)+fibo(arr,n-2);
+            else 
+                return arr[n];
+        }
+        return 0;
+    }
+    public static int fib(int n) {
+        int[] arr = new int[n+1];
+        return fibo(arr,n);
     }
 
 
