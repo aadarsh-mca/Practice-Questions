@@ -15,7 +15,7 @@ public class FrequencyArraySpaceO1 {
          * Step 5   : if 'i' is less than 'j'
          *      5.1 : Then check if we have any frequency count at 'j'
          *      5.2 : if we have frequency, just increase it
-         *      5.3 : else swap 'i' with 'j' and set the frequency of 'j' accordingly
+         *      5.3 : else swap 'i' with 'j' and set the frequency of 'j' to -1
          * Step 6   : Now correct the array
          *      6.1 : make the element positive if we have any frequency
          *      6.2 : else make it 0
@@ -25,12 +25,12 @@ public class FrequencyArraySpaceO1 {
         int n = nums.length;
         int x = 19;  //  6  //  9  //  19
 
-        countFrequency(n, x, nums);
+        nums = countFrequency(n, x, nums);
 
         System.out.println(Arrays.toString(nums));
     }
 
-    static void countFrequency(int n, int x, int []nums){
+    static int[] countFrequency(int n, int x, int []nums){
         // Step 1
         int i=0;
         while(i < n) {
@@ -45,7 +45,11 @@ public class FrequencyArraySpaceO1 {
                     /**
                      *      Step 4
                      * **/
-                    setFrequency(j, nums);
+                    if(nums[j-1] < 0) {
+                        nums[j-1]--;
+                    } else {
+                        nums[j-1] = -1;
+                    }
                     i++;
                 } else {
                     /**
@@ -55,14 +59,14 @@ public class FrequencyArraySpaceO1 {
                         /**  
                          *      Step 5.1
                          * **/
-                        setFrequency(j, nums);
+                        nums[j-1]--;
                         i++;
                     } else {
                         /** 
                          *      Step 5.2
                          * **/
                         swap(i, j-1, nums);
-                        setFrequency(j, nums);
+                        nums[j-1] = -1;
                     }
                 }
             } else {
@@ -81,20 +85,8 @@ public class FrequencyArraySpaceO1 {
                 nums[a] = 0;
             }
         }
-    }
 
-    static void setFrequency(int j, int[] nums) {
-        /**
-         * if less than 0 this mean we already have some frequency count 
-         * only increase the frequency
-         * else
-         * set frequency to be -1
-         * **/
-        if(nums[j-1] < 0) {
-            nums[j-1]--;
-        } else {
-            nums[j-1] = -1;
-        }
+        return nums;
     }
 
     static void swap(int i, int j, int[] nums) {
