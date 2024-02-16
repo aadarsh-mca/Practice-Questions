@@ -28,9 +28,6 @@ int main() {
 
 
 
-
-
-
 // class Base {
 //     private :
 //         int private_var;
