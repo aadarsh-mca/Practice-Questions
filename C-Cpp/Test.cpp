@@ -10,7 +10,18 @@ class Child : public Parent {
 
 };
 
+class A {
+
+};
+
 int main() {
+
+    class A {
+
+    }
+
+    A a;
+    
 
     return 0;
 }

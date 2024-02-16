@@ -68,6 +68,10 @@ class TreeTravel_Recursion {
     }
 
     static void inorder(TreeTravel_Recursion_Node root) {
+        /**
+         * L-Root-R
+         * 
+         */
         if(root == null) {
             return;
         }
@@ -78,6 +82,10 @@ class TreeTravel_Recursion {
     }
 
     static void preOrder(TreeTravel_Recursion_Node root) {
+        /**
+         * Root-L-R
+         * 
+         */
         if(root == null) {
             return;
         }
@@ -88,6 +96,10 @@ class TreeTravel_Recursion {
     }
     
     static void postOrder(TreeTravel_Recursion_Node root) {
+        /**
+         * L-R-Root
+         * 
+         */
         if(root == null) {
             return;
         }
