@@ -36,6 +36,30 @@ public class Test {
         // root.right = new Tree(3);
         
         // inOrder(root);
+
+
+        // PriorityQueue<Integer> pQue = new PriorityQueue<>();
+        PriorityQueue<Integer> pQue = new PriorityQueue<>(new Comparator<Integer>() {
+            public int compare(Integer n1, Integer n2) {
+                // if(n1 < n2) {
+                //     return n2 - n1;
+                // } else {
+                //     return n1 - n2;
+                // }
+                return n2 - n1;
+            }
+        });
+
+        // [3, 5, 1, 4, 2]
+
+        pQue.add(3);
+        pQue.add(5);
+        pQue.add(1);
+        pQue.add(4);
+        pQue.add(2);
+
+        System.out.println(pQue);
+
     }
 
     static void inOrder(Tree root) {
