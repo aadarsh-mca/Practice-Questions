@@ -63,6 +63,24 @@ public class SortQuick {
             return;
         }
 
+        int sortedMiddleIndex = getPartitionIndex(arr, low, high);
+
+        /**
+         * After swapping smaller to left,
+         * and larger to right,
+         * and placing pivot at correct index,
+         * 
+         * now we will call recursively,
+         * and perform all the above steps, 
+         * to the hypothetical array on the left of pivot,
+         * and to the hypothetical array on the right of pivot,
+         * without disturbing pivot index
+         */
+        quickSortHelper1(arr, low, sortedMiddleIndex - 1);
+        quickSortHelper1(arr, sortedMiddleIndex + 1, high);
+    }
+
+    static int getPartitionIndex(int[] arr, int low, int high) {
         /**
          * selecting pivot as first element of array / sub-array
          */
@@ -94,14 +112,12 @@ public class SortQuick {
         while(left <= right) {
             if(arr[pivot] >= arr[left]) {
                 left++;
-            }else if(arr[right] >= arr[pivot]) {
+            }else if(arr[right] > arr[pivot]) {
                 right--;
-            }else if(arr[pivot] <= arr[left] && arr[pivot] >= arr[right]) {
+            }else if(arr[pivot] < arr[left] && arr[pivot] >= arr[right]) {
                 quickSwap(arr, left, right);
                 left++;
                 right--;
-            } else {
-
             }
         }
 
@@ -118,19 +134,7 @@ public class SortQuick {
          */
         quickSwap(arr, pivot, sortedMiddleIndex);
 
-        /**
-         * After swapping smaller to left,
-         * and larger to right,
-         * and placing pivot at correct index,
-         * 
-         * now we will call recursively,
-         * and perform all the above steps, 
-         * to the hypothetical array on the left of pivot,
-         * and to the hypothetical array on the right of pivot,
-         * without disturbing pivot index
-         */
-        quickSortHelper1(arr, low, sortedMiddleIndex - 1);
-        quickSortHelper1(arr, sortedMiddleIndex + 1, high);
+        return sortedMiddleIndex;
     }
     
 
@@ -140,6 +144,8 @@ public class SortQuick {
         arr[from] = arr[to];
         arr[to] = temp;
     }
+
+
 
 
 
