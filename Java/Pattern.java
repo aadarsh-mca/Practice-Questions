@@ -1,6 +1,8 @@
 public class Pattern {
     public static void main(String[] args) {
-        Pattern obj = new Pattern();
+
+        Singleton singletonClass = Singleton.getInstance();
+        System.out.println("from test : " + singletonClass);
 
         
         // obj.numberPattern_13(4);
@@ -12,7 +14,7 @@ public class Pattern {
         // symmetricStar(3);
         // crossPatt(3);
         // squareStar(4);
-        squareNumber(5);
+        // squareNumber(5);
 
     }
 
