@@ -8,13 +8,14 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
-import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.function.Predicate;
 import java.util.PriorityQueue;
@@ -28,60 +29,31 @@ import javax.swing.JButton;
 
 
 public class Test {
-    static Tree root;
-    static int prevRight = 0;
+
+    // {8,5,4,5,1,4,5,2,2}
+    // {4,5,6,5}
+    // {5,4,3,2,1}
+
     public static void main(String[] args) {
-        // root = new Tree(2);
-        // root.left = new Tree(1);
-        // root.right = new Tree(3);
+        int[] arr = {4,1,2,1,2};
+        // int[] arr = {4,5,6,5};
+        int n = arr.length;
+
+        System.out.println(genericReturn("obj1", "obj2", "obj3"));
+
+
         
-        // inOrder(root);
+
 
 
         // PriorityQueue<Integer> pQue = new PriorityQueue<>();
-        PriorityQueue<Integer> pQue = new PriorityQueue<>(new Comparator<Integer>() {
-            public int compare(Integer n1, Integer n2) {
-                // if(n1 < n2) {
-                //     return n2 - n1;
-                // } else {
-                //     return n1 - n2;
-                // }
-                return n2 - n1;
-            }
-        });
-
-        // [3, 5, 1, 4, 2]
-
-        pQue.add(3);
-        pQue.add(5);
-        pQue.add(1);
-        pQue.add(4);
-        pQue.add(2);
-
-        System.out.println(pQue);
-
+        // PriorityQueue<Integer> pQue = new PriorityQueue<>((a, b) -> b - a);
+        // PriorityQueue<Integer> pQue = new PriorityQueue<>(new MinHeap());
+        // PriorityQueue<Integer> pQue = new PriorityQueue<>(new MaxHeap());
     }
 
-    static void inOrder(Tree root) {
-        if(root == null) {
-            return;
-        }
-        inOrder(root.left);
-        System.out.print(root.rootData + " ");
-        inOrder(root.right);
-    }
-
-}
-
-class Tree {
-    int rootData;
-    Tree left;
-    Tree right;
-
-    Tree(int rootData) {
-        this.rootData = rootData;
-        this.left = null;
-        this.right = null;
+    public static <T> T genericReturn(T obj1, T obj2, T obj3) {
+        return obj2;
     }
 }
 
@@ -95,32 +67,14 @@ class Tree {
 
 
 
-
-
-
-
-
-
-class Singleton {
-    private Singleton() {
-        System.out.println("in Singleton Constructor");
+class MinHeap implements Comparator<Integer> {
+    public int compare(Integer a, Integer b) {
+        return a - b;
     }
-    private static Singleton instance;
-
-    public static Singleton getInstance() {
-        if(instance == null) {
-            instance = new Singleton();
-        }
-        return instance;
-    }
-
 }
 
-
-
-
-class Compart implements Comparator<String> {
-    public int compare(String a, String b) {
-        return a.length() - b.length();
+class MaxHeap implements Comparator<Integer> {
+    public int compare(Integer a, Integer b) {
+        return b - a;
     }
 }
