@@ -16,11 +16,8 @@ class A {
 
 int main() {
 
-    class A {
-
-    }
-
-    A a;
+    int a  =0;
+    if(a)
     
     return 0;
 }
