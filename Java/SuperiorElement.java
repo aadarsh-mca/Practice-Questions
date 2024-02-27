@@ -90,7 +90,6 @@ public class SuperiorElement {
             right--;
         }
 
-        Collections.sort(ans);
         return ans;
     }
 }
