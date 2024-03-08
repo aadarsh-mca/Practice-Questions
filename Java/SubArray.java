@@ -27,6 +27,9 @@ public class SubArray {
         System.out.println("Brute for all : " + brute_longestSubArray(arr, n, k));
         System.out.println("Optimal for positive : " + optimalForPositive_longestSubArray(arr, n, k));
         System.out.println("Optimal for negative & Better for positive : " + optimalForNegative_longestSubArray(arr, n, k));
+
+        System.out.println("Brute (count sub-array with sum k) : " + brute_countOfSubArray(arr, n, k));
+        System.out.println("Optimal (count sub-array with sum k) : " + optimal_countOfSubArray(arr, n, k));
     }
 
     /**
@@ -226,6 +229,85 @@ public class SubArray {
             }
         }
         return maxLength;
+    }
+
+
+
+
+    /**
+     * 
+     */
+
+
+    /**
+     * Brute force approach,
+     * Find the count of sub-array with sum k
+     * 
+     * @param arr {@code int[]}
+     * @param n {@code int} length of arr
+     * @param k {@code int} sum
+     * @return {@code int} numbers of sub-array
+     */
+    static int brute_countOfSubArray(int[] arr, int n, int k) {
+        int nSubArrays = 0;
+
+        for(int i=0; i<n; i++) {
+            int sum = 0;
+            for(int j=i; j < n; j++) {
+                sum += arr[j];
+                if(sum == k) {
+                    nSubArrays++;
+                }
+            }
+        }
+        return nSubArrays;
+    }
+
+    /**
+     * Optimal approach,
+     * Find the count of sub-array with sum k
+     * 
+     * Intution is same as optimal approach of(prefixSum)
+     * 
+     * @param arr {@code int[]}
+     * @param n {@code int} length of arr
+     * @param k {@code int} sum
+     * @return {@code int} numbers of sub-array
+     */
+    static int optimal_countOfSubArray(int[] arr, int n, int k) {
+        int nSubArrays = 0;
+
+        /**
+         * Storing all the 'sum' in map as key,
+         * and the 'occurence' of that sum as value
+         */
+        HashMap<Long, Integer> sumMap = new HashMap<>();
+        long sum = 0;
+        sumMap.put(sum, 1); // or if(sum == k) nSubArray++;
+
+        for(int i=0; i<n; i++) {
+            sum += arr[i];
+
+            /**
+             * k = 2
+             * arr -> [1,1,1,0,1,1]
+             * sum ->  ¹ ² ³ ³ ⁴ ⁵
+             * if sum = 5, and k = 2
+             * then the map must have prefixSum = 3 (5-2)
+             * and if we found 3 in map, 
+             * than that mean we found the sub-array with sum k (i.e. 2),
+             * along with the times of occurence of that sub-array
+             */
+            long prefixSum = sum - k;
+            if(sumMap.containsKey(prefixSum)) {
+                int occurence = sumMap.get(prefixSum);
+                nSubArrays += occurence;
+            }
+
+            sumMap.put(sum, sumMap.getOrDefault(sum, 0) + 1);
+        }
+
+        return nSubArrays;
     }
 
 }
