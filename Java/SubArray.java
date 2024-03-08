@@ -243,6 +243,9 @@ public class SubArray {
      * Brute force approach,
      * Find the count of sub-array with sum k
      * 
+     * Time Complexity : {@code O(n²)}
+     * Time Complexity : {@code O(1)}
+     * 
      * @param arr {@code int[]}
      * @param n {@code int} length of arr
      * @param k {@code int} sum
@@ -268,6 +271,9 @@ public class SubArray {
      * Find the count of sub-array with sum k
      * 
      * Intution is same as optimal approach of(prefixSum)
+     * 
+     * Time Complexity : {@code O(n * log n)}
+     * Time Complexity : {@code O(1)}
      * 
      * @param arr {@code int[]}
      * @param n {@code int} length of arr
