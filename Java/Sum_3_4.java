@@ -4,20 +4,42 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ThreeSum {
+public class Sum_3_4 {
     
     public static void main(String[] args) {
+        System.out.println("3 SUM Problem : ");
         // int[] arr = {-1,0,1,2,-1,-4};
         // int[] arr = {-1,0,1,2,-1,-4};
         // int[] arr = {-18,-1,-44,-48,-9,-16,-36,-13,29,17,-12,9,-49};
         // int[] arr = {-2,-2,-2,-1,-1,-1,0,0,0,1,1,1,2,2,2};
-        int[] arr = {-2,-2,-2,-1,-1,-1,0,0,0,2,2,2};
-
-        System.out.println("Brute 3 Sum : " + brute_3Sum(arr));
-        System.out.println("Better 3 Sum : " + better_3Sum(arr));
-        System.out.println("Optimal 3 Sum : " + optimal_3Sum(arr));
+        int[] sum3_arr = {-2,-2,-2,-1,-1,-1,0,0,0,2,2,2};
+        
+        System.out.println("Brute  3 Sum : " + brute_3Sum(sum3_arr));
+        System.out.println("Better  3 Sum : " + better_3Sum(sum3_arr));
+        System.out.println("Optimal  3 Sum : " + optimal_3Sum(sum3_arr));
+        
+        
+        System.out.println("\n\n4 SUM Problem : ");
+        // int[] sum4_arr = {1,0,-1,0,-2,2};
+        // int target = 0;
+        int[] sum4_arr = {2,2,2,2,2};
+        int target = 8;
+        // int[] sum4_arr = {1000000000, 1000000000, 1000000000, 1000000000};
+        // int target = -294967296; 
+        System.out.println("Brute  4 Sum : This method will take O(n⁴)");
+        System.out.println("Better  4 Sum : " + better_4Sum(sum4_arr, target));
+        System.out.println("Optimal  4 Sum : " + optimal_4Sum(sum4_arr, target));
     }
 
+    /**
+     * Brute force approach,
+     * 
+     * <p>Time Complexity : {@code O(n³)} 
+     * <p>Space Complexity : {@code O(n³)}
+     * 
+     * @param nums {@code int[]}
+     * @return ans {@code List<List>}
+     */
     static List<List<Integer>> brute_3Sum(int[] nums) {
         int n = nums.length;
         List<List<Integer>> ans = new ArrayList<>();
@@ -50,7 +72,7 @@ public class ThreeSum {
      * <p>Time Complexity : {@code O(n² * log m)} where m is the size of tempArr
      * <p>Space Complexity : {@code O(m) + O(no of unique set)} where m is the size of tempArr
      * 
-     * @param nums {@ocde int[]}
+     * @param nums {@code int[]}
      * @return ans {@code List<List>}
      */
     static List<List<Integer>> better_3Sum(int[] nums) {
@@ -125,7 +147,7 @@ public class ThreeSum {
      * <p>Time Complexity : {@code O(n² + (n log n))}
      * <p>Space Complexity : {@code O(1)}
      * 
-     * @param nums {@ocde int[]}
+     * @param nums {@code int[]}
      * @return ans {@code List<List>}
      */
     static List<List<Integer>> optimal_3Sum(int[] nums) {
@@ -143,7 +165,7 @@ public class ThreeSum {
          * and k at n-1 (last) element
          */
         int i=0;
-        while(i < n) {
+        while(i < n-1) {
             int j = i+1;
             int k = n-1;
             int num1 = nums[i];
@@ -205,4 +227,128 @@ public class ThreeSum {
         return ans;
     }
 
+
+
+
+
+
+
+    /**
+     * 
+     * 4 SUM Problem 
+     * 
+     */
+
+
+    /**
+     * Better approach,
+     * 
+     * Intuition is exactly similar to 3Sum
+     * 
+     * <p>Time Complexity : {@code O(n³ * log m)} where m is the size of tempAns for (set.contains())
+     * <p>Space Complexity : {@code O(m) + O(no of unique set)} where m is the size of tempAns
+     * 
+     * 
+     * @param nums {@code int[]}
+     * @param target {@code int}
+     * @return ans {@code List<List>}
+     */
+    static List<List<Integer>> better_4Sum(int[] nums, int target) {
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        HashSet<List<Integer>> tempAns = new HashSet<>();
+
+        for(int i=0; i<n; i++) {
+            for(int j=i+1; j<n; j++) {
+                HashSet<Long> set = new HashSet<>();
+                for(int k=j+1; k<n; k++) {
+                    long num4 = (long)target - ((long)nums[i] + (long)nums[j] + (long)nums[k]);
+                    if(set.contains(num4)) {
+                        List<Integer> tempList = Arrays.asList(nums[i], nums[j], nums[k], (int)num4);
+                        tempList.sort(null);
+                        tempAns.add(tempList);
+                    } else {
+                        set.add((long)nums[k]);
+                    }
+                }
+            }
+        }
+
+        ans.addAll(tempAns);
+        return ans;
+    }
+
+    /**
+     * Optimal approach,
+     * 
+     * Intuition is exactly similar to 3Sum
+     * 
+     * <p>Time Complexity : {@code O(n³ + (n log n))}
+     * <p>Space Complexity : {@code O(1)}
+     * 
+     * @param nums {@code int[]}
+     * @param target {@code int}
+     * @return ans {@code List<List>}
+     */
+    static List<List<Integer>> optimal_4Sum(int[] nums, int target) {
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        
+        Arrays.sort(nums);
+
+        int i=0;
+        while(i < n-3) {
+            int num1 = nums[i];
+            int j = i+1;
+            while(j < n-2) {
+                int num2 = nums[j];
+                int k = j+1;
+                int l = n-1;
+                while(k < l) {
+                    int num3 = nums[k];
+                    int num4 = nums[l];
+                    long sum = num1; // to avoid overflow of value from int after adding all num
+                    sum += num2;
+                    sum += num3;
+                    sum += num4;
+
+                    if(sum < target) {
+                        k++;
+                    } else if(sum > target) {
+                        l--;
+                    } else if(sum == target) {
+                        ans.add(Arrays.asList(num1, num2, num3, num4));
+                        while(k < l && nums[k] == num3) {
+                            k++;
+                        }
+                        while(l > k && nums[l] == num4) {
+                            l--;
+                        }
+                    }
+                }
+
+                // Way 2 : 
+                // if(j > i+1 && nums[j] == nums[j-1]) {
+                //     j++;
+                //     continue;
+                // }
+                // j++;
+                while(j < n-2 && nums[j] == num2) {
+                    j++;
+                }
+            }
+
+            // Way 2 : 
+            // if(i > 0 && nums[i] == nums[i-1]) {
+            //     i++;
+            //     continue;
+            // }
+            // i++;
+            while(i < n-3 && nums[i] == num1) {
+                i++;
+            }
+        } 
+        return ans;
+    }
+ 
 }
