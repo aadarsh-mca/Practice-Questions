@@ -5,12 +5,13 @@ public class RotateStringAndFind {
         // String str2 = "cdeab";
         // String str1 = "bbbacddceeb";
         // String str2 = "ceebbbbacdd";
-        // String str1 = "aaaxaaax";
+        // String str1 = "aaaxaaaa";
         // String str2 = "aaaa";
-        String str1 = "aaaxaaaa";
+        String str1 = "aaaxaaax";
         String str2 = "aaaa";
 
         System.out.println("In-Built function : " + inbuilt_isCyclicRotation(str1, str2));
+        System.out.println();
         System.out.println("Optimal : " + optimal_isCyclicRotation(str1, str2));
     }
 
@@ -60,7 +61,6 @@ public class RotateStringAndFind {
         int totalIteration = 0;
         int sLen = s.length();
         int goalLen = goal.length();
-        if(sLen != goalLen) return false;
 
         String str = s+s;
         int strLen = str.length();
