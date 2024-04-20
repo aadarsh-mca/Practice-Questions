@@ -20,7 +20,7 @@ public class SortSinglyLL {
      * @return {@code head} of sorted LL
      */
     static Node sort_byMergerSort(Node head) {
-        if(head == null || head.next == null) return head;
+        if(head.next == null) return head;
 
         /**
          * Finding the middle Node
@@ -60,8 +60,8 @@ public class SortSinglyLL {
 
     static Node findMidNode(Node head) {
         Node slow = head;
-        Node fast = head;
-        while(fast.next != null && fast.next.next != null) {
+        Node fast = head.next;
+        while(fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
