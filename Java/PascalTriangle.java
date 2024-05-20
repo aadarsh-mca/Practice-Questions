@@ -18,7 +18,7 @@ class PascalTriangle {
 
     /**
      *  Suitable for larger Pascal Triangle more than 20 rows 
-    **/
+     **/
     static ArrayList<Long> pascalRowLoop(ArrayList<Long> arrList, int n, int r, int c) {
         ArrayList<Long> temp = new ArrayList<>();
         

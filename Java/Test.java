@@ -1,3 +1,8 @@
+import java.lang.foreign.MemorySegment;
+import java.math.BigInteger;
+import java.nio.channels.Pipe;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,70 +31,125 @@ import java.util.stream.Collector;
 // package java_folder;
 // import java_folder.DecimalToBinary;
 import javax.swing.JButton;
+import java.awt.*;
+import java.util.Collection;
+import java.util.Queue;
+import java.util.Collections;
+import java.applet.*;
 
+class Pair {
+    char character;
+    int freq;
+    Pair(char character, int freq) {
+        this.character = character;
+        this.freq = freq;
+    }
+}
+
+interface int1 {
+    abstract void show();
+}
+interface int2 {
+    abstract void show();
+}
+interface int3 extends int1, int2 {
+
+}
+
+class Int implements int3 {
+    public void show() {
+    }
+}
 
 public class Test {
 
-    // {8,5,4,5,1,4,5,2,2}
-    // {4,5,6,5}
-    // {5,4,3,2,1}
-
     public static void main(String[] args) {
-        int[] arr = {2,4,10,10,10,10,10,10,11,12,14,14,17,19,19};
-        int n = arr.length;
-        int x = 10;
 
-        System.out.println(count(arr, n, x));
+        Scanner scan = new Scanner(System.in);   //   6    3 2 54 7 4 2
+        
+        check(10, 20, 30, 40, 50);
+
+        String pwd = "Aadarsh1999@";
+        System.out.println("Original Password: " + pwd);
+        if(isValidPwd(pwd)) {
+            int shiftValue = -1;
+            System.out.println("Encoded Password: " + getEncodedPwd(pwd, shiftValue));
+        } else {
+            System.out.println("Error!");
+        }
     }
 
-    public static int count(int arr[], int n, int x) {
-        //Your code goes here
-        int count = 0;
+    static void check(int... a) {
+        System.out.println(Arrays.toString(a));
+    }
 
-        int left = 0;
-        int right = arr.length-1;
-        while(left <= right) {
-            int mid = (left + right) / 2;
-            if(arr[mid] == x) {
-                count++;
-                count += getLeftCount(arr, x, mid-1, left);
-                count += getRightCount(arr, x, mid+1, right);
-                break;
-            } else if(arr[mid] > x) {
-                right = mid-1;
-            } else {
-                left = mid+1;
+    static boolean isValidPwd(String pwd) {
+        int n = pwd.length();
+        if(n < 8) {
+            return false;
+        }
+
+        boolean oneDigit = false;
+        boolean specialChar = false;
+        boolean uppercase = false;
+        boolean lowercase = false;
+
+        for(char ch : pwd.toCharArray()) {
+            if(ch >= 48 && ch <= 57) {
+                oneDigit = true;
+            }
+            if(ch >= 65 && ch <= 90) {
+                uppercase = true;
+            }
+            if(ch >= 97 && ch <= 122) {
+                lowercase = true;
+            }
+            if(ch == '@' || ch == '#' || ch == '$' || ch == '%' || ch == '&' || ch == '!') {
+                specialChar = true;
             }
         }
 
-        return count;
+        if(oneDigit && specialChar && uppercase && lowercase) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    static int getLeftCount(int[] arr, int target, int start, int end) {
-        int count = 0;
-        while(start >= end) {
-            if(arr[start] == target) {
-                count++;
-            } else {
-                break;
-            }
-            start--;
+    static String getEncodedPwd(String pwd, int shiftValue) {
+        StringBuilder strb = new StringBuilder();
+
+        for(char ch : pwd.toCharArray()) {
+            char encodedChar = (char)((int)ch + shiftValue);
+            strb.append(encodedChar);
         }
-        return count;
+
+        return strb.toString();
     }
+
+    static String removeBracket(String inputStr) {
+        int n = inputStr.length();
+        
+        String result = "";
+
+        for(int i=0; i<n; i++) {
+            char ch = inputStr.charAt(i);   // a + ( ( b - c ) + d )
+            if(ch != '(' && ch != ')') {
+                result += ch;
+            }
+        }
+
+        // System.out.println(result);
+        return result;
+    }
+
+
     
-    static int getRightCount(int[] arr, int target, int start, int end) {
-        int count = 0;
-        while(start <= end) {
-            if(arr[start] == target) {
-                count++;
-            } else {
-                break;
-            }
-            start++;
-        }
-        return count;
-    }
+
+
+
+
+    
 
 
 
@@ -99,47 +159,24 @@ public class Test {
     
 
 
-    static int test(int[][] arr) {
-        return 0;
-    }
-
-    public static void mergeTwoSortedArraysWithoutExtraSpace(long[] a, long[] b){
-        // Write your code here.
-        int nA = a.length;
-        int nB = b.length;
-        a = Arrays.copyOf(a, (nA+nB));
-
-        int last = nA + nB - 1;
-        nA -= 1;
-        nB -= 1;
-
-        // If there is no element in b, 
-        // that mean all the element of a is in correct place
-        // and no further adjustment required.
-
-        // If we have element in b, that mean adjustment is still required.
-        while(nB >= 0) {
-            if(nA >= 0 && a[nA] > b[nB]) {
-                a[last--] = a[nA--];
-            } else {
-                a[last--] = b[nB--];
-            }
-        }
-    }
 
 
-
-
-
-
-
-
-
-
-    public static <T> T genericReturn(T obj1, T obj2, T obj3) {
-        return obj2;
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 interface Interface {
     public void display1();
@@ -164,10 +201,6 @@ class Check extends AbstractClass {
     }
     
 }
-
-
-
-
 
 
 
