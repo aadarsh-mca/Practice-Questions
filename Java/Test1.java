@@ -6,8 +6,10 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 
 public class Test1 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        
         
         // int n = scan.nextInt();
         // for(int i=n; i>0; i--) {
@@ -28,15 +30,11 @@ public class Test1 {
         // Frame f = new Frame();
         // f.setVisible(true);
 
-        JFrame jF = new JFrame();
-        jF.setVisible(true);
-        jF.setSize(400, 200);
+        // JFrame jF = new JFrame();
+        // jF.setVisible(true);
+        // jF.setSize(400, 200);
 
-        jF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-
-        
-
+        // jF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
 }

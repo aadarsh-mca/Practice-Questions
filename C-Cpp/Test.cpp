@@ -16,8 +16,9 @@ class A {
 
 int main() {
 
-    int a  =0;
-    if(a)
+    string str = "100" + " %";
+    
+    cout << str;
     
     return 0;
 }

@@ -1,7 +1,7 @@
 public class Pattern {
     public static void main(String[] args) {
 
-        Singleton singletonClass = Singleton.getInstance();
+        SingletonClass singletonClass = SingletonClass.getInstance();
         System.out.println("from test : " + singletonClass);
 
         
@@ -15,6 +15,7 @@ public class Pattern {
         // crossPatt(3);
         // squareStar(4);
         // squareNumber(5);
+        diamondZeroOne(5);
 
     }
 
@@ -310,5 +311,40 @@ public class Pattern {
             System.out.println();
         }
     }
+
+
+    /** 23)
+     * 
+     *     1
+     *    0 0
+     *   1 1 1
+     *  0  1  0
+     * 101010101
+     *  0  1  0
+     *   1 1 1
+     *    0 0
+     *     1
+     * 
+     */
+
+     static void diamondZeroOne(int n) {
+        int totalItr = n*2-1;
+
+        for(int i=1; i <= totalItr; i++) {
+            for(int j=1; j <= totalItr; j++) {
+                if(i % 2 != 0) {
+                    if(j % 2 != 0) {
+
+                    }
+                } else if(i == (n+1)/2) {
+                    if(j % 2 != 0) {
+                        System.out.println(1);
+                    } else {
+                        System.out.println(0);
+                    }
+                }
+            }
+        }
+     }
 
 }
