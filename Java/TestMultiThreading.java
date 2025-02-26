@@ -1,42 +1,40 @@
-class Counter {
-    int count = 0;
-
-    synchronized void increment() {
-        count++;
+class Counter implements Runnable {
+    public void run() {
+        for(int i=1; i<=5; i++) {
+            System.out.println(i + " from my thread");
+        }
     }
-
-    int getCount() {
-        return count;
+    public void run(int a) {
+        for(int i=1; i<=5; i++) {
+            System.out.println(i + " from my run() overloaded");
+        }
     }
 }
 
 public class TestMultiThreading {
     
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IllegalMonitorStateException {
         Counter counter = new Counter();
 
-        Thread thread1 = new Thread(new Runnable() {
+        Thread evenThread = new Thread(new Runnable() {
             public void run() {
-                for(int i=0; i<100; i++) {
-                    counter.increment();
-                    System.out.println("Count Thread 1 : " + counter.getCount());
+                for(int i=0; i<=20; i++) {
+                    if(i % 2 == 0) {
+                        System.out.println(i + " - ");
+                    }
                 }
             }
         });
-        Thread thread2 = new Thread(() -> {
-            for(int i=0; i<100; i++) {
-                counter.increment();
-                System.out.println("Count Thread 2 : " + counter.getCount());
+        Thread oddThread = new Thread(() -> {
+            for(int i=0; i<=20; i++) {
+                if(i % 2 != 0) {
+                    System.out.println(i + ", ");
+                }
             }
         });
+        evenThread.start();
+        oddThread.start();
 
-        thread1.start();
-        thread2.start();
-
-        thread1.join();
-        thread2.join();
-
-        System.out.println("Final count : " + counter.getCount());
     }
 
 

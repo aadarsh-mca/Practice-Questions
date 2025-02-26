@@ -71,9 +71,9 @@ class SingletonClass {
     }
 }
 
-abstract class Abs1 {
+abstract class AbstractClass {
     // Constructor
-    Abs1() {
+    AbstractClass() {
     }
 
     // Abstract method
@@ -85,31 +85,23 @@ abstract class Abs1 {
     }
 }
 
-interface Inter1 {
+interface Interface1 {
+    // This is implicitly public, static, and final
+    int a = 10;
+
     // only abstract class
     void show();
 }
 
-interface Inter2 {
+interface Interface2 {
     void show();
 }
 
-class Class1 implements Inter1, Inter2 {
+class Class1 implements Interface1, Interface2 {
     public void show() {
         System.out.println("In class 1");
     }
-}
 
-class ABC {
-    void display() {
-        Test.getSpacedSentence(null, null);
-    }
-}
-
-interface InnerInterface {
-    int a = 10;
-
-    public void get();
     
 }
 
@@ -119,6 +111,9 @@ public class Test {
 
     }
 
+    void show() {
+        System.out.println("From Test Class");
+    }
 
     public static void main(String[] args) {
 
@@ -169,11 +164,6 @@ public class Test {
         Test obj = new Test();
 
 
-        int[] diesel = {1, 10, 3};
-        int[] distance = {5, 3, 4};
-        int n = distance.length;
-
-        System.out.println(obj.find_starting_point(diesel, distance, n));
 
 
 
@@ -181,66 +171,7 @@ public class Test {
     }
 
 
-    int find_starting_point(int[] diesel, int[] distance, int n) {
-        List<Integer> listOfStartingPoint = getListOfStartingPoint(diesel, distance, n);
-
-        for(int start : listOfStartingPoint) {
-            if(isPossibleToCompleteOneLap(start, diesel, distance, n)) {
-                return start + 1;
-            }
-        }
-
-        return -1;
-    }
-
-    List<Integer> getListOfStartingPoint(int[] diesel, int[] distance, int n) {
-        List<Integer> list = new ArrayList<>();
-        int i=0;
-        while(i < n) {
-            if(diesel[i] >= distance[i]) {
-                list.add(i);
-            }
-            i++;
-        }
-        return list;
-    }
-
-    boolean isPossibleToCompleteOneLap(int start, int[] diesel, int[] distance, int n) {
-        int fuel = 0;
-
-        int i=start;
-        while(i < n) {
-            fuel += diesel[i];
-
-            if(fuel < distance[i]) {
-                return false;
-            }
-
-            fuel -= distance[i];
-            i++;
-        }
-
-        i = 0;
-        while(i < start) {
-            fuel += diesel[i];
-
-            if(fuel < distance[i]) {
-                return false;
-            }
-
-            fuel -= distance[i];
-            i++;
-        }
-
-        return true;
-    }
-
-
-
-
-    // static int simpleInterest(int p, int r) {
-
-    // }
+    
 
 
 

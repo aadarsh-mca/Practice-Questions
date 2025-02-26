@@ -1,27 +1,47 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.swing.JFrame;
+
 
 public class Test1 {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        int i = 0;
+        for(String str : args) {
+            System.out.println(i++ + " - " + str);
+        }
         
-        
-        // int n = scan.nextInt();
-        // for(int i=n; i>0; i--) {
-        //     int temp = i;
-            
-        // }
+        // Scanner scan = new Scanner(System.in);
+
+        List<Integer> list = Arrays.asList(4,5,7,3,2,6);
+        ArrayDeque<Integer> que = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
+
+        // System.out.println(list.stream().filter(n -> n%2 == 0).map(n -> n*2).reduce(10, (a, b) -> a+b));
+
+        // List<Integer> newList = list.stream().filter(n -> n%2 == 0).skip(3).limit(10).toList();
+        List<Integer> newList = list.stream().filter(n -> n%2 == 0).limit(10).collect(Collectors.toList());
+
+        newList.add(10000);
+
+        System.out.println(newList);
 
 
-        // int mark1 = scan.nextInt();
-        // int mark2 = scan.nextInt();
-        // int mark3 = scan.nextInt();
-        // System.out.println("Smallest Number is " + (Math.min(Math.min(mark1, mark2), mark3)));
+
+
+
+
+
 
 
 
