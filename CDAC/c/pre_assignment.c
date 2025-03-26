@@ -144,5 +144,32 @@
  * 
  * 6. 
  * 
+ * a) *****     b) 54321    c) ABCDE   d) 1
+      ****         4321        ABCD       121
+      ***          321         ABC        12321
+      **           21          AB         1234321
+      *            1           A          123454321
+ * 
  * 
  */
+#include <string.h>
+int main() {
+    char str[100];
+
+    gets(str);
+
+    // int i=0;
+    // while(str[i] != "") {
+    //     printf("%c", str[i]);
+    //     i++;
+    // }
+
+    int len = strlen(str);
+    printf("\n\n  --> %d \n\n", strlen(str));
+
+    for(int i=0; i<1000; i++) {
+        printf("%c", str[i]);
+    }
+
+    return 0;
+}

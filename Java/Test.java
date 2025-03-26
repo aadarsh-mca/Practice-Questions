@@ -117,6 +117,8 @@ public class Test {
 
     public static void main(String[] args) {
 
+        StringBuilder path = new StringBuilder();
+
         // Abs1 abs1 = new Abs1();
 
 

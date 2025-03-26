@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.function.Predicate;
@@ -15,26 +16,9 @@ import javax.swing.JFrame;
 
 public class Test1 {
 
-    public static void main(String[] args) {
-        int i = 0;
-        for(String str : args) {
-            System.out.println(i++ + " - " + str);
-        }
+    public static void main(String[] args) throws Exception {
         
-        // Scanner scan = new Scanner(System.in);
 
-        List<Integer> list = Arrays.asList(4,5,7,3,2,6);
-        ArrayDeque<Integer> que = new ArrayDeque<>();
-        Stack<Integer> stack = new Stack<>();
-
-        // System.out.println(list.stream().filter(n -> n%2 == 0).map(n -> n*2).reduce(10, (a, b) -> a+b));
-
-        // List<Integer> newList = list.stream().filter(n -> n%2 == 0).skip(3).limit(10).toList();
-        List<Integer> newList = list.stream().filter(n -> n%2 == 0).limit(10).collect(Collectors.toList());
-
-        newList.add(10000);
-
-        System.out.println(newList);
 
 
 
@@ -56,6 +40,15 @@ public class Test1 {
 
         // jF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
+
+    
+
+
+    
+
+
+
+
 
 }
 

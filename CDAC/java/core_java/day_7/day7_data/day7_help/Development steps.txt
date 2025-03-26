@@ -1,0 +1,25 @@
+Dev steps 
+1. Create a packaged , custom exception class , representing checked exception - by extending from Exception class
+eg - public class SpeedOutOfRangeException extends Exception {
+  public SpeedOutOfRangeException(String mesg)
+  {
+    super(mesg);//creates the excpetion with error mesg
+  }
+}
+
+2. Create a separate class - for adding validation rules
+eg - VehicleValidationRules -
+Typically add static methods for validations 
+eg - public static void validateSpeed(int speed) throws ...
+{
+  ...
+}
+
+3. Tester - main / Driver 
+UI
+Scanner - try-with-resources
+catch-all
+
+
+
+

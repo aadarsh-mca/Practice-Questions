@@ -1,0 +1,12 @@
+To develop Java program(application) w/o IDE
+1. Create <day2> folder under your workspace
+2. Create 2 sub folders - <src> for storing .java source files
+<bin> for storing .class files (compilation o/p)
+3. Create eg : Test.java
+4. Open cmd prompt /terminal from day2\src folder
+javac -d ..\bin Test.java
+
+5. If there are no javac errors , 
+cd ..\bin 
+6. Run  java app 
+java Test
