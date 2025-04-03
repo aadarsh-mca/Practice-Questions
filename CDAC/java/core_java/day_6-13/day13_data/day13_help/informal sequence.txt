@@ -1,0 +1,80 @@
+LinkedList<Emp> emps=new LinkedList<>();
+emps.add..... 100 emps
+sort these emps as per salary : double - desc
+
+Collections.sort(emps,new Comparator<Emp>()
+{
+  @Override
+   public int compare(Emp e1,Emp e2)
+   {
+     return ((Double)e2.getSalary()).compreTo(e1.getSalary());
+   }
+}
+);
+--------------------------------
+LinkedList<Emp> emps=new LinkedList<>();
+emps.add..... 100 emps
+Populate TreeSet with emps from the list.
+Sort them as per their dept ids : 
+
+TreeSet<Emp> empSet=new TreeSet<>(new Comparator<Emp>()
+{
+  @Override
+   public int compare(Emp e1,Emp e2)
+   {
+     return ((Integer)e1.getDeptId()).compreTo(e2.getDeptId());
+   }
+}
+);
+sop(empSet);//[]
+empSet.addAll(emps);//sorted emps in the TreeDet as per dept ids.
+--------------------
+LinkedList<Emp> emps=new LinkedList<>();
+emps.add..... 100 emps
+Populate TreeSet with emps from the list.
+Sort them as per their emp ids -asc 
+Hint - use Natural ordering
+TreeSet(Collection<E> collection)
++ Emp : Comparable, compareTo - emp id based .
+
+-----------------------------
+Solve 
+Student - rollNo - string , name : string,marks - int
+Simple exercise for understanding HashMap
+1. Create suitable HashMap for storing student details
+HashMap<String,Student>
+2. Add few entries in the HashMap
+3. Understand - put vs putIfAbsent
+3.5 Display all entries from the map 
+-toString {k1=v1,k2=v2.....}
+4. Accept roll no from user 
+return student details - if exists!
+
+5. Cancel admission
+-Accept roll no 
+-delete student details
+
+6. Update student's marks
+i/p - roll no , new marks
+
+7. Display all students , having marks > specified marks
+
+8. Sort student details as per roll no
+
+9. Sort student details as per names
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

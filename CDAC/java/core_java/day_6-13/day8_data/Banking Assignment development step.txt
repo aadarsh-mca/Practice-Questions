@@ -1,0 +1,56 @@
+Banking Assignment development steps
+1st version w/o validations
+Then we will enter Validations n exception handling
+
+Classes involved -
+1. Core classes -
+1.1 BankAccount 
+state - account no , customer name(first name ,last name) , balance ,  account  type : string
+1.2 parameterized ctor
+
+1.3 toString 
+
+
+2. BankOperations - i/f (Service Layer - Business logic layer -  i/f)
+"WHAT" is to be done ? i.e which services to provide , to bank customers
+2.1 Create account
+String  openBankAccount(a/c details);
+2.2 Display all accounts
+void displayAllAccounts();
+
+
+3. BankOperations Implementation class
+"HOW" part  - service layer implementation.
+3.1 state 
+.....
+
+3.2 Abstract method implementation
+
+
+4. Integration point | Tester | Driver | Main class
+MyBank - with main method
+
+4.1 Create Scanner - using try-with-resources
+exit flag, counter,
+
+4.2 Prompt for - max capacity of the Bank
+
+4.3 while (!exit)
+{
+   sop("options");
+   switch-case - for menu options
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

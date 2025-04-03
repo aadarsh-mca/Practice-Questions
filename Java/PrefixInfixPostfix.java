@@ -4,23 +4,54 @@ import java.util.Stack;
 public class PrefixInfixPostfix {
     public static void main(String[] args) {
         /**
+         * ((a*b)+c)
+         * +*abc
          * 
-         * Input :  a+b*(c^d-e)^(f+g*h)-i
-         * Output:  abcd^e-fgh*+^*+i-
+         * x+y*z/w+u
+         * ++x/*yzwu
          * 
-         * in : h^m^q^(7-4)
-
-            My output      :  hm^q^(^-74
-            Correct output :  hm^q^74-^
+         * in:    (p+q)*(c-d)
+         * post:  pq+cd-*
+         * pre:   *+pq-cd
+         * 
+         * 
+         * a+b*(c^d-e)^(f+g*h)-i
+         * O/P:  abcd^e-fgh*+^*+i-
+         * 
+         * postfix failed case : 
+         * h^m^q^(7-4)
+            O/P :  hm^q^74-^
          * 
          */
+
+        System.out.println("in --> post   ::   " + infixToPostfix("(p+q)*(c-d)"));
+        System.out.println("in --> pre   ::   " + infixToPrefix("(p+q)*(c-d)"));
+
+        System.out.println("post --> in   ::   " + postToInfix("pq+cd-*"));
+        System.out.println("pre --> in   ::   " + preToInfix("*+pq-cd"));
+        
+        System.out.println("pre --> post   ::   " + prefixToPostfix("*+pq-cd"));
+        // System.out.println("post --> pre   ::   " + postToPrefix("pq+cd-*"));
+
         
         // System.out.println(infixToPostfix("h^m^q^(7-4)").equals("hm^q^74-^"));
-        System.out.println(postToInfix("abcd^e-fgh*+^*+i-"));    
+
+        // System.out.println(infixToPrefix("(p+q)*(c-d)").equals("*+pq-cd"));
+
+        // System.out.println(postToInfix("abcd^e-fgh*+^*+i-"));    
+
+        // String revOfPre = postToInfix("dc-qp+*");
+        // System.out.println(revOfPre);
+        // revOfPre = replaceBracket(revOfPre.toCharArray());
+        // System.out.println(revOfPre);
+        // System.out.println(reverse(revOfPre.toCharArray(), 0, revOfPre.length()-1));    
+        // System.out.println(prefixToPostfix("*+pq-cd"));
     }   
 
 
     /**
+     * Infix --> Postfix
+     * 
      * https://www.geeksforgeeks.org/problems/infix-to-postfix-1587115620/1
      * 
      * @param s
@@ -30,17 +61,9 @@ public class PrefixInfixPostfix {
         // Your code here
         StringBuilder res = new StringBuilder();
         Stack<Character> stack = new Stack<>();
-        Map<Character, Integer> precedenceMap = 
-        Map.of(
-            '^', 3,
-            '*', 2,
-            '/', 2,
-            '+', 1,
-            '-', 1
-        );
         
         for(char ch : s.toCharArray()) {
-            if(Character.isAlphabetic(ch) || Character.isDigit(ch)) {
+            if(isAlphabet(ch) || isNumber(ch)) {
                 res.append(ch);
             } else if(ch == '(') {
                 stack.push(ch);
@@ -55,23 +78,17 @@ public class PrefixInfixPostfix {
                 stack.pop();
                 
             // operator found
+            // push current operator with high or equal precedence
+            } else if(stack.isEmpty() == true || getPrecedence(stack.peek()) < getPrecedence(ch)) {
+                stack.push(ch);
             } else {
-                // push current operator with high or equal precedence
-                if(stack.isEmpty() == true || 
-                    precedenceMap.getOrDefault(stack.peek(), -1) < precedenceMap.getOrDefault(ch, -1)) {
-                    stack.push(ch);
-                } else {
-                    while(
-                        stack.isEmpty() == false && 
-                        precedenceMap.getOrDefault(stack.peek(), -1) >= precedenceMap.getOrDefault(ch, -1)
-                    ) {
-                        char popOperator = stack.pop();
-                        res.append(popOperator);
-                    }
-                    
-                    // push the current operator with low or equal precedence
-                    stack.push(ch);
+                while(stack.isEmpty() == false && getPrecedence(stack.peek()) >= getPrecedence(ch)) {
+                    char popOperator = stack.pop();
+                    res.append(popOperator);
                 }
+                
+                // push the current operator with low or equal precedence
+                stack.push(ch);
             }
         }
         
@@ -86,8 +103,35 @@ public class PrefixInfixPostfix {
         return res.toString();
     }
 
+
+
+    /**
+     * Infix --> Prefix
+     * 
+     * @param s
+     * @return
+     */
+    public static String infixToPrefix(String s) {
+        System.out.println(s);
+        s = reverse(s.toCharArray(), 0, s.length()-1);
+        // System.out.println(s);
+        s = replaceBracket(s.toCharArray());
+        // System.out.println(s);
+
+        String prefixInReverse = infixToPostfix(s);
+        prefixInReverse = reverse(prefixInReverse.toCharArray(), 0, prefixInReverse.length()-1);
+        // System.out.println(prefixInReverse);
+
+        return prefixInReverse;
+    }
+    
+
+
+
     
     /**
+     * Postfix --> Infix
+     * 
      * https://www.geeksforgeeks.org/problems/postfix-to-infix-conversion/1
      * 
      * @param exp
@@ -114,8 +158,9 @@ public class PrefixInfixPostfix {
 
 
     /**
-     * Similar to Postfix to Infix
+     * Prefix --> Infix
      * 
+     * Similar to Postfix to Infix
      * https://www.geeksforgeeks.org/problems/prefix-to-infix-conversion/1
      * 
      * @param pre_exp
@@ -141,5 +186,89 @@ public class PrefixInfixPostfix {
         }
         
         return stack.pop();
+    }
+
+
+
+
+    static String prefixToPostfix(String pre_exp) {
+        // *+pq-cd
+
+        // dc-qp+*
+        String prefix_as_postfix = reverse(pre_exp.toCharArray(), 0, pre_exp.length()-1);
+
+        // (d-c)*(q+p)
+        String infix_in_reverse = postToInfix(prefix_as_postfix);
+
+        // )p+q(*)c-d(
+        String prefix_opp_bracket = reverse(infix_in_reverse.toCharArray(), 0, infix_in_reverse.length()-1);
+
+        //
+        // (p+q)*(c-d)
+        String actual_infix = replaceBracket(prefix_opp_bracket.toCharArray());
+
+        // pq+cd-*
+        String actual_postfix = infixToPostfix(actual_infix);
+
+        return actual_postfix;
+    }
+
+
+
+
+
+    /**
+     * 
+     * 
+     * Helper Functions
+     * 
+     * 
+     */
+    static boolean isAlphabet(char ch) {
+        if(ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <= 'z') {
+            return true;
+        }
+        return false;
+    }
+    
+    static boolean isNumber(char ch) {
+        if(ch >= '0' && ch <= '9') {
+            return true;
+        }
+        return false;
+    }
+    
+    static int getPrecedence(char ch) {
+        if(ch == '^') {
+            return 3;
+        } else if(ch == '*' || ch == '/') {
+            return 2;
+        } else if(ch == '+' || ch == '-') {
+            return 1;
+        } else { // if ch == '(' || ch == ')'
+            return 0;
+        }
+    }
+    
+    static String reverse(char[] chArr, int start, int end) {
+        while(start < end) {
+            char temp = chArr[start];
+            chArr[start] = chArr[end];
+            chArr[end] = temp;
+            start++;
+            end--;
+        }
+        return String.valueOf(chArr);
+    }
+
+    static String replaceBracket(char[] chArr) {
+        for(int i=0; i<chArr.length; i++) {
+            if(chArr[i] == '(') {
+                chArr[i] = ')';
+            } else if(chArr[i] == ')') {
+                chArr[i] = '(';
+            }
+        }
+        return String.valueOf(chArr);
     }
 }

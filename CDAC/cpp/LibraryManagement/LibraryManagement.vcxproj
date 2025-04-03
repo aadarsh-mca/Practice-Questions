@@ -128,13 +128,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
-    <ClInclude Include="Librarian.h" />
-    <ClInclude Include="LibraryData.h" />
+    <ClInclude Include="Library.h" />
     <ClInclude Include="LoginCredential.h" />
     <ClInclude Include="LoginHelper.h" />
-    <ClInclude Include="PrintInfo.h" />
     <ClInclude Include="Storage.h" />
-    <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client.cpp" />

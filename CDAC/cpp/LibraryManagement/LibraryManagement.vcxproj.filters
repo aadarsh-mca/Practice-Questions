@@ -15,15 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LibraryData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Librarian.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Student.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LoginHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,7 +27,7 @@
     <ClInclude Include="LoginCredential.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PrintInfo.h">
+    <ClInclude Include="Library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

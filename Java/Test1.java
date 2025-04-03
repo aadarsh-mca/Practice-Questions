@@ -18,8 +18,15 @@ public class Test1 {
 
     public static void main(String[] args) throws Exception {
         
+        // List<? extends Number> list = new ArrayList<>(Arrays.asList(10, 20, 30));
+        // // list.add(10);  // unsupported
 
+        List<? super Number> list = new ArrayList<>();
+        list.add(10);
+        list.add(20.124232);
 
+        // list.forEach((num) -> System.out.println(num instanceof Integer ? ((Integer)num).getClass() : (((Double)num).getClass())));
+        list.forEach(num -> System.out.println((((Number)num).intValue())));
 
 
 

@@ -1,0 +1,411 @@
+Day 1
+1. Refer to "Installation Instructions" from day1-data\day1_help & complete the same.
+
+2. MUST go through "day1-data\day1_help\day1_sequence.rtf" and  from day1-data\day1_help\ & day1-data\day1_help\slides\PPTDay1.pdf
+(only till whatever  we have covered)
+
+3. Go through  code samples from day1-data\code\src
+
+4. Solve (Hands on)
+4.0
+Accept 5 doubles from user (scanner)
+Print it's average.
+
+After creating PrintAverage.java (under day1_lab\src)
+Open cmd prompt from the same src folder
+To compile
+javac -d ..\bin PrintAverage.java
+cd ..\bin
+To run 
+java PrintAverage
+
+
+4.1 Write Java program - 
+Display food menu to user. User will select items from menu along with the quantity. (eg 1. Dosa 2. Samosa 3. Idli ... 0 . Generate Bill ) Assign fixed prices to food items(hard code the prices)
+When user enters 'Generate Bill' option(0) , display total bill & exit.
+
+OR
+Write Java program for the following - 
+It should  run till user enters any other option than add or sub or multiply or divide
+Prompt user to enter the input operation : (add|subtract|multiply|divide) & 2 numbers(double)
+Display the result of the operation.
+Use Scanner for accepting all inputs from user. 
+Hint : use switch-case
+
+5. Reading home work 
+Please read
+day1-data\day1_help\readmes\java operators.txt
+
+
+Day 2
+
+1. MUST revise from today's sequence ("day2-data\day2_help\day2-sequence.rtf") n
+refer : day2-data\code
+1.1 Revise :  mem pics for Java data areas(stack,heap,method area),
+1.2 Garbage collection introduction
+
+1.3 
+ Solve this (Discuss memory picture)
+Given : Box class is compiled.
+In main method  of TestBox
+Box b1=new Box(1,2,3);
+b1++;
+Box b2=b1;
+b1=new Box(3,4,5);
+//any objects marked for garbage collection ? how many ? 
+Box b3=b1;
+b2=new Box(4,5,6);
+//any objects marked for garbage collection ? how many ?
+
+1.4 For additional practice -
+Solve TestBox2.java
+
+
+2. Solve Tank assignment along with memory picture.
+
+What will be the output ?
+
+class Tank {
+  private int level;
+  Tank(int l)
+   {
+     level=l;
+   }
+  public void setLevel(int level1)
+  {
+    level=level1;
+  }
+  public int getLevel()
+  {
+    return level;
+  }
+}	
+
+public class Assignment {
+  public static void main(String[] args) {
+    Tank t1 = new Tank(10);
+    Tank t2 = new Tank(20);
+     s.o.p("1: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1 = t2;//1st tank obj is marked GC
+    s.o.p("2: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1.setLevel(27);
+     s.o.p("3: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t2.setLevel(t1.getLevel()+10);
+     s.o.p("4: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+  }
+}
+Are there any objects marked for GC ?
+
+3. What will happen (solve ready code samples : along with mem pics )
+day2-data\day2_help\params_passing
+3.1 TestParamPassing1.java
+3.2 TestParamPassing2.java
+
+4. Hands on
+
+Create a  class Point2D   for representing a point in x-y co-ordinate system.
+(Tight encapsulation please !)
+
+4.1 Create a parameterized constructor to accept x & y co-ords.
+
+4.2 Add  show() method  --to return point's x & y co-ords
+String show() {
+ return "(x,y)" +x+" "+y;
+}
+
+
+4.3 
+Add a non static  , isEqual method to Point2D class : boolean returning method : must return true if both points are having same x,y co-ords or false otherwise.
+Hint - Ask yourself - 
+How will you invoke it from the tester ?
+
+4.4 
+Add a non static method , calculateDistance , to calc distance between 2 points
+Hint : use distance formula.
+
+
+eg : In Tester :
+double distance=p1.calculateDistance(p2);
+
+Hint - Ask yourself - 
+How will you invoke it from the tester ?
+
+
+
+4.5  Create a separate Driver(main)  class(for UI )  , "TestPoint" , with main(..)
+
+4.6  Accept x,y co-ordinates for 2 points n store the co-ordinates
+4.7  Display x,y co-ordinates of both of the points plotted  (using show() method)
+Point2D p1=new Point2D(sc.nextInt(),sc.nextInt());
+Point2D p2=new Point2D(sc.nextInt(),sc.nextInt());
+sop(p1.show());
+sop(p2.show());
+
+
+4.8  (Optional work)
+Find out if the points  are same or different (Hint : isEqual)
+Print the message accordingly. (print SAME or DIFFERENT)
+
+
+
+
+If points are not same , display distance between these 2 points.
+
+
+
+
+Day 3
+1. Complete Pending work.
+
+2. Refer to today's sequence - 
+"day3-data\day3_help\day3-sequence.rtf"
+
+3. Refer to  <day3> , to revise 
+access specifiers , packages n classpath 
+
+4. Modify yesterday's Point2D's assignment (This has to be done w/o IDE)
+Re factor (modify) n add Point2D class under the package - com.developers.geometry
+Add TestPoint class under the package - com.tester
+Make necessary changes .
+Ensure that user should be able to run com.tester.TestPoint class from anywhere.
+Hint - set CLASSPATH
+
+
+5. Start the IDE (STS 3.9.18 : Eclipse IDE with Spring plug in)
+Create a new workspace for core java.
+Import day3_ide , in your workspace
+Revise : arrays of primitive type n array of references
+for-each loop
+for vs for-each loop
+
+
+9. Add a method to Point2D class , to create new point offset from the specified point.
+
+Day 4
+1. NO new mandatory assignments !
+
+2. Complete earlier pending optional and mandatory assignments.
+
+3. Revise -
+Day 2 , 3 and 4 - using sequence , readmes n code samples.
+
+4. import day4.1 in your IDE workspace , to revise -
+4.1 constructor chaining
+4.2 writing a method - pass reference (check equality method of Box class)
+4.3 writing a method - to return a reference (create new box  method of Box class)
+
+5. Revise static
+data members
+methods
+import static 
+init blocks
+
+6. import day4.2 -
+revise constructor invocations in inheritance hierarchy
+super - keyword
+
+7. Optional assignment -
+Continue with earlier Point2D class 
+
+Do it in IDE
+
+7.1   Create a driver  class(for UI)  , in the "tester" package "TestPoints" , with main(..)
+
+1. Prompt user , how many points to plot? 
+Create suitable array. (Hint : array of references)
+
+2. Show following options
+
+Options : 
+1. Plot a point
+Inputs : array index , x  ,y
+Check boundary conditions  n also check if some point is already plotted at the same index , if not then store the point details.
+In case of any errors , display suitable error message.
+
+2.   Display x,y co-ordinates of all the points plotted so far ,using for-each loop.
+
+0. Exit 
+
+
+
+Day 5
+
+
+1. Answer this popular question  (Reading H.W)
+When you call - System.out.prinln(ref);
+How does it  automatically invoke ref.toString() ? 
+Clue - java docs
+
+2. Revise first.
+
+2.1 import day5.1 to revise
+inheritance , constructor invocation , upcasting , downcasting , instanceof checking , ClassCastException.
+
+2.2 
+eg : Consider this hierarchy 
+Object <----Emp <---Mgr <---SalesMgr, HRMgr
+Object <---- Emp <--- Worker <--TempWorker
+Solve - 
+Emp e=new Mgr(......);
+e instanceof SalesMgr : 
+e instanceof HRMgr : 
+e instanceof Worker : 
+e instanceof Mgr : 
+e instanceof TempWorker : 
+e instanceof Emp : 
+e instanceof Object : 
+e=null
+e instanceof SalesMgr : 
+e instanceof HRMgr
+e instanceof WorkerMgr
+e instanceof Mgr
+e instanceof TempWorker
+e instanceof Emp
+e instanceof Object : 
+
+
+3. Solve (Mandatory assignment)
+Read complete assignment n then only solve.
+
+1.1 Can you arrange Fruit,Apple,Orange,Mango,Alphonso in inheritance hierarchy ?
+Use tight encapsulation.
+
+1.2 Properties (instance variables)  in Fruit class-
+ color : String , weight : double , name:String, isFresh : boolean
+
+1.3 Add suitable constructors
+
+1.4 Override  toString correctly to return state of all fruits (return only  - name ,color , weight )
+
+1.5 Add a taste() method : public String taste()
+
+For Fruit : Can you identify taste of any general fruit ? NO
+So add a taste() with this definition : returns "unknown taste" 
+
+Apple : should return  "sweet n sour"
+Mango : should return  "sweet"
+Orange : should return  "sour"
+Alphonso : should return  "very very sweet"
+
+1.6 Add specific functionality , in the sub classes
+In Alphonso : public void pulp() {Display name n color of the fruit + a mesg  creating  pulp!}
+In Orange : public void juice() {Display name n weight of the fruit + a mesg extracting juice!}
+In Apple : public void jam() {Display name of the fruit + a mesg  making jam!}
+
+1.7 Add all of above classes under the package "com.app.fruits"
+1.8 Create java application FruitBasket , with main method , as a tester
+1.9 Prompt user for the basket size n create suitable data structure
+
+1.10 Supply options
+1. Add Alphonso
+2. Add Orange
+3. Add Apple
+NOTE : You will be ALWAYS adding a fresh fruit in the basket , in all of above options.
+
+3. Display names of all fruits in the basket.
+
+4. Display name,color,weight , taste of all fresh fruits , in the basket.
+
+
+5. Invoke fruit specific functionality (pulp / juice / jam)
+i/p : index
+Invoke correct functionality (pulp / juice / jam)
+
+0. Exit 
+
+
+3. Any questions on pending assignments ?
+
+
+4. Reading H.W (to be done after the lab)
+Go through - today's important readmes and sequence
+
+Day 6
+
+Refer to today's sequence 
+1. import day6.1 to revise abstract classes , along with the readme - "day6-data\day6_help\regarding abstraction.txt"
+
+2. import day6.2 to revise interfaces , along with the readme - "day6-data\day6_help\interfaces_help\About interfaces.txt"
+
+3. Hands on - 
+Complete Day 5 FruitBasket assignment.
+
+4. Continue with the same.
+4.1 Can you add abstraction in the Fruits scenario?
+
+
+4.2 Add these options
+
+6. Mark a fruit in a basket , as stale(=not fresh)
+i/p : index 
+o/p : error message (in case of invalid index) 
+In case of valid index - mark it stale
+
+7. Mark all sour fruits stale 
+Hint : Use equals() method of the String class.
+(We haven't covered it yet. You can look at javadocs and try it)
+
+
+Objective 
+4.1 Design Banking system  for CRUD operations in core banking.
+4.2 BankAccount HAS-A
+account no , customer name(first name ,last name) , balance ,  account  type : string
+account no - accept it from user , so that you can add account nos in random order.
+
+4.3 Add suitable constructor - for creating new account
+Add toString - for returning a/c details.
+4.4 Design interface for core Banking operations
+Start with 
+1. Open bank account
+2. Display all accounts
+3. Deposit Funds
+0. Exit
+(Later will add more options)
+
+Day 7
+1. import day7.1 project  in your workspace
+Revise 
+exception handling with code samples
+Especially - custom exceptions
+
+2. Mandatory assignment
+2.1 Create basic Banking System
+2.2 Add validation rule
+Min balance must be maintained at 5000 , while opening the account or during any transaction
+Otherwise throw suitable custom exception. 
+Add Centralized exception handling 
+Test the application
+
+
+Day 8
+1. import day8.1 in your IDE n revise (in the individual labs  please !)
+1.1 String handling
+1.2 Date - Legacy API
+1.3 LocalDate - Modern API
+
+2. Hands on 
+2.1 When should be 2 bank accounts considered same ?
+2.2 Test with Object's equals method
+2.3 Any problem ?
+2.4 Solution
+
+3. Store bank customer birth date in the Bank Account class
+eg - private LocalDate dob;
+Modify constructor n toString suitably.
+
+4. Add new validation rule 
+customer age > 18
+
+5. Complete yesterday's validation rule
+
+6. Optional BUT recommended
+Add a validation rule - to detect duplicate accounts .
+Throw custom exception , in case of creation of duplicate accounts.
+
+
+
+

@@ -1,0 +1,36 @@
+Generics Question
+
+ 1. Given  
+public class Fruit{}
+public class Melon extends Fruit{}
+public class WaterMelon extends Melon{}
+
+Which of the following, will be legal ?
+
+1.List<? extends Fruit> fruits=new ArrayList<Fruit>();   // no error
+2.List<? extends Fruit> fruits=new ArrayList<Melon>();   // no error
+3.List<? extends Fruit> fruits=new LinkedList<WaterMelon>();   // no error
+4.List<? extends Fruit> fruits=new Vector<Object>();    // compiler error
+5.List<? super Melon> melons=new ArrayList<Fruit>();    // no error
+6.List<? super Melon> melons=new LinkedList<>();    // no error
+7.List<? super Melon> melons=new LinkedList<WaterMelon>();    // no error
+
+2. 
+Given  
+public class Fruit{}
+public class Melon extends Fruit{}
+public class WaterMelon extends Melon{}
+
+Which of the following, will be legal ?
+Help : API of Collection i/f : boolean addAll​(Collection<? extends E> c)
+
+1. List<Melon> melons=new ArrayList<>();
+2. HashSet<Fruit> fruits=new HashSet<>();
+3. LinkedList<WaterMelon> wMelons=new LinkedList<>();
+
+4. melons.addAll(fruits);    // compiler error
+5. melons.addAll(wMelons);    // no error
+6. fruits.addAll(melons);    // no error
+7. fruits.addAll(wMelons);    // no error
+8. wMelons.addAll(fruits);    // compiler error
+9. wMelons.addAll(melons);    // compiler error

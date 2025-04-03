@@ -20,9 +20,6 @@ public:
 		return username;
 	}
 
-	//const void setUsername(string username) {
-	//	this->username = username;
-	//}
 	string* setUsername() {
 		return &username;
 	}
@@ -31,9 +28,6 @@ public:
 		return password;
 	}
 
-	//const void setPassword(string password) {
-	//	this->password = password;
-	//}
 	string* setPassword() {
 		return &password;
 	}
