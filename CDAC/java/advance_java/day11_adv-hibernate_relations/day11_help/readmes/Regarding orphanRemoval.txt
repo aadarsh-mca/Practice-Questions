@@ -1,0 +1,20 @@
+Regarding orphanRemoval
+
+What is orphanRemoval ?
+
+It is an attribute used to specify whether or not to remove entities that are no longer referenced by their parent entity (i.e orphan entities)
+
+ It's commonly used in the context of a one-to-many or many-to-one relationship, where the child entity is removed when it is no longer associated with the parent.
+
+Its a  boolean property of @OneToMany n @OneToOne annotation.
+default value - false
+
+It states - 
+Whether to apply the remove operation to entities that have been removed from the relationship and to cascade the remove operation to those entities.
+We had already added - cascade=CascadeType.ALL (which includes - REMOVE)
+BUT still it wasn't working.
+
+So after enabling the orphanRemoval=true , after removing the product from the category 
+(using removeProduct) , we are telling hibernate to remove the orphan product record . 
+
+

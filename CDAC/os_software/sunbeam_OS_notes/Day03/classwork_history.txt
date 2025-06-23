@@ -1,0 +1,40 @@
+tty
+whoami
+who
+w
+ps
+ps -e
+ps -e -o pid,ppid,cmd
+top
+uname
+uname -r
+uname -a
+grep -R "good"
+grep -R "good" ~
+vim vim.txt
+mkdir scripts
+cd scripts/
+ls
+vim script01.sh
+ls
+bash script01.sh 
+./script01.sh
+ls -l
+chmod +x script01.sh 
+ls -l
+./script01.sh 
+10 + 20
+expr 10 + 20
+expr 20 - 10
+expr 20 / 10
+expr 20 * 10
+expr 20 \* 10
+expr 10 + 20
+expr 10 + 20.5
+bc
+bc 10 + 20.5
+echo 10 + 20.5
+echo 10 + 20.5 | bc
+rev sunbeam
+rev
+echo sunbeam | rev

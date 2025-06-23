@@ -1,0 +1,164 @@
+Day 1
+1. Create NEW workspace for advance java
+2. import day1.1 in your new workspace
+3. Edit the location of mysql connector jar 
+(Its supplied in - "day1-data\help\jdbc help\jdbc drivers\mysql-connector-j-8.0.33.jar")
+4. Revise 
+-TestConnection.java 
+ for establishing singleton DB connection
+- DisplayUserDetails.java
+ for Statement n ResultSet processing
+- TestPreparedStatement.java
+ for PreparedStatement n ResultSet processing
+
+5. As hands on 
+Mandatory 
+- try solving above objectives , completely from scratch.
+
+Optional exercise
+Display user details (id , first name , last name ,dob) for specific role , sorted in desc order as per dob.
+
+6. Mandatory reading H.W
+"day1-data\help\day1-sequence.rtf"
+"day1-data\help\jdbc help\readmes\JDBC sequence.txt"
+"day1-data\help\JDBC objectives n steps.txt"
+Diagrams - 
+"day1-data\help\jdbc help\diagrams\jdbc-whiteboard.png"
+"day1-data\help\jdbc help\diagrams\jdbc overview.png"
+"day1-data\help\jdbc help\diagrams\ORM overview.png"
+"day1-data\help\jdbc help\diagrams\DB Layers.png"
+
+
+Day 2 (Morning)
+
+1. import day2.1 in your workspace
+1.1 Edit classpath for mysql connector jar
+1.2 Edit DBUtils - password
+1.3 Revise user sign up
+
+2. Copy flights table n its records in DB
+Refer - "day2_help\flights.sql.rtf"
+
+Solve - 
+2.1 Display available flights in the asc order of price
+User  inputs
+Source , destination , departure date 
+Display available flights in the asc order of price
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+List<Flight> getAvailableFlights(Source , destination , departure date ) throws SQLException
+DAO Impl class
+fields - cn , pst1
+ctor - open cn , create pst1
+clean up - close psts n cn
+CRUD method - set IN params , exec query -> RST -> List<Flight> 
+Tester dao instance , dao clean up , call DAO' method
+
+2.2 
+Add stops to specific flight n modify arrival time (chage route information)
+User Inputs - flight id , no of stops , arrival time
+
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+String modifyFlightDetails(flight id , no of stops , arrival time)throws SQLException
+DAO Impl class
+fields - cn , pst1, pst2
+ctor - open cn , create pst1,pst2
+clean up - close psts n cn
+CRUD method - set IN params , exec update -> update count -> chk it with 1 -> ret mesg
+Tester dao instance , dao clean up , call DAO' method
+
+2.3 
+Delete flight details by airline n route(source n destination)
+User Inputs - airline , source , destination
+
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+String deleteFlightRoutes(airline , source , destination)throws SQLException
+DAO Impl class
+fields - cn , pst1, pst2,pst3
+ctor - open cn , create pst1:select,pst2:update,pst3: delete query
+clean up - close psts n cn
+CRUD method - set IN params , exec update -> update count ->  ret mesg , saying how many routes are cancelled
+
+Tester dao instance , dao clean up , call DAO' method
+
+Day 2 (evening)
+
+1. Add Apache Tomcat web server (9.0.88) in the new workspace (created for web java)
+Refer - "day2_eve_data\day2_help\Development Steps.txt"
+
+2. Create dynamic web project 
+eg - test_web
+
+3. Add index.html under <src>/<main>/<webapp> folder
+
+4. Run web appliction on the server n test the response on external brwoser
+(chrome | edge)
+
+5. Complete pending JDBC tasks
+
+6. Refer to stored function 
+Refer - "day1-data\help\jdbc help\sql\sql cmds.txt" to add "accounts" table DDL n copy stored function.
+Execute it from JDBC application with layers
+Tester - DAO - POJO - DBUtils - DB
+
+
+Day 3 (morning)
+
+1. Create dynamic web project (day3_lab) . Test it with HTML(index.html) contents.
+2. Create n deploy the servlet using annotation.
+(Understand annotation)
+3. Create n deploy the servlet using xml tags
+4.  Create 1 servlet with default (lazy) loading n another one with eager loading.
+Compare these two.
+
+5. Servlet JDBC integration
+(Objective - User signin)
+
+Day 3 (evening)
+
+1. import day3_voting in your workspace (same as you were importing core java projects)
+Trace n revise (code walk through) , entire request -resp flow .
+
+2. Mandatory Hands on
+
+2.1 Create new dynamic web project
+- day3_flghts
+2.2 Add welcome file
+- choose_fligts.html
+- Add HTML form with 3 inputs
+-source(text) , destination(text) , departure date (date)
+
+2.3. Submit the form to the Servlet
+- ShowAvailableFlights (servlet)
+- perform JDBC integration , get list of available flights n send this list to the web client.
+
+
+Day 4
+
+NO new assignments !
+1. Complete pending work , as much as possible .
+
+2. import day4_voting 
+Do code walk through along with readmes , diagrams n Java EE docs
+
+Important readmes n diagrams
+
+"day4-data\day4_help\page navigation\page navigation techniques.txt"
+"day4-data\day4_help\page navigation\page navigation summary.png"
+"day4-data\day4_help\server side state management techniques\regarding session tracking.txt"
+"day4-data\day4_help\server side state management techniques\cookie.png"
+
+
+Day 5 (morning)
+1. import day5_voting in your workspace.
+1.1 Trace entire flow with HttpSession bases session tracking
+1.2 We will try to complete voter flow in the combined lab .
+

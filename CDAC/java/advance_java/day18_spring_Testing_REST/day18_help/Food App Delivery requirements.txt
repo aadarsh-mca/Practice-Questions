@@ -1,0 +1,4 @@
+Food App Delivery - requirement analysis
+1. Get all restaurants
+2. After selecting a particular restaurant
+render - restaurant details + menu

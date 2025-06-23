@@ -1,52 +1,151 @@
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Stack;
+import java.util.TreeMap;
+import java.util.UUID;
+import java.util.Vector;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import javax.swing.JFrame;
 
+import DSA.PQueue;
+
+interface IDbFunction {
+    void insert();
+    void update();
+    void delete();
+}
+
+interface IFileFunction {
+    void open();
+    void close();
+    void delete();
+}
+
+class IFunctions implements IDbFunction, IFileFunction {
+    @Override
+    public void insert() {
+        System.out.println("IDbFunction -- .insert()");
+    }
+    
+    @Override
+    public void update() {
+        System.out.println("IDbFunction -- .update()");
+    }
+    
+    // =============================
+
+    @Override
+    public void open() {
+        System.out.println("IFileFunction -- .open()");
+    }
+    
+    @Override
+    public void close() {
+        System.out.println("IFileFunction -- .close()");
+    }
+
+    // =============================
+    
+    @Override
+    public void delete() {
+        System.out.println("IDbFunction -- .delete()");
+    }
+}
 
 public class Test1 {
 
-    public static void main(String[] args) throws Exception {
-        
-        // List<? extends Number> list = new ArrayList<>(Arrays.asList(10, 20, 30));
-        // // list.add(10);  // unsupported
+    class Pair {
+        public int num;
+        public int freq;
 
-        List<? super Number> list = new ArrayList<>();
-        list.add(10);
-        list.add(20.124232);
-
-        // list.forEach((num) -> System.out.println(num instanceof Integer ? ((Integer)num).getClass() : (((Double)num).getClass())));
-        list.forEach(num -> System.out.println((((Number)num).intValue())));
-
-
-
-
-
-
-
-
-
-        // AWTExample1 awt = new AWTExample1();
-
-        // Frame f = new Frame();
-        // f.setVisible(true);
-
-        // JFrame jF = new JFrame();
-        // jF.setVisible(true);
-        // jF.setSize(400, 200);
-
-        // jF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        public Pair(int num, int freq) {
+            this.num = num;
+            this.freq = freq;
+        }
     }
+
+    static void SHA256Generator() throws NoSuchAlgorithmException {
+        KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
+        keyGen.init(256); // key size
+        SecretKey secretKey = keyGen.generateKey();
+        String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
+        System.out.println("\nSecret Key: " + encodedKey);
+    }
+
+    public static void main(String[] args) throws Exception {
+        // SHA256Generator();
+        
+        int[] arr = new int[10];
+        Set<List<Integer>> set = new HashSet<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>(List.of(1,2,4,5,6,7,8,9));
+        ArrayDeque<Integer> que = new ArrayDeque<>();
+        Queue<Integer> pQue = new PriorityQueue<>();
+
+
+        
+        System.out.println(list);
+
+        
+
+
+        // System.out.println(UUID.randomUUID());
+        // System.out.println(UUID.nameUUIDFromBytes("example@gmail.com".getBytes()));
+        // System.out.println(UUID.randomUUID().toString());
+        // System.out.println(UUID.nameUUIDFromBytes("test@gmail.com".getBytes()).toString());
+        // System.out.println(UUID.nameUUIDFromBytes("test123@gmail.com".getBytes()).toString());
+    }
+
+
+
+    public static int[] nearlySorted(int[] array, int n, int k) {
+        // Write your code here.
+        PriorityQueue<Integer> pQue = new PriorityQueue<>();
+
+        int i=0;
+        while(i <= k) {
+            pQue.offer(array[i]);
+            i++;
+        }
+
+        while(i < n) {
+            array[i-k-1] = pQue.poll();
+            pQue.offer(array[i]);
+            i++;
+        }
+
+        while(pQue.isEmpty() == false) {
+            array[i-k-1] = pQue.poll();
+            i++;
+        }
+
+        return array;
+  }
+
+
+
+
+
+
 
     
 
@@ -111,3 +210,4 @@ public class Test1 {
 
 //     } 
 // }
+

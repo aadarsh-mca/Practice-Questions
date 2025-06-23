@@ -1,0 +1,31 @@
+Sample data 
+
+To add new restaurant (Run AddRestaurant.java)
+name,  address,  city,  description
+
+restaurant-1 Laxmi_Road Pune desc-1
+restaurant-2 F.C_Road Pune desc-2
+restaurant-3 Laxmi_Road Pune desc-3
+
+To add food items to the restaurant 
+(Run AddNewFoodItemToRestaurant.java)
+restaurant id , itemName, itemDescription, isVeg,  price
+1 item-1 desc-1 true 100
+1 item-2 desc-2 false 200
+
+2 item-3 desc-1 true 300
+2 item-4 desc-2 false 250
+
+
+
+
+
+
+
+
+
+1 item-1 desc-1 true 150
+1 item-2 desc-2 true 250
+1 item-3 desc-3 false 350
+
+

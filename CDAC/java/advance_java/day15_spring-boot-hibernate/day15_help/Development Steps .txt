@@ -1,0 +1,96 @@
+Dev Steps
+
+1. Create Maven project with spring hibernate dependencies
+(populate pom.xml)
+
+2. Configure web.xml - for DispatcherServlet entry 
+- front controller
+
+3. Configure spring-servlet.xml
+- to enble annotations
+- configured ViewResolver bean
+
+4. import - hibernate config file
+ - hibernate-persistence.xml (any name!)
+
+5. hibernate-persistence.xml
+ - DBCP , vendor : Apache
+ - Configured -Spring ORM frmwork
+  LocalSessionFactoryBean - provider of SessionFactory
+(avoid the creation of HiberanateUtils)
+- Spring ORM 
+ o.s.orm.hibernate5.HibernateTransactionManager
+ - Tx mgr bean - reduce boilerplate code from the DAO layer.
+ - enable tx annotation (@Transactional)
+
+---------------------config over ------------------
+
+Layers involved 
+Controller - Service - DAO : spring beans - singleton n eager
+Entity , Value Types - Hibernate
+
+----------------------------
+1. Add a link in index.jsp
+- Display all restaurants
+<c:url var="url" value="/restaurants/list"/>
+<a href="${url}">List All Restaurants</a>
+URL - http://host:port/ctx_path/restaurants/list;jsessionid=345fdsgfd
+
+2.Create RestaurantController
+- @Controller + @ReqMapping("/restaurants")
+Depcy - 
+@AutoWired 
+private RestaurantService restaurantService;
+2.1 Add req handling method
+- @GetMapping("/list")
+public String getAllRestaurants(Model map) 
+{
+Get list from service layer n add it as the model attribute
+}
+
+3. Create Restaurant Service layer
+i/f - RestaurantService
+imple class - RestaurantServiceImpl
+@Service
+@Transactional
+...
+
+4. Create RestaurantDao
+i/f - RestaurantDao
+imple class - RestaurantDaoImpl
+- @Repository
+Depcy 
+- @AutoWired
+ private SF sf;
+
+5. Create entities 
+- Restaurant , FoodItem , BaseEntity
+
+----------------------------Enter Spring Boot
+Refer to Spring boot steps 
+- "day15-data\day15_help\spring boot\spring-boot-steps.txt"
+
+1. Replace the dependency of DAO layer from SessionFactory to JPA's EntityManager
+
+2. Spring boot application will run !
+
+But since DAO layer mainly consists of CRUD , Spring Data frmwork offers a readymade implementation of JPA 
+
+---------------------Enter Spring Data JPA -----------------
+1. Remove DAO implementation classes
+
+2. Extend DAO i/f from
+o.s.data.jpa.repository.JpaRepository<T,ID>
+T - Type of the entity
+ID - Type of the ID property
+
+3. Use inherited method
+public List<T> findAll()
+- Rets list of all entities to the caller.
+
+
+
+
+
+
+

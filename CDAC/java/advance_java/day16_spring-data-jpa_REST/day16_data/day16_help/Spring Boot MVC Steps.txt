@@ -1,0 +1,115 @@
+Development steps (CRUD for users)
+1. Render index page.
+Link - For List Users
+URL - http://host:post/ctx_path/
+Method - GET
+Payload - none
+Resp - render index page with a link to list users
+
+	
+2. After clicking on the link
+ 
+Description – Render List of Users
+URL - http://host:post/ctx_path/users/list
+Method - GET
+Payload - none
+Resp - render user list (list.jsp)
+
+Render it in tabular view (table - JSTL - c:forEach)
+
+3. Render Update n Delete Links | Button in list.jsp
+Hint - Use <c:url> | <spring:url> tags
+
+4. Description –Soft Delete Specific user
+(why soft delete ?)
+After clicking on the "Delete" link
+URL - http://host:post/ctx_path/users/delete?userId=...
+Method - GET
+Payload - request param - userId
+Action - soft delete user details 
+Resp - redirect resp , redirect location - /users/list
+(Why redirect n not forward?)
+
+Steps 
+4.1 User POJO - add status : boolean
+4.2 User Dao - 
+Inherited API -
+OR
+Finder Methods - yes !
+OR
+Custom queries 
+4.3 User Service i/f
+method -
+String deleteUserDetails(Long userId)
+4.4 impl -
+findById -> Optional<User> -> orElseThrow .
+4.5 in case of no exc => valid id
+update status.
+
+
+
+
+5. Description –Update Specific user details
+After clicking on the "Update" link
+URL - http://host:post/ctx_path/users/update?userId=...
+Method - GET
+Payload - request param - userId
+Action - Render Update form (form fields - user id , password n reg amount)
+user id - readonly
+Resp - Render user details update form
+
+6. After submitting form, to the same URL (default action)
+URL - http://host:post/ctx_path/users/update
+Method - POST
+Payload - form data(user id , password n reg amount)
+Action - Process Update form n update user details in DB
+Resp -redirect resp , redirect location - /users/list
+
+
+
+
+
+7. Description –Register new user
+After clicking on the "Register new user" button
+URL - http://host:post/ctx_path/users/register
+Method - GET
+Payload - none
+Action - Render Registration form (form fields - user's basic details)
+Resp - Render user reg form
+
+7. After submitting form, to the same URL (default action)
+URL - http://host:post/ctx_path/users/
+Method - POST
+Payload - form data
+Action - Process Reg form n insert user details in DB
+Resp -redirect resp , redirect location - /users/list
+
+
+
+
+
+OPTIONAL Steps
+
+
+
+
+show greeting mesg , with role)
+Steps (bottoms up manner)
+2.1 DB – users
+2.2 POJO | Entity – User
+2.3 UserDao – i/f n implementation class
+2.4 UserService - i/f n implementation class
+2.5 UserController – class
+2.6 In case of successful blogger’s login
+Create a separate BloggerController n add request  handling method to forward the blogger to his/her home page
+
+3. Enter Spring boot n port this spring MVC hibernate application to spring boot
+Steps
+
+4. From Blogger’s Home page 
+4.1 Display All available blog posts. 
+Blog post id , title, description ,  last updated date time 
+4.2 Update n delete links should appear if n only if, logged in user  is the author of the blog post
+(Conditional rendering)
+
+

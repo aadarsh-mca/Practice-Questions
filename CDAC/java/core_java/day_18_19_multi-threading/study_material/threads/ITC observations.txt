@@ -1,0 +1,18 @@
+started thrd  -- Producer
+write entered --- Producer
+Write Data Emp [id=1, sal=100.0]
+write exited --- Producer  , dataReady : true
+Press enter to exit
+started thrd  -- Consumer
+r entered --- Consumer
+Read  Data Emp [id=1, sal=100.0] 
+r exited --- Consumer - dataReady: false
+r entered --- Consumer ----- Blocked on sleep : inside the monitor
+
+producer - Blocked on monitor - outside
+
+
+
+
+
+

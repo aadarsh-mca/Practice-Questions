@@ -63,6 +63,8 @@ class SingletonClass {
         System.out.println("In singleton class");
     }
 
+
+
     public static SingletonClass getInstance() {
         if (obj == null) {
             return obj = new SingletonClass();

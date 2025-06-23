@@ -1,0 +1,821 @@
+Day 1
+1. Refer to "Installation Instructions" from day1-data\day1_help & complete the same.
+
+2. MUST go through "day1-data\day1_help\day1_sequence.rtf" and  from day1-data\day1_help\ & day1-data\day1_help\slides\PPTDay1.pdf
+(only till whatever  we have covered)
+
+3. Go through  code samples from day1-data\code\src
+
+4. Solve (Hands on)
+4.0
+Accept 5 doubles from user (scanner)
+Print it's average.
+
+After creating PrintAverage.java (under day1_lab\src)
+Open cmd prompt from the same src folder
+To compile
+javac -d ..\bin PrintAverage.java
+cd ..\bin
+To run 
+java PrintAverage
+
+
+4.1 Write Java program - 
+Display food menu to user. User will select items from menu along with the quantity. (eg 1. Dosa 2. Samosa 3. Idli ... 0 . Generate Bill ) Assign fixed prices to food items(hard code the prices)
+When user enters 'Generate Bill' option(0) , display total bill & exit.
+
+OR
+Write Java program for the following - 
+It should  run till user enters any other option than add or sub or multiply or divide
+Prompt user to enter the input operation : (add|subtract|multiply|divide) & 2 numbers(double)
+Display the result of the operation.
+Use Scanner for accepting all inputs from user. 
+Hint : use switch-case
+
+5. Reading home work 
+Please read
+day1-data\day1_help\readmes\java operators.txt
+
+
+Day 2
+
+1. MUST revise from today's sequence ("day2-data\day2_help\day2-sequence.rtf") n
+refer : day2-data\code
+1.1 Revise :  mem pics for Java data areas(stack,heap,method area),
+1.2 Garbage collection introduction
+
+1.3 
+ Solve this (Discuss memory picture)
+Given : Box class is compiled.
+In main method  of TestBox
+Box b1=new Box(1,2,3);
+b1++;
+Box b2=b1;
+b1=new Box(3,4,5);
+//any objects marked for garbage collection ? how many ? 
+Box b3=b1;
+b2=new Box(4,5,6);
+//any objects marked for garbage collection ? how many ?
+
+1.4 For additional practice -
+Solve TestBox2.java
+
+
+2. Solve Tank assignment along with memory picture.
+
+What will be the output ?
+
+class Tank {
+  private int level;
+  Tank(int l)
+   {
+     level=l;
+   }
+  public void setLevel(int level1)
+  {
+    level=level1;
+  }
+  public int getLevel()
+  {
+    return level;
+  }
+}	
+
+public class Assignment {
+  public static void main(String[] args) {
+    Tank t1 = new Tank(10);
+    Tank t2 = new Tank(20);
+     s.o.p("1: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1 = t2;//1st tank obj is marked GC
+    s.o.p("2: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1.setLevel(27);
+     s.o.p("3: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t2.setLevel(t1.getLevel()+10);
+     s.o.p("4: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+  }
+}
+Are there any objects marked for GC ?
+
+3. What will happen (solve ready code samples : along with mem pics )
+day2-data\day2_help\params_passing
+3.1 TestParamPassing1.java
+3.2 TestParamPassing2.java
+
+4. Hands on
+
+Create a  class Point2D   for representing a point in x-y co-ordinate system.
+(Tight encapsulation please !)
+
+4.1 Create a parameterized constructor to accept x & y co-ords.
+
+4.2 Add  show() method  --to return point's x & y co-ords
+String show() {
+ return "(x,y)" +x+" "+y;
+}
+
+
+4.3 
+Add a non static  , isEqual method to Point2D class : boolean returning method : must return true if both points are having same x,y co-ords or false otherwise.
+Hint - Ask yourself - 
+How will you invoke it from the tester ?
+
+4.4 
+Add a non static method , calculateDistance , to calc distance between 2 points
+Hint : use distance formula.
+
+
+eg : In Tester :
+double distance=p1.calculateDistance(p2);
+
+Hint - Ask yourself - 
+How will you invoke it from the tester ?
+
+
+
+4.5  Create a separate Driver(main)  class(for UI )  , "TestPoint" , with main(..)
+
+4.6  Accept x,y co-ordinates for 2 points n store the co-ordinates
+4.7  Display x,y co-ordinates of both of the points plotted  (using show() method)
+Point2D p1=new Point2D(sc.nextInt(),sc.nextInt());
+Point2D p2=new Point2D(sc.nextInt(),sc.nextInt());
+sop(p1.show());
+sop(p2.show());
+
+
+4.8  (Optional work)
+Find out if the points  are same or different (Hint : isEqual)
+Print the message accordingly. (print SAME or DIFFERENT)
+
+
+
+
+If points are not same , display distance between these 2 points.
+
+
+
+
+Day 3
+1. Complete Pending work.
+
+2. Refer to today's sequence - 
+"day3-data\day3_help\day3-sequence.rtf"
+
+3. Refer to  <day3> , to revise 
+access specifiers , packages n classpath 
+
+4. Modify yesterday's Point2D's assignment (This has to be done w/o IDE)
+Re factor (modify) n add Point2D class under the package - com.developers.geometry
+Add TestPoint class under the package - com.tester
+Make necessary changes .
+Ensure that user should be able to run com.tester.TestPoint class from anywhere.
+Hint - set CLASSPATH
+
+
+5. Start the IDE (STS 3.9.18 : Eclipse IDE with Spring plug in)
+Create a new workspace for core java.
+Import day3_ide , in your workspace
+Revise : arrays of primitive type n array of references
+for-each loop
+for vs for-each loop
+
+
+9. Add a method to Point2D class , to create new point offset from the specified point.
+
+Day 4
+1. NO new mandatory assignments !
+
+2. Complete earlier pending optional and mandatory assignments.
+
+3. Revise -
+Day 2 , 3 and 4 - using sequence , readmes n code samples.
+
+4. import day4.1 in your IDE workspace , to revise -
+4.1 constructor chaining
+4.2 writing a method - pass reference (check equality method of Box class)
+4.3 writing a method - to return a reference (create new box  method of Box class)
+
+5. Revise static
+data members
+methods
+import static 
+init blocks
+
+6. import day4.2 -
+revise constructor invocations in inheritance hierarchy
+super - keyword
+
+7. Optional assignment -
+Continue with earlier Point2D class 
+
+Do it in IDE
+
+7.1   Create a driver  class(for UI)  , in the "tester" package "TestPoints" , with main(..)
+
+1. Prompt user , how many points to plot? 
+Create suitable array. (Hint : array of references)
+
+2. Show following options
+
+Options : 
+1. Plot a point
+Inputs : array index , x  ,y
+Check boundary conditions  n also check if some point is already plotted at the same index , if not then store the point details.
+In case of any errors , display suitable error message.
+
+2.   Display x,y co-ordinates of all the points plotted so far ,using for-each loop.
+
+0. Exit 
+
+
+
+Day 5
+
+
+1. Answer this popular question  (Reading H.W)
+When you call - System.out.prinln(ref);
+How does it  automatically invoke ref.toString() ? 
+Clue - java docs
+
+2. Revise first.
+
+2.1 import day5.1 to revise
+inheritance , constructor invocation , upcasting , downcasting , instanceof checking , ClassCastException.
+
+2.2 
+eg : Consider this hierarchy 
+Object <----Emp <---Mgr <---SalesMgr, HRMgr
+Object <---- Emp <--- Worker <--TempWorker
+Solve - 
+Emp e=new Mgr(......);
+e instanceof SalesMgr : 
+e instanceof HRMgr : 
+e instanceof Worker : 
+e instanceof Mgr : 
+e instanceof TempWorker : 
+e instanceof Emp : 
+e instanceof Object : 
+e=null
+e instanceof SalesMgr : 
+e instanceof HRMgr
+e instanceof WorkerMgr
+e instanceof Mgr
+e instanceof TempWorker
+e instanceof Emp
+e instanceof Object : 
+
+
+3. Solve (Mandatory assignment)
+Read complete assignment n then only solve.
+
+1.1 Can you arrange Fruit,Apple,Orange,Mango,Alphonso in inheritance hierarchy ?
+Use tight encapsulation.
+
+1.2 Properties (instance variables)  in Fruit class-
+ color : String , weight : double , name:String, isFresh : boolean
+
+1.3 Add suitable constructors
+
+1.4 Override  toString correctly to return state of all fruits (return only  - name ,color , weight )
+
+1.5 Add a taste() method : public String taste()
+
+For Fruit : Can you identify taste of any general fruit ? NO
+So add a taste() with this definition : returns "unknown taste" 
+
+Apple : should return  "sweet n sour"
+Mango : should return  "sweet"
+Orange : should return  "sour"
+Alphonso : should return  "very very sweet"
+
+1.6 Add specific functionality , in the sub classes
+In Alphonso : public void pulp() {Display name n color of the fruit + a mesg  creating  pulp!}
+In Orange : public void juice() {Display name n weight of the fruit + a mesg extracting juice!}
+In Apple : public void jam() {Display name of the fruit + a mesg  making jam!}
+
+1.7 Add all of above classes under the package "com.app.fruits"
+1.8 Create java application FruitBasket , with main method , as a tester
+1.9 Prompt user for the basket size n create suitable data structure
+
+1.10 Supply options
+1. Add Alphonso
+2. Add Orange
+3. Add Apple
+NOTE : You will be ALWAYS adding a fresh fruit in the basket , in all of above options.
+
+3. Display names of all fruits in the basket.
+
+4. Display name,color,weight , taste of all fresh fruits , in the basket.
+
+
+5. Invoke fruit specific functionality (pulp / juice / jam)
+i/p : index
+Invoke correct functionality (pulp / juice / jam)
+
+0. Exit 
+
+
+3. Any questions on pending assignments ?
+
+
+4. Reading H.W (to be done after the lab)
+Go through - today's important readmes and sequence
+
+Day 6
+
+Refer to today's sequence 
+1. import day6.1 to revise abstract classes , along with the readme - "day6-data\day6_help\regarding abstraction.txt"
+
+2. import day6.2 to revise interfaces , along with the readme - "day6-data\day6_help\interfaces_help\About interfaces.txt"
+
+3. Hands on - 
+Complete Day 5 FruitBasket assignment.
+
+4. Continue with the same.
+4.1 Can you add abstraction in the Fruits scenario?
+
+
+4.2 Add these options
+
+6. Mark a fruit in a basket , as stale(=not fresh)
+i/p : index 
+o/p : error message (in case of invalid index) 
+In case of valid index - mark it stale
+
+7. Mark all sour fruits stale 
+Hint : Use equals() method of the String class.
+(We haven't covered it yet. You can look at javadocs and try it)
+
+
+Objective 
+4.1 Design Banking system  for CRUD operations in core banking.
+4.2 BankAccount HAS-A
+account no , customer name(first name ,last name) , balance ,  account  type : string
+account no - accept it from user , so that you can add account nos in random order.
+
+4.3 Add suitable constructor - for creating new account
+Add toString - for returning a/c details.
+4.4 Design interface for core Banking operations
+Start with 
+1. Open bank account
+2. Display all accounts
+3. Deposit Funds
+0. Exit
+(Later will add more options)
+
+Day 7
+1. import day7.1 project  in your workspace
+Revise 
+exception handling with code samples
+Especially - custom exceptions
+
+2. Mandatory assignment
+2.1 Create basic Banking System
+2.2 Add validation rule
+Min balance must be maintained at 5000 , while opening the account or during any transaction
+Otherwise throw suitable custom exception. 
+Add Centralized exception handling 
+Test the application
+
+
+Day 8
+1. import day8.1 in your IDE n revise (in the individual labs  please !)
+1.1 String handling
+1.2 Date - Legacy API
+1.3 LocalDate - Modern API
+
+2. Hands on 
+2.1 When should be 2 bank accounts considered same ?
+2.2 Test with Object's equals method
+2.3 Any problem ?
+2.4 Solution
+
+3. Store bank customer birth date in the Bank Account class
+eg - private LocalDate dob;
+Modify constructor n toString suitably.
+
+4. Add new validation rule 
+customer age > 18
+
+5. Complete yesterday's validation rule
+
+6. Optional BUT recommended
+Add a validation rule - to detect duplicate accounts .
+Throw custom exception , in case of creation of duplicate accounts.
+
+
+
+Day 9
+
+1. As discussed , we will start with Customer Management System case study , from scratch , in the combined lab.
+
+1.1 Options to add today
+ Customer registration
+ Display All customers
+
+1.2 Validation rules 
+Validate plan, with registration amount
+
+
+2. In the individual labs -
+- import day9.1 to revise
+ - var args
+ - enums
+ -wrapper classes
+ -nested classes , especially non static nested class (inner class)
+
+3. Try to complete any pending work.
+
+
+
+Day 10
+
+As we have discussed a lot of important topics today - please revise first !
+1. import day10_cms in your workspace , to revise -
+Customer management sysytem - array based , with 
+sign up n sign in
+
+2. import day 10.1 , to revise
+Why generics (advantages of generic syntax)
+List API n ArrayList
+
+3. import day10_cms2 to revise
+porting of array based CMS to ArrayList
+
+
+4. Mandatory -
+Must revise and complete , entire week's work.
+
+5. Completely Optional - 
+If you get time , 
+Port array based Banking System to the ArrayList.
+
+6. Add these features to the Banking assignment
+6.1 Add new validation rule
+The bank should not be allowed to store duplicate accounts
+(i.e the accounts with the same account no)
+Check this rule while opening account.
+
+6.2 Display Account Summary
+User i/p - account no
+
+6.3 Withdraw 
+User i/p - account no , amount
+Take care of account overdrawn !
+
+6.4 Deposit
+User i/p - account no , amount
+
+
+6.5 Funds transfer
+User i/ps - src account no , dest account no , transfer amount
+Take care of account overdrawn !
+
+
+Day 11
+
+1. import day11_cms , in your workspace , to revise
+- CRUD operations
+- Searching by different criterias
+- fail-fast Iterators
+
+2. Continue with banking assignment
+Solve at least -
+display a/c summary
+withdraw 
+deposit
+transfer.
+close account
+
+
+3. Self study - 
+import day11.1 
+Revise Iterator & ListIterator
+Exceptions with Iterators.
+
+
+Day 12
+
+1. import day12_cms n revise sorting
+
+2. import day12.1 , to revise sets (in the individual labs)
+
+
+3. Mandatory assignment
+
+3.1 Sort bank accounts as per acct no - natural ordering
+
+3.2 Sort bank accounts as per acct type - custom order with ano inner class
+
+3.3 Sort bank accounts as per customer's dob n balance - custom order with ano inner class
+
+4. Complete pending work
+
+
+5. Optional exercise
+Use java.util.LinkedList class to create
+1. GenericQueue<T> - FIFO for ANY type of the element
+-Methods
+ -add , remove , listElements
+
+2. GenericStack<T> - LIFO for ANY type of the element
+-Methods
+ -push , pop , listElements
+
+Test cases -
+Integer Queue , Double Stack , Emp Stack
+
+
+Day 13
+1. import day13.1 
+-Refer to Student.java
+- Refer to TestStudentSet3.java
+-Revise hashing algorithm
+
+2. import day13.2 
+Solve these objectives.
+
+1. Create suitable HashMap for storing student details
+HashMap<String,Student>
+2. Add few entries in the HashMap
+3. Understand - put vs putIfAbsent
+3.5 Display all entries from the map 
+-toString {k1=v1,k2=v2.....}
+4. Accept roll no from user 
+return student details - if exists!
+Hint - get
+
+5. Cancel admission
+-Accept roll no 
+-delete student details
+Hint - remove
+
+6. Update student's marks
+i/p - roll no , new marks
+Hint - get , setter for marks
+
+7. Display names of all  students , having marks > specified marks
+
+8. Sort student details as per roll no(asc)
+8.1 Sort student details as per roll no(desc)
+
+
+Challenges
+9. Sort student details as per names
+10. Delete student details having marks < specified marks
+11. Most challenging n satisfying !!
+Port CMS from List to Map
+
+
+Later - 
+
+3. Enter advanced generic syntax
+Understand - ? , extends , super keywords in generic syntax , along with generic methods
+We will solve lots of objectives n examples to make these concepts crystal clear.
+
+
+
+
+Day 14
+1. solve generic questions 
+for exam practice
+
+Hands on -
+1. Consider Emp inheritance hierarchy
+write a static method in the GenericUtils class -
+to return sum of salaries of all emps from the specified list.
+Test cases -- AL<Mgr> , Vector<TempWorker> , LinkedList<SalesMgr> ......
+
+2. Solve - Write a generic method to return  max element from ANY List
+eg - Test cases
+ArrayList<Integer>
+LinkedList<Double>
+Vector<LocalDate>
+ArrayList<Emp>
+......
+
+3. Refer to Emp based organization hierarchy
+Sort the emps as per their basic salary - must use Custom ordering
+eg Test cases
+AL | LinkedList | Vector of data type - Emp , Mgr , Worker or PermanentWorker , or SalesMgr .....
+
+4. Create a functional interface - Computable 
+Add single abstract method (SAM) - to compute ANY aritmetic operation on 2 double operands.
+
+Using this , how will you perform 
+-addition
+-subtraction
+-multiplication
+-division
+
+
+Day 15
+1. import day15.1 in your workspace to revise
+ -Functional interfaces
+ - Lambda expression
+ - Functional streams
+
+2. Continue with functional streams 
+Hands On 
+1.	Create int[] , attach stream , display elements of the stream
+2.	Get  product list ,  attach stream , display its contents 
+-	Sequential access
+-	Parallel access
+3.	Create stream of ints between 1-100 & display all even elements.
+4.	Display all the products with specified category & price > min price
+5.	Display sum of all odd numbers within some range
+6.	When will you get – IllegalStateException ?
+7.	Display sum of prices of all the products in a map from the specified category
+8.	Display average of prices of all the products in a map from the specified category
+9.	Display name of most expensive product in the shop
+10.	Collect products ids in another list from products in the Map
+
+
+Day 16
+
+1. import day16.1 in your workspace , to revise Java 8 Functional Streams - 
+refer - <functional_streams> package , refer to "day15_data\day15_help\Functional Streams\streams\streams_sequence.txt" 
+
+
+2. import day16.2 , in your workspace , to revise 
+text file handling with buffering
+
+
+Hands on - 
+For more practice with Java 8 functional streams -  
+
+3. New Scenario - Student HAS-A Address n Student HAS-A Subject
+Create new java project day16_lab
+Copy - codes from - 
+"day16_data\day16_help\extra help\ready code2"
+(core classes n utils for sample data)
+
+Solve 
+
+3.0 Display all student details from the student map.
+
+3.1 Display  details of the students who have taken a specified subject 
+
+3.2 Print sum of  marks of students of all students from the specified state
+i/p : name of the state
+
+3.3 Print name of specified subject  topper
+i/p : subject name
+
+3.4 Print no of  failures for the specified subject chosen  from user.
+i/p : subject name
+(failure is GPA < 5.0 , out of 1-10)
+
+3.5 Display names of students enrolled in a specified subject , securing marks > specified marks
+i/p : subject name , marks
+
+3.6 Suppose a subject faculty is unavailable n then subject is cancelled . Collect the specified subject students into the list n display it.
+i/p : subject name
+
+3.7 Display  student details for specified subject , sorted as per DoB
+
+
+4. Refer to -
+"day16_data\Core Java Lab Exam practice questions.txt"
+Solve only TaskManager or Cricketer application , initially , for the practice
+(Try doing it completely from scratch)
+
+OR 
+solve -
+"day16_data\Set 1.DOCX"
+
+
+Day 17
+
+1. import cms_map_fp , in your workspace
+1.1 In the init phase of the application , it should restore customer details from the bin file.
+For the 1st launch of the app , since there won't ne any data file at first , start with empty map.
+
+1.2 Write separate IOUtils interface , in the package - com.cms.io
+Add static methods
+- To store customer details
+- To restore customer details
+
+1.3 The application should save , customer details from the map to bin file , at the end of the application.
+
+
+2. Differentiate between shallow copy vs deep copy
+(with code sample)
+
+3. If time permits -
+try reflection.
+(in hands on manner)
+
+4. Later revise Serialization , de serial
+-entire API
+-excpetions involved
+- Serial ver UID
+
+
+Day 18
+
+1. import day18.1 , to revise
+- extends Thread vs implements Runnable
+- sleep , join , interrupt
+- applying threads to functional streams
+
+2. Practical use case of threads.
+Create a multi threaded app to solve these objective in a parallel manner
+1. Get a map of student details with sample (hard coded) data
+2. Sort the students details as per birth date n save the sorted results (on SEPARATE  lines) in the 1st text file 
+3. Sort the student details as per subject name n gpa  n save the sorted results (on separate lines) in the 2nd text file 
+4. Store the roll no , name n gpa of all the students , from the specified city , sorted in desc order of GPA n save it in the 3rd text file
+5. Ensure no orphans.
+
+
+Steps 
+1. Identify threads n their tasks
+1.1 main -
+Create scanner , accept file names - 3
+get map of student steps
+create runnable tasks , attach thrds(ctor) , start them
+join - to ensure no orphans.
+
+1.2 t1 - DateSorterTask
+state - map , fileName
+ctor - to init state
+run 
+map -values - stream - sorted(comp) -save in the text file
+PW-FW-text file 
+println
+
+Detailed steps
+1. Create a class - implements Runnable
+2. Since main thread is going to pass - map n file name, 
+add these as attributes (state)
+3. Add parameterized ctor.
+4. implement run method - to add B.L (business logic)
+Sort the entries in the student map , as per DoB.
+5. Create chain of I/O resources , using try-with-resources
+Java App -> PrintWriter -> FileWriter -> text file
+6. Use println to store sorted students details in the text file ,via buffer of the PW
+
+3. Create a multi threaded application (using implements Runnable) for joint account scenario , in banking
+
+Can a joint account have multiple a/c owners ? 
+Imagine 2 customers(customer1 , customer 2)  are SHARING a single joint account.
+customer1  - will update the a/c balance 
+customer2 - will check the a/c balance.
+
+Can these operations happen concurrently in a real world ?
+How will you add concurrency ?
+Design n implement the solution.
+
+The application should continue to run till , user presses enter OR in case of wrong balance , the application should terminate !
+
+Development steps 
+1. Create core class - JoinAccount
+2. Create Balance updater task
+3. Create Check balance task
+4. Create a Tester , main(...) based application.
+
+
+
+Day 19
+1. import day19.1 
+- to observe the problem w/o synchronization
+
+2. import day19.2 
+- to revise synchronized methods
+
+3. import day19.3 
+- to revise synchronized blocks
+
+4. import day19.4 
+ - no_itc 
+  - to revise producer consumer problem , w/o ITC
+ - itc_with_sleep
+ - binary semaphore added (boolean flag) , but a deadlock !
+
+5. Fix the dead lock issue
+
+6. User vs Daemon threads
+
+7. Reflection overview
+ day19_reflection
+ Refer to day17 help
+
+8. Try DB connectivity
+
+9. Extract web server n add it to the IDE.
+Create simple web application , deploy n test it on localhost !
+(If time permits)
+NOTE - 
+Compatible versions 
+JDK 11 and STS 3.9.18
+
+
+
+
+
+
+
+

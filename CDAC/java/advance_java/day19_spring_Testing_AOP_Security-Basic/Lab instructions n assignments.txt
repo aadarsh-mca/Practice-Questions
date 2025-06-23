@@ -1,0 +1,751 @@
+Day 1
+1. Create NEW workspace for advance java
+2. import day1.1 in your new workspace
+3. Edit the location of mysql connector jar 
+(Its supplied in - "day1-data\help\jdbc help\jdbc drivers\mysql-connector-j-8.0.33.jar")
+4. Revise 
+-TestConnection.java 
+ for establishing singleton DB connection
+- DisplayUserDetails.java
+ for Statement n ResultSet processing
+- TestPreparedStatement.java
+ for PreparedStatement n ResultSet processing
+
+5. As hands on 
+Mandatory 
+- try solving above objectives , completely from scratch.
+
+Optional exercise
+Display user details (id , first name , last name ,dob) for specific role , sorted in desc order as per dob.
+
+6. Mandatory reading H.W
+"day1-data\help\day1-sequence.rtf"
+"day1-data\help\jdbc help\readmes\JDBC sequence.txt"
+"day1-data\help\JDBC objectives n steps.txt"
+Diagrams - 
+"day1-data\help\jdbc help\diagrams\jdbc-whiteboard.png"
+"day1-data\help\jdbc help\diagrams\jdbc overview.png"
+"day1-data\help\jdbc help\diagrams\ORM overview.png"
+"day1-data\help\jdbc help\diagrams\DB Layers.png"
+
+
+Day 2 (Morning)
+
+1. import day2.1 in your workspace
+1.1 Edit classpath for mysql connector jar
+1.2 Edit DBUtils - password
+1.3 Revise user sign up
+
+2. Copy flights table n its records in DB
+Refer - "day2_help\flights.sql.rtf"
+
+Solve - 
+2.1 Display available flights in the asc order of price
+User  inputs
+Source , destination , departure date 
+Display available flights in the asc order of price
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+List<Flight> getAvailableFlights(Source , destination , departure date ) throws SQLException
+DAO Impl class
+fields - cn , pst1
+ctor - open cn , create pst1
+clean up - close psts n cn
+CRUD method - set IN params , exec query -> RST -> List<Flight> 
+Tester dao instance , dao clean up , call DAO' method
+
+2.2 
+Add stops to specific flight n modify arrival time (chage route information)
+User Inputs - flight id , no of stops , arrival time
+
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+String modifyFlightDetails(flight id , no of stops , arrival time)throws SQLException
+DAO Impl class
+fields - cn , pst1, pst2
+ctor - open cn , create pst1,pst2
+clean up - close psts n cn
+CRUD method - set IN params , exec update -> update count -> chk it with 1 -> ret mesg
+Tester dao instance , dao clean up , call DAO' method
+
+2.3 
+Delete flight details by airline n route(source n destination)
+User Inputs - airline , source , destination
+
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+String deleteFlightRoutes(airline , source , destination)throws SQLException
+DAO Impl class
+fields - cn , pst1, pst2,pst3
+ctor - open cn , create pst1:select,pst2:update,pst3: delete query
+clean up - close psts n cn
+CRUD method - set IN params , exec update -> update count ->  ret mesg , saying how many routes are cancelled
+
+Tester dao instance , dao clean up , call DAO' method
+
+Day 2 (evening)
+
+1. Add Apache Tomcat web server (9.0.88) in the new workspace (created for web java)
+Refer - "day2_eve_data\day2_help\Development Steps.txt"
+
+2. Create dynamic web project 
+eg - test_web
+
+3. Add index.html under <src>/<main>/<webapp> folder
+
+4. Run web appliction on the server n test the response on external brwoser
+(chrome | edge)
+
+5. Complete pending JDBC tasks
+
+6. Refer to stored function 
+Refer - "day1-data\help\jdbc help\sql\sql cmds.txt" to add "accounts" table DDL n copy stored function.
+Execute it from JDBC application with layers
+Tester - DAO - POJO - DBUtils - DB
+
+
+Day 3 (morning)
+
+1. Create dynamic web project (day3_lab) . Test it with HTML(index.html) contents.
+2. Create n deploy the servlet using annotation.
+(Understand annotation)
+3. Create n deploy the servlet using xml tags
+4.  Create 1 servlet with default (lazy) loading n another one with eager loading.
+Compare these two.
+
+5. Servlet JDBC integration
+(Objective - User signin)
+
+Day 3 (evening)
+
+1. import day3_voting in your workspace (same as you were importing core java projects)
+Trace n revise (code walk through) , entire request -resp flow .
+
+2. Mandatory Hands on
+
+2.1 Create new dynamic web project
+- day3_flghts
+2.2 Add welcome file
+- choose_fligts.html
+- Add HTML form with 3 inputs
+-source(text) , destination(text) , departure date (date)
+
+2.3. Submit the form to the Servlet
+- ShowAvailableFlights (servlet)
+- perform JDBC integration , get list of available flights n send this list to the web client.
+
+
+Day 4
+
+NO new assignments !
+1. Complete pending work , as much as possible .
+
+2. import day4_voting 
+Do code walk through along with readmes , diagrams n Java EE docs
+
+Important readmes n diagrams
+
+"day4-data\day4_help\page navigation\page navigation techniques.txt"
+"day4-data\day4_help\page navigation\page navigation summary.png"
+"day4-data\day4_help\server side state management techniques\regarding session tracking.txt"
+"day4-data\day4_help\server side state management techniques\cookie.png"
+
+
+Day 5 
+1. import day5_voting in your workspace.
+1.1 Trace entire voter's flow with HttpSession based session tracking, from login -logout.
+
+2. NOTE 
+The help files are already shared under day4-data
+
+2.1 Revise - HttpSession API 
+Refer to - 
+"day4-data\day4_help\server side state management techniques\regarding session tracking.txt" 
+
+3. Mandatory Hands on
+3.1 Try to develop complete voter flow - on your own.
+
+OR
+
+3.2 Try to complete the admin flow of voting case study
+Refer - "case studies\voting assignment.png"
+
+OR (Best possible option to understand Servlets completely)
+Complete flight reservation 
+Refer 
+"case studies\Simple Flight Reservation.png"
+ 
+
+Day 6
+1. import day6.1 , to revise
+- Creation of web app , in DB independent manner , using ServletConfig
+- Refer to web.xml , LoginServlet
+- "day6_help\readmes\regarding servletconfig.txt"
+
+2. import day6.2 , to revise
+- Creation of web app , in DB independent manner , using ServletContext
+- Refer to web.xml , LoginServlet
+- "day6_help\readmes\regarding servletcontext.txt"
+
+3. import day6.3 , to revise
+- server pull (request dispatching) - forward technique
+
+4. import day6.4 , to revise
+- server pull (request dispatching) - include technique
+
+5. import day6.5 , to revise
+- web application listeners
+
+6. Mandatory Hands on -
+Create new dyn web application
+6.1 welcome page - operations.html
+inputs - 2 numbers(double) n drop down list for arithmetic ops - add | subtract | multiply | divide
+
+6.2 Submit the form to -
+ProcessForm page 
+Compute the operation on the numbers, forward client to results page (another servlet) n display result from there.
+
+OR 
+slightly better work -
+Accept - src a/c no , dest a/c no n transfer amount from user in the form
+Submit the form to ProcessFormServlet
+Use BankAccount DAO - call a stored procedure
+Forward client to results page , to display
+- updated src n dest balance to the web client.
+
+Try once with forward n then with include , to understand  forward vs include.
+
+7. Completely OPTIONAL but interesting work !!!
+- Display no of currently logged in users.
+Hint - web app listener.
+
+
+
+Day 7
+1. import day7.1 , to revise
+- basic JSP syntax
+
+2. Solve - mandatory
+"day7-data\JSP basic assignment.png" 
+- to apply scripting elements n EL syntax
+
+3. Optional assignment
+- solve yesterday's calculator assignment in JSP
+
+4. Mandatory - 
+4.1 Please download n extract 
+ template projects\hibernate_template_jdk11"
+4.2 Force update Maven project (as shown)
+- It should download hibernate dependencies from Maven Remote repo to local repo(.m2\repository)
+4.3 Run Maven goals 
+- clean package
+4.4 Confirm no errors !
+Keep it ready today itself !
+
+
+5. 
+Mandatory reading H.W
+servlet n JSP life cycle - digrams
+readme JSP
+
+Day 8
+1. import day8.1 
+ - Revise URL rewriting
+ - encodeURL n encodeRedirectURL
+
+2. import day8.2 
+ - Revise JSP directives
+  - page
+  - include
+ - JSP Actions
+  - forward 
+  - include
+  - param
+
+3. import day8.3 
+Mandatory Objective - User sign in
+ -Revise complete separation using the layers
+  -JSP : UI (presentation logic)
+  - Java Bean : Service layer (Business logic)
+  - JDBC based DAO (uses DBUtils to get the connection)
+  - DBUtils - openConnection , closeConnection , getConnection
+  - POJOS (Entity) - object representation of DB tables (ORM)
+  - ServletContextListener - to open n close DB connection
+
+4. We will continue with the same in lab
+Objective - Admin flow
+Voter sign up
+
+Day 9
+1. Later - in self study time 
+import day9.1 (dynamic web project) to revise ,
+ - Completion of admin flow
+ - Java Beans
+ - JSTL tags
+
+2. This will be the starting point of combined lab -
+I hope everyone has already imported 
+  - "\template projects\hibernate_template_jdk11"
+  - Continue with the same
+  - Later if you want you can create Maven based hibernate project  from scratch n test it out .
+    (Its Not really neccessary , since ultimately in Spring boot , the creation of the Maven project will be automatically done by Spring Starter tools)
+
+2.1 Create layered hibernate application 
+Objectives - 
+Sign up user
+Find user by id
+Find all users (if time permits !)
+.....
+Layers used - 
+ - Maven dependencies
+ - Tester (main based)
+ - Native Hibernate based DAO
+ - Hibernate Utils - to create singleton instance of the SessionFactory 
+   , representing DBCP
+ - MOST important layer - Hibernate / JPA managed entities
+  -with annotations
+ - DB
+
+2.2 new users table 
+column - id(PK) , first name , last name, email ,password , dob:date , role:enum,image :blob
+
+
+Day 10
+
+1. Mandatory assignment
+
+CRUD operations on Product (can be used later in eCommerce project)
+Typical product details -
+product id : Long (auto increment)
+name : string (unique) : varchar(20)
+product description : string : varchar(200)
+manufacture date : LocalDate
+price : double
+available quantity : int
+
+1.1 Continue with day9_lab
+1.2 Create Product Entity from above description
+1.3 Create Product DAO , implementation class  n testers for the following
+(After writing DAO method once on your own , please copy the boilerplate code)
+You can copy the testers from day10.1 n make necessary changes.
+
+Solve as many as possible ! No Pressure .... 
+ 1. Add a new product
+i/p - product details (except id)
+
+ 2. Display product details 
+     i/p - product id 
+ 3. Display   id , name , price  of all the products manufactured before specified date
+ 4. Change Product price
+   i/p - product name
+   o/p - message
+ 5. Apply discount to all products , whose available quantity > specified quantity
+	i/p - quantity n discount in %
+ 6. Delete specific product
+   i/p - product id 
+   o/p - message 
+
+
+Assignment Help
+5. Apply discount to all products , whose available quantity > specified quantity
+	i/p - quantity n discount in %
+jpql=select p from Product p where p.qty>:qt
+
+List<Product> products=.....
+products.forEach(p -> p.setPrice(p.getPrice() - disc));
+
+//100 products
+queries - select - 1
+update -100
+OR better scalable approach - use update query
+String jpql="update Product p set p.price=p.price-:disc where p.qty > :qty1";
+int updateCount=session.createQuery(jpql)
+.setParameter("qty1",qtyArg)
+.setParameter("disc",discAmount)
+.executeUpdate();
+return mesg;
+
+2. During self study time -
+import day10.1 in your workspace as Existing Maven Project
+Edit DB password in hibernate.cfg.xml
+Open the testers n walk through the code , top to bottom (all layers)
+ 
+ - UserRegistration.java
+ - GetUserDetails.java
+ - GetAllUsers.java
+ - GetUsersByRoleAndDob.java
+ - GetUsersByRole.java
+
+
+Day 11
+Before completing earlier pending work , please revise first !
+1. import day11.1 to revise 
+ - ChangePassword.java (single record updation - select n update)
+ - DeleteUserDetails.java (single record deletion - select n delete)
+ - BulkDelete.java (bulk deletion via delete JPQL)
+ - Image (BLOB) handling
+  -SaveImage 
+  -RestoreImage
+
+2. import day11.2 to revise
+    - BaseEntity (mapped super class - inheritance)
+    - One To Many n Many to One 
+      - bi directional (most important) association between the entities
+    Use case : Restaurant   1 <-----> * FoodItems
+     - Revise annotations 
+     - mappedBy
+     
+3. Complete pending work.
+
+3.1 Install Lombok JAR , as shown
+(Try it only for max 30 minutes , otherwise continue by generating 
+- ctors , getters , setters as earlier !)
+DO NOT over spend time on this pls . 
+
+4. OPTIONAL BUT Recommended assignment (if time permits)
+Establish Category  1 <-----> * Products
+  4.1 Drop products tables (since Hibernate can't modify columns !)
+  4.2 Remove Category enum from Product entity.
+  4.3 Create BaseEntity - mapped super class with id , creation date n updation time stamp
+  4.4 Create sub classes (entities)
+    - Category - name(unique) , description 
+    - Product - earlier details (except Category Enum)
+    - How will you add a bi dir association between Category n Product ?
+
+Hint
+Category  1 <-----> * Products
+Category - one , parent , inverse
+Java Domain model 
+BaseEntity - @MappedSuperClass
+- id , creattion time , update time , version
+
+
+
+Category extends BaseEntity
+Fields 
+name , desc ... +
+@OneToMany(mappedBy="productCategory")
+private List<Product> products=new AL<>(10000);
+
+
+Products - many , child tbl , owning
+Fields -
+....+
+@ManyToOne
+@JoinColumn(name="category_id")
+private Category productCategory;
+
+
+4.5 Try this
+1.  Add a new category
+Hint - session.persist(newCategory); commit
+
+2. Add a new product to this category
+i/p - category id , product details -
+Tester 
+productDao.addProduct(categoryId, newProduct)
+
+DAO -
+get category details from its id - get
+null chking 
+not null -> category :  c1 -  persistent
+category.getProducts().add(p1);
+p1.setProductCategory(c1);
+session.persist(p1);
+commit
+
+
+
+Day 12
+1. Revise first 
+1.1 Copy day12.1 under your workspace
+1.2 import it as existing Maven project.
+1.3 Edit DB password
+
+2. Walk through these below list of testers (DAO n Entity layers)
+2.1 AddNewRestaurant
+2.2 AddNewFoodItemToRestaurant (bi dir asso , helper methods)
+2.3 AddRestaurantWithFoodItems (cascading , CascadeType.PERSIST)
+
+2.31 Lab work 
+Delete restaurant details - cascading , CascadeType.REMOVE
+i/p - restaurant id
+DB action - 
+
+2.4 RemoveFoodItemFromRestaurant (orphan removal)
+2.5 GetRestaurantDetailsByName (simple JPQL)
+2.6 GetRestaurantAndMenuDetailsByRestaurantName - fetch types , LazyInitializationException
+2.7 Lab work 
+To understand n fix select n+1 issue
+solve - 
+Display all restaurant details
+
+-----------------------------------------
+After this revision , please go through , 
+web_maven_hibernate project.
+Look at 
+ HibernateSFManager (a servlet context listener)
+ all the packages
+ all the layers
+ JSP - Java Bean - Hibernare based DAO - Hibernate managed entities - HibernateUtils - DB
+-------------------
+3. Revise User 1---->1 Address , uni directional association
+3.1 Solve 
+Assign address to the existing user
+i/p –adr details n  user id
+o/p – mesg
+DB – rec gets inserted in address table .
+Users updated – adr id.
+
+3.2	Display user details + address details
+i/p – user id
+o/p - user details + address details
+Hint – join fetch
+
+3.3 Display last names of all users from the specified city
+i/p – city name
+o/p – list of last names
+
+4. Revise Tag *---->* Restaurant  , a uni directional many to many association
+(Today - just entity layer)
+
+5. Revise today | tomorrow 
+Value types
+User HAS-A AdhaarCard
+
+6. Revise today | tomorrow 
+JPA inheritance - single table inheritance strategy
+
+Lab work -
+Delete restaurant details
+i/p - resturant id
+DB - delete child recs first n then parent rec
+Hint - CascadeType.DELETE
+
+
+Day 13
+1. In the individual labs (LATER)
+ - import day13.1 , in your STS 3 workspace , to revise
+  - value types (composite value type , Embeddable - AdhaarCard , Collection of Basic Value type Lis<String> - hobbies)
+Observe changes in the DB.
+
+2. In the combined lab -
+ - Follow earlier instructions ("Spring related instructions in STS 4 with JDK 21.pdf")
+So here onwards we will use 
+ - STS4 as IDE
+ - a new workspace for STS 4
+ - JDK 21
+ - Hibernate 6.x
+ - Spring 6.x
+
+3.COPY n  import day13_lab , in the newly created STS 4 workspace 
+ - as existing Maven project 
+ - Revise spring bean life cycle with spring bean XML tags
+ - Constructor based D.I (to inject mandatory dependencies)
+
+We will do the following steps together in the combined lab -( as much as possible)
+
+4.COPY n  import day13_lab2 , in the newly created STS 4 workspace 
+ - as existing Maven project 
+- Constructor based D.I (to inject mandatory dependencies) - subject teacher
+ - setter based D.I (to inject optional dependencies) - sports coach
+
+
+
+Day 14
+
+Steps for STS 4 n Apache Tomcat 10.1 
+1. Download from G drive  
+"softwares\apache-tomcat-10.1.26.7z"
+(please download it again today )
+
+2. Extract it using 7 -Zip
+
+3. Add it in the new STS 4 workspace
+(Exactly same steps as earlier)
+3.1 Change perspective to Java EE
+3.2 Choose Server
+3.3 Add from Apache 10.1
+3.5 Specify Apache install directory n finish
+3.6 Start server n see if its working properly
+
+4. Optional step
+You can create a simple dynamic web project (using index.jsp) n test it.
+
+5. Mandatory step
+Download n extract 
+template projects\spring_mvc_hibernate.7z  - using 7 zip
+
+5.1 Copy it under STS 4 workspace
+
+5.2 Import it as existing Maven project
+It will download spring web MVC dependencies , in your Maven local repo.
+Just confirm , if Maven dependencies are downloaded.
+
+Mandatory Hands on
+1. Create Spring MVC based web application
+ - STS 4 , JDK 21 , Apache Tomcat 10.1
+1.1 Test Spring MVC Flow
+1.2 Understand ModelAndView
+1.3 Understand Model Map
+
+(if time permits)
+
+1.4 Integrate Spring MVC with Hibernate 
+Accept Restaurant ID from User
+Render List of food items for the specified restaurant.
+
+
+Today's revision 
+
+1.COPY n  import day14.1 , in the newly created STS 4 workspace 
+ - as existing Maven project 
+ - Factory method based D.I (to inject dependencies - even with private constructors n no setters )
+NOTE - 
+
+
+6.COPY n  import day14.2 , in the newly created STS 4 workspace 
+ - as existing Maven project 
+ - automatic wiring - byName
+
+7.COPY n  import day14.3 , in the newly created STS 4 workspace 
+ - as existing Maven project 
+ - automatic wiring - byType
+ - understand NoUniquqBeanDefinitionException , caused due to ambiguity
+
+8.COPY n  import day14.4 , in the newly created STS 4 workspace 
+ - as existing Maven project 
+ - automatic wiring - constructor
+
+
+Day 15
+
+1.Copy and import in STS 4 workspace , spring boot project
+ - "day15-data\code\day15_spring_boot_mvc"
+
+2. We will revise entire steps with Spring boot n
+continue with 
+"day15-data\day15_help\Spring Boot MVC Hibernate assignment.png"
+
+Day 16 
+Only revise.
+
+Day 17
+1. import day17_REST
+- to undersatnd basic CRUD with single entity - Restaurant (w/o any E-R)
+- has ApiResponse DTO
+- proper error handling n status codes.
+
+2. import day17_advanced_REST
+ - to revise E-R with Spring data n spring boot
+ - Entity vs DTO
+ - Model Mapper
+
+
+3. Practice for advanced java lab exam
+3.1 import - "web_java\template projects\spring_boot_backend_template"
+It's already present on g drive folder .
+This will be supplied at the lab exam time.
+
+3.2 Edit DB password
+
+3.3 Solve
+Mandatory Assignment
+
+First solve simple CRUD on Product entity.
+Meaning - remove the association between Product n Category , from the Product class. DO NOT add Category class in the project.
+1. Add new product
+2. Get all products
+3. Update product details
+3.1 Get details by id
+3.2 Update
+4. Delete product details
+5. Display all products between the price range
+use template variables for price range
+6. Display all products  manufactured after specified date.
+use template variable for date
+
+OPTIONAL work 
+
+
+(Refer - Category 1<---->* Product) E-R)
+Add new category (w/o products)
+Update Category details
+Add product to specific category
+i/p - category id n new prduct detail
+
+
+Day 18
+1. Download from g drive  - 
+"template projects\spring_boot_backend_template"
+I have added the configuration for ModelMapper .
+(You will get this as a template in web java lab exam)
+
+1. Copy n import day18.1 in the STS 4 workspace
+
+2. Revise with code walk through 
+- user registration
+- assign address to user
+
+3. Solve
+User sign in
+
+4. Spring boot testing 
+ Unit testing
+ Integration testing
+
+5. Add Server side validations
+
+6. Add global exception handler.
+
+7. Refer to practice lab exam question.
+Solve it completely from scratch , just by using
+- spring_boot_backend_template
+(It has higher difficulty level than actual lab exam question)
+
+
+Day 19
+1. Copy and import day19.1 in your STS4 workspace.
+
+2. IMPORTANT 
+For  Spring security
+Add these dependencies in the pom.xml of day19.1
+- under <dependencies> tag
+
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+<dependency>
+ <groupId>org.springframework.security</groupId>
+ <artifactId>spring-security-test</artifactId>
+ <scope>test</scope>
+</dependency>
+
+3. Maven - Force update.
+It will download spring security related dependencies.
+(Tomorrow - we will add JWT related dependencies)
+
+4. Revise later
+4.1 From day19.1 , Spring Boot Project
+ - server side validations
+ - global exception handler
+
+4.2 From day19.2 , a spring boot project
+ - AOP
+ - before , around aspects
+ - after , afterReturning , afterThrowing aspects
+
+5. Enter Spring Security
+ - Default Spring security model
+ - In memory authentication , with Basic Authentication
+ - DB based authentication , with Basic Authentication
+
+
+

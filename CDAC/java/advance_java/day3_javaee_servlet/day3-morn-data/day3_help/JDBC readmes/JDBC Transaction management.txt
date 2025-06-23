@@ -1,0 +1,181 @@
+
+DB Transactions 
+What is it ?
+Functionally grouped SQL statements , representing a Business logic.
+Tx => all the statements from a Tx either fail or succeed.
+i.e If any statement fails : entire Tx has to be discarded. 
+The changes made by the Tx will be made permanent : if n only if all the statements succeed.
+
+eg : Purchase a product
+Involves 1. Checking availability of the product
+2. Customer credit/debit limit & updating the same
+3. Updating stock .
+If any of the above mentioned steps fail , entire transaction need to be discarded.
+
+How to do it from JDBC API?
+
+1. Start a Tx
+Connection i/f method 
+void setAutoCommit(boolean flag)
+ie. unset the auto-commit flag.
+eg : cn.setAutoCommit(false);
+
+2. Wrap entire Tx within a separate try-catch block.
+
+3. If the entire try block succeds (i.e at the end of try) ---> commit the Tx
+API : cn.commit();
+4.But if u reach inside the catch clause(due to system exc or custom exc) : rollback the Tx
+API : cn.rollback();
+5. To continue : set auto-commit to true again.
+
+6. To rollback a transaction partially , there exists additional method for setting save points.
+Connection i/f method
+public Savepoint setSavepoint() throws SQLException
+
+7. How to restore the DB state to a savepoint ?
+Connection i/f method
+void rollback(Savepoint savepoint) throws SQLException
+Cancels all changes made after the given Savepoint object was set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

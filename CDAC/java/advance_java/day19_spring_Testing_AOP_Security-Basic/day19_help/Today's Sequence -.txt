@@ -1,0 +1,27 @@
+Today's Sequence - 
+
+Revise Unit Testing - DAO layer testing
+Add Integration Test (Service-DAO-Entity-DB)
+
+Server side validations
+- User Registration
+  
+Global / Centralized exception handling
+
+AOP
+
+Spring boot internals
+
+
+
+Enter Spring security
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+- 

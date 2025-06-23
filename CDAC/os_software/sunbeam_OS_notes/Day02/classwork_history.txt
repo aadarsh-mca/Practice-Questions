@@ -1,0 +1,177 @@
+echo $SHELL
+ls /dev -l
+touch sample.txt
+ls -l sample.txt 
+chmod -r sample.txt 
+ls -l sample.txt 
+chmod +r sample.txt 
+ls -l sample.txt 
+chmod +x sample.txt 
+ls -l sample.txt 
+chmod u-x sample.txt 
+ls -l sample.txt 
+chmod g-wx sample.txt 
+ls -l sample.txt 
+chmod 664 sample.txt 
+ls -l sample.txt 
+chmod 744 sample.txt 
+ls -l sample.txt 
+sudo chown root sample.txt 
+ls -l sample.txt 
+sudo chown :root sample.txt 
+ls -l sample.txt 
+sudo chown sunbeam:sunbeam sample.txt 
+ls -l sample.txt 
+stat sample.txt 
+man stat
+stat -c "%n" sample.txt 
+stat -c "%U" sample.txt 
+stat -c "%F" sample.txt 
+stat -c "%n %A" sample.txt 
+stat -c "name = %n perm = %A" sample.txt 
+stat -c "name = %n perm = %A" *
+cat > numbers.txt
+cat numbers.txt
+cat -n numbers.txt
+head numbers.txt 
+tail numbers.txt 
+head -6 numbers.txt 
+tail -7 numbers.txt 
+rev numbers.txt 
+cat numbers.txt 
+tac numbers.txt 
+sort numbers.txt 
+sort -n numbers.txt 
+uniq numbers.txt 
+man touch
+stat sample.txt 
+ls
+cat sample.txt 
+ls -l sample.txt 
+cat
+cat > sample.txt 
+cat sample.txt 
+ls -l
+ls -l > lsout.txt
+cat lsout.txt 
+sort numbers.txt 
+sort numbers.txt > sorted.txt
+ls
+cat sorted.txt 
+uniq sorted.txt 
+ls -W
+ls -W 2> lserr.txt
+cat lserr.txt 
+ls
+ls dir1 dir2
+ls dir1 dir
+ls dir1 dir > out.txt 2> err.txt
+cat out.txt 
+cat err.txt 
+wc
+cat sample.txt 
+wc < sample.txt 
+wc < sample.txt > wcout.txt
+cat wcout.txt 
+cat input.txt
+cat > input.txt
+cat input.txt
+bc
+cat input.txt 
+bc < input.txt 
+bc < input.txt > output.txt
+cat output.txt 
+cat > input.txt 
+bc < input.txt
+bc < input.txt > output.txt 2> error.txt
+cat input.txt 
+cat output.txt 
+cat error.txt 
+sort numbers.txt | uniq
+head -10 numbers.txt 
+head -10 numbers.txt | tail -5
+echo "Hello DAC"
+echo "Hello DAC" | tr " " "#"
+echo "Hello DAC" | tr "l" "#"
+echo "Hello       DAC"
+echo "Hello       DAC" | tr -s " "
+echo "Hello       DAC" | tr -s "l"
+echo "Hello       DAC" | tr -s "l "
+echo "Hello DAC"
+echo "Hello DAC" | tr "A-Z" "a-z"
+echo "Hello DAC" | tr "a-z" "A-Z"
+echo "DAC DESD DMC DBDA DITISS"
+echo "DAC DESD DMC DBDA DITISS"| cut -d " " -f1
+echo "DAC DESD DMC DBDA DITISS"| cut -d " " -f2
+echo "DAC DESD DMC DBDA DITISS"| cut -d " " -f1,2
+echo "DAC DESD DMC DBDA DITISS"| cut -d " " -f2-3
+find -name sample.txt
+find /home/sunbeam -name sample.txt
+find /home/sunbeam -name numbers.txt
+find .. -name sample.txt
+find ~ -name sample.txt
+find -type f
+find -type d
+grep "DAC" sample.txt 
+echo "Hello DAC" | wc
+wc sample.txt 
+cat sample.txt 
+bc
+sort numbers.txt > /tmp/sorted.txt 
+ls /tmp/sorted.txt 
+ls -l /tmp/sorted.txt 
+cat > taste.txt
+grep "cake" taste.txt 
+grep "good" taste.txt 
+grep "is" taste.txt 
+grep -n "is" taste.txt 
+grep -c "is" taste.txt 
+grep -v "is" taste.txt 
+grep "is" taste.txt 
+grep -w "is" taste.txt 
+grep "Is" taste.txt 
+grep -i "Is" taste.txt 
+grep "is" taste.txt 
+grep "^is" taste.txt 
+grep "is$" taste.txt 
+grep "^is$" taste.txt 
+cat > select.txt
+cat select.txt 
+grep "dc" select.txt 
+grep "dac" select.txt 
+grep "dec" select.txt 
+grep "doc" select.txt 
+grep "d[aeo]c" select.txt 
+grep "d[^aeo]c" select.txt 
+grep "d[]c" select.txt 
+grep "d.c" select.txt 
+grep "d*c" select.txt 
+grep "d\*c" select.txt 
+grep "d[*]c" select.txt 
+grep -F "d*c" select.txt 
+fgrep "d*c" select.txt 
+cat > repeat.txt
+grep "dc" repeat.txt 
+grep "dac" repeat.txt 
+grep "da*c" repeat.txt 
+grep "da?c" repeat.txt 
+grep -E "da?c" repeat.txt 
+egrep "da?c" repeat.txt 
+egrep "da+c" repeat.txt 
+egrep "da{3}c" repeat.txt 
+egrep "da{6}c" repeat.txt 
+egrep "da{3,6}c" repeat.txt 
+egrep "da{,6}c" repeat.txt 
+egrep "da{3,}c" repeat.txt 
+egrep "daac" repeat.txt 
+egrep "d[aa]c" repeat.txt 
+egrep "d(aa)c" repeat.txt 
+egrep "d[aa]{2}c" repeat.txt 
+egrep "d(aa){2}c" repeat.txt 
+grep "cake" taste.txt 
+grep "good" taste.txt 
+grep "cake|good" taste.txt 
+egrep "cake|good" taste.txt 
+egrep "(cake|good)" taste.txt 
+egrep "cake|goood" taste.txt 
+history > ~/share/classwork_history.txt

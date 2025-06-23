@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+
+
+    <style>
+        form {
+            background-color: pink;
+        }
+        .form-row {
+            display: flex;
+        }
+
+
+        .form-col {
+            flex: 1;
+            border: 1px solid black;
+        }
+
+
+        .form-val-div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type] {
+            border: 3px inset grey;
+        }
+
+        #input-date {
+            display: flex;
+            height: 20px;
+        }
+        #input-date-btm-hint {
+            display: flex;
+        }
+        #input-date>input {
+            width: 30px;
+        }
+        #input-date-btm-hint>p {
+            margin-right: 20px;
+        }
+
+
+	  #add-text-input {
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <form id="emp-form">
+        <div class="form-row">
+                <label class="form-col">Name</label>
+                <input class="form-col" type="text" />
+        </div>
+       
+        <div class="form-row">
+            <label class="form-col">Employee Code</label>
+            <input class="form-col" type="text" />
+        </div>
+
+
+        <div class="form-row">
+            <label class="form-col">Department</label>
+            <div class="form-col">
+                <label>
+                    <input type="radio" name="dept" value="ADMIN"/>ADMIN
+                </label>
+                <br/>
+                <label>
+                    <input type="radio" name="dept" value="HR"/>HR
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="dept" value="TECHNICAL"/>TECHNICAL
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="dept" value="ACCOUNTS"/>ACCOUNTS
+                </label>
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <label class="form-col">Date of Joining</label>
+            <div class="form-col form-val-div">
+                <div id="input-date">
+                    <input type="number" />
+                    /
+                    <input type="number" />
+                    /
+                    <input type="number" />
+                </div>
+
+
+                <div id="input-date-btm-hint">
+                    <p>dd</p>
+                    <p>mm</p>
+                    <p>yyyy</p>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <table>
+            <strong>Using table :: </strong>
+            <tr>
+                <td class="form-col">Address</td>
+                <td class="form-col">
+                    <input id="add-text-input" class="form-col" type="text" style="border: inset;"/>
+                </td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <strong>Using Field-Set :: </strong>
+
+        <fieldset class="form-row" style="border: 2px solid, black;">
+            <legend >Address</legend>
+            <input id="add-text-input" class="form-col" type="text" style="border: inset;"/>
+        </fieldset>
+
+        <br />
+
+        <strong>Using flex :: </strong>
+        <div class="form-row">
+            <label class="form-col">Address</label>
+            <input id="add-text-input" class="form-col" type="text" style="border: inset;"/>
+        </div>
+
+        <div class="form-row">
+            <div class="form-col">
+                <p>Training programs attended</p>
+            </div>
+
+            <div class="form-col form-val-div">
+                <label>
+                    <input type="checkbox" value="HTML/DHTML" />HTML/DHTML
+                </label>
+                <label>
+                    <input type="checkbox" value="JAVA" />JAVA
+                </label>
+                <label>
+                    <input type="checkbox" value="CLIENT/SERVER" />CLIENT/SERVER
+                </label>
+                <label>
+                    <input type="checkbox" value=".NET" />.NET
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-col">
+                <p>Training programmes need to attend</p>
+            </div>
+
+            <div class="form-col">
+                <select>
+                    <option>Javascript</option>
+                    <option>jStruts</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-col">
+                <p>Send the information at</p>
+            </div>
+
+            <div class="form-col">
+                <a href="mailto:empinfo@patni.com">empinfo@patni.com</a>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" onclick="onSubmit()">Submit</button>
+        </div>
+
+        <iframe id="test-frame" src="" width="500px" height="500px"></iframe>
+    </form>
+   
+    <script>
+        function onSubmit() {
+            document.getElementById('test-frame').src = "./web-page1.html";
+        }
+    </script>
+</body>
+</html>

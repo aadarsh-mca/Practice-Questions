@@ -1,0 +1,6 @@
+RESTful java app 
+
+global variable to store a value which is accessible by multiple user
+and try to modify that value with one 2 client side-by-side
+
+use thread.sleep when inside resource monitor to depict delay in request handling

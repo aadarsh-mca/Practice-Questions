@@ -1,0 +1,100 @@
+1. Revise Backend development with annotations
+2. What will happen 
+ - If you give 0 id to create a restaurant ?
+ - Fix the problem
+3. Complete update n delete 
+ - Restaurant entity (standalone)
+3.1 
+Get Restaurant details by id
+URL - http://host:port/restaurants/{restaurantId}
+Method - GET
+
+3.2 Update (complete) restaurant details
+URL - http://host:port/restaurants/{restaurantId} - template URI variable
+Method -PUT
+Payload -updated restaurant details - @RequestBody
+Resp - DTO : ApiResp - SC 200 , mesg
+
+3.3 Delete restaurant details by name
+URL - http://host:port/restaurants/{restaurantName} - template URI variable
+Method -DELETE
+Payload -none
+success - Resp - DTO : ApiResp - SC 200 , mesg
+error resp - ApiResp - SC 404 ,err mesg
+
+
+4. In case of error (eg -dup restaurant name ) 
+ - Should you send the error stack trace to front end ?
+
+5. Better design practice
+ - Failure response – Suitable error code  (HttpStatus.CONFLICT) : 409
+ - API response  DTO 
+
+
+6. Add the bi dir associtation
+ Restaurant 1<--->* FoodItem
+Run the end point again
+ - To get restaurant details by id 
+ - observe n conclude
+7. Entity vs DTO
+8. ModelMapper 
+9. Fix errors in  
+ - To get restaurant details by id 
+
+--------------------Done this much --------------------------
+
+New Objectives -
+With DTO Pattern 
+ 1. Get All Restaurants
+/*
+	 * Add REST API endpoint 
+	 * URL - http://host:port/restaurants 
+	 * Method - GET 
+	 * Payload - none 
+	 * Response - Body - List<RestaurantRespDTO>
+	 * 
+ */
+2.  Add new end point to get restaurant n all food items associated
+- Write unit test for it.
+/*
+* Desc - Get Restaurant n associated food items
+* URL - http://host:port/restaurants/{RestaurantId}/food_items
+* Method - GET
+* Path variable RestaurantId
+* success Resp – RestaurantDTO + List<FoodItemDTO>
+* failure resp(invalid restaurant id) - SC 404 + Api resp -DTO (time
+* stamp ,err mesg)
+*/
+
+3. AddNewRestaurant (lab work)
+/*
+	 * Add REST API endpoint to add new restaurant URL -
+	 * http://host:port/restaurants 
+	 * Method - POST 
+	 * Payload - JSON representation of AddRestaurantDTO 
+	 * Success Response -  RestaurantRespDTO , SC 201
+		Error resp - ApiResp -with err mesg , SC 400
+	 * 
+ */
+ 4.  Add new food item to the restaurant(Important)
+/*
+	 *  URL - http://host:port/food_items
+	 * Method - POST 
+	 * Payload - JSON representation of FoodItemReq dto 
+	 * Response -  FoodItemRespDTO 
+	 * 
+ */
+10. User sign up
+
+
+10.5 Assign User address
+
+11. Get all food items by specific restaurant 
+ - i/p – resturant id
+ -resp – List<Food item>
+
+12. Spring boot testing
+
+13. User sign in
+
+
