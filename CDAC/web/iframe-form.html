@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <title>iFrame Forms</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <style>
+        .custom-border-bottom {
+            border-bottom: 5px black inset;
+        }
+        .custom-border-right {
+            border-right: 5px black inset;
+        }
+        /* .flex-container {
+            display: flex;
+        } */
+        .sidebar-links {
+            margin: 15px 20px 5px 10px;
+        }
+        #iframe {
+            width: 200%;
+            height: 200%;
+            padding-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="custom-border-bottom">
+        <h1>CDAC HTML Assignments</h1>
+    </div>
+
+    <div class="d-flex">
+
+        <div class="sidebar-links">
+            <h2>Assignments</h2>
+            <ul class="d-flex flex-column gap-2" type="none">
+
+                <button id="assignment-1" class="assignment-btn btn btn-primary" value="./iframe-form.html" onclick="assignment_1()">
+                    <a href="" style="color: white;">Assignment-1</a>
+                </button>
+                
+                <button id="assignment-2" class="assignment-btn btn btn-primary" value="./employee-form.html" onclick="assignment_2()">
+                    <a href="" style="color: white;">Assignment-2</a>
+                </button>
+                
+                <button id="assignment-3" class="assignment-btn btn btn-primary" value="./web-page1.html" onclick="assignment_3()">
+                    <a href="" style="color: white;">Assignment-3</a>
+                </button>
+            </ul>
+        </div>
+
+        <div class="custom-border-right"></div>
+
+        <div>
+            <iframe id="iframe" src="./employee-form.html" ></iframe>
+        </div>
+
+    </div>
+
+    <script>
+        function assignment_1() {
+            iframeView = document.getElementById("iframe");
+
+            link = document.getElementById('assignment-1').value;
+
+            iframeView.src = link;
+            // document.getElementById("iframe").src = document.getElementById('assignment-1').value;
+        }
+
+        function assignment_2() {
+            iframeView = document.getElementById("iframe");
+
+            link = document.getElementById('assignment-2').value;
+
+            iframeView.src = link;
+        }
+
+        function assignment_3() {
+            document.getElementById("iframe").src = document.getElementById('assignment-3').value;
+        }
+    </script>
+</body>
+</html>

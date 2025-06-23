@@ -1,0 +1,30 @@
+Pre requisites to Web programming in Java
+
+1. Confirm Java DB connectivity (JDBC)
+
+1.1 Refer - "day19_lab_data\day19_jdbc\src\tester\TestDBConnection.java" or you can import day19_jdbc project directly in your workspace.
+1.2 Create adv_java database in mysql
+create database adv_java
+1.3 Edit MySql connector JAR path.
+1.4 Edit DB user name , password 
+1.5 Test DB connectivity , as explained in day 19 lab.
+
+2. Add Tomcat 9.0.88 web server in the workspace n confirm if its up & running.
+Steps
+2.1 Suggested configuration - 
+STS 3.9.18 , JDK 11 , Tomcat 9.0.88
+2.2 Change perspective to Java EE
+2.3 Delete VMware's tc server
+2.4 Add Tomcat server to the workspace.
+2.5 Start the server --check Server side console(click on console)  --error free
+
+3. I have uploaded , in the same g drive folder , a <web basics> folder
+Please read -
+"prerequisites\web basics\HTTP_basics.txt"
+"prerequisites\web basics\web_server_basics.txt"
+"prerequisites\web basics\response content type.txt"
+
+4. Important core java topics to revise
+4.1 Collection framework - ArrayList & HashMap
+4.2 Exception handling with custom exceptions
+4.3 Synchronization in threads (synchronized blocks)

@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<!-- -->
+
+<!-- <style type="text/css">
+	body {
+        height: 100vh;
+        background: lightgrey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card {
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 10px 5px 15px 10px rgba(0, 0, 0, 0.25);
+    }
+</style> -->
+
+<style type="text/css">
+	body {
+		text-align: center;
+	}
+</style>
+
+</head>
+<body>
+<div>
+	<h2>Welcome to JSP !!!</h2>
+	<h3><a href="login.jsp">Login</a></h3>
+</div>
+
+<!-- Login Form -->
+<!-- 	<div id="login-card" class="card">
+	    <h2>Login</h2>
+	    
+	    <form class="form login-form" action="login" method="post">
+	    
+	        <div class="mb-3">
+	            <label for="login-email" class="form-label">Email</label>
+	            <input type="email" class="form-control" id="login-email" name="email" required>
+	        </div>
+	        
+	        <div class="mb-3">
+	            <label for="login-password" class="form-label">Password</label>
+	            <input type="password" class="form-control" id="login-password" name="password" required>
+	        </div>
+	        
+	        <div class="d-grid mb-3">
+	            <button id="login-btn" type="submit" class="btn btn-success">Login</button>
+	        </div>
+
+			<div class="d-grid">
+		        <button id="new-user-btn" class="btn btn-outline-success">New User ?</button>	
+	        </div>	        
+	    </form>
+    </div> -->
+
+</body>
+</html>

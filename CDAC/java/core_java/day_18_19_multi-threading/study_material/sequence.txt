@@ -1,0 +1,137 @@
+Day-18 :: 
+
+Processes vs Threads
+
+JVM can only manage threads based multi tasking - partially !
+Thread - Smallest part of the process which represents asynchronous , parallel flow of execution.
+JVM creates 2 system threads
+-main
+-GC 
+
+Context switching between the threads belonging to the same process 
+- light weight (fast)
+- since different threads share common address space
+(heap n method area)
+
+
+
+
+
+Thread State Transitions 
+Threads related API
+ - extends Thread
+ - implements Runnable
+Objectives
+- Testing concurrency with extends n implements
+-
+main thread creates n starts a child thread
+run() - print the name of the child thread - executing
+Use lambda expression
+
+
+
+- sleep , join , interrupt
+- applying threads to basic scenarion
+
+Create multi threaded application for the following
+1. Use main thread as UI thread 
+Accept range of numbers
+- begin
+-end
+
+2.Execute following tasks in async manner
+2.1 Print all even nos in the user supplied range
+2.2 Print sum of squares of all odd nos in the range
+2.3 Print average of sqrts of all nos in the range
+
+
+- Threads + Collection + I/O - lab work
+- Identify problems while sharing a common resource
+- solution - synchronization
+
+
+Important rule regarding method overriding or implemeting abstract functionality n exception handling
+Overriding form of the method can not 
+- add any NEW or BROADER CHECKED exceptions
+
+
+
+Method references
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Day-19:: 
+
+Revise 
+Thread state Transitions
+Threads API
+
+
+Synchronization
+-methods
+-blocks
+
+
+Problem -
+In a typical producer - consumer scenario, there are problems even after applying synchronization.
+eh - data loss(producer overwriting earlier data sample) 
+OR
+data redundancy(stale data - consumer redaing the same data sample multiple times)
+
+Root cause - no inter thread communication ! 
+Enter ITC 
+eg - binary semaphore 
+Introduce boolean flag  -
+eg - private boolean dataReady;
+
+OR in case of multiple producers n consumers -
+equivalent to counting semaphore -
+private int counter;
+
+Any problems using sleep - for blocking
+- deadlock
+-reason 
+ - Thread invoking sleep - does not release the ownership of the lock
+- causes cyclic dependency
+
+Solution 
+- use wait n notify.
+
+
+
+User Thread vs Daemon Threads
+Reflection Overview
+
+
+
+For Random no generation
+1. Create instance of java.util.Random class
+Public Random()
+2. Use it's instance methods
+- public int nextInt()
+-public int nextInt(int upperBound)
+Rets next random int within the range : 0 - upperBound-1
+
+
+Method reference
+
+JDBC
+-DB connectivity
+If time permits -
+Web server installation + adding it to the IDE
+

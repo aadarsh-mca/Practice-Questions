@@ -1,0 +1,131 @@
+1. Unbounded Wildcard (?)
+The unbounded wildcard (?) represents "any type" and is useful when the exact type doesn't matter:
+
+ eg -  method that works with any type of list
+public void printList(List<?> list) {
+    for (Object item : list) {
+        System.out.println(item);
+    }
+}
+
+// Usage
+List<String> strings = Arrays.asList("Hello", "World");
+List<Integer> numbers = Arrays.asList(1, 2, 3);
+printList(strings); // Works with strings
+printList(numbers); // Works with integers
+
+
+2. Upper Bounded Wildcard (extends)
+The extends keyword restricts types to a specific class or its subclasses:
+
+eg -  A method that accepts lists of Number or any subclass of Number
+public double sum(List<? extends Number> numbers) {
+    double total = 0;
+    for (Number number : numbers) {
+        total += number.doubleValue();
+    }
+    return total;
+}
+
+// Usage
+List<Integer> integers = Arrays.asList(1, 2, 3);
+List<Double> doubles = Arrays.asList(1.1, 2.2, 3.3);
+System.out.println(sum(integers)); // Works with Integer (subclass of Number)
+System.out.println(sum(doubles));  // Works with Double (subclass of Number)
+
+3. Lower Bounded Wildcard (super)
+The super keyword restricts types to a specific class or its superclasses:
+eg - A method that can add integers to any list of Integer or its superclasses
+public void addNumbers(List<? super Integer> list) {
+    for (int i = 1; i <= 5; i++) {
+        list.add(i); // Can safely add integers
+    }
+}
+
+// Usage
+List<Number> numbers = new ArrayList<>();
+List<Object> objects = new ArrayList<>();
+addNumbers(numbers); // Works with Number (superclass of Integer)
+addNumbers(objects); // Works with Object (superclass of Integer)
+System.out.println(numbers); // [1, 2, 3, 4, 5]
+System.out.println(objects); // [1, 2, 3, 4, 5]
+
+The key differences:
+
+Use ? when you only need to read from a collection and don't care about the specific type
+Use ? extends T when you need to read elements that are of type T or a subclass
+Use ? super T when you need to write elements of type T into a collection
+
+
+Covariance, Contravariance, and Invariance in Java Generics
+
+Invariance
+In Java, generic types are invariant by default. 
+
+This means that List<String> and List<Object> are completely unrelated types, even though String is a subtype of Object.
+
+List<String> strings = new ArrayList<>();
+// This won't compile - type safety error
+// List<Object> objects = strings;
+
+This invariance ensures type safety, as it prevents potentially unsafe operations:
+
+// If this were allowed (which it isn't):
+List<Object> objects = strings;
+objects.add(new Integer(100)); // Would add an Integer to a String list!
+String s = strings.get(0); // Runtime error!
+
+Covariance (using <? extends T>)
+Covariance allows you to use a more specific type where a more general type is expected. In Java, this is achieved using the upper bounded wildcard:
+ Covariant - can accept List<Integer>, List<Double>, etc.
+public void readNumbers(List<? extends Number> numbers) {
+    // Can only READ from this list
+    Number n = numbers.get(0); // Safe - any subtype of Number can be assigned to Number
+    
+    // Can't WRITE to this list
+    // numbers.add(new Integer(42)); // Compilation error!
+}
+
+List<Integer> integers = Arrays.asList(1, 2, 3);
+readNumbers(integers); // Works fine
+Covariant collections are read-only because the compiler can't guarantee which specific subtype the collection actually holds.
+
+
+Contravariance (using <? super T>)
+Contravariance allows you to use a more general type where a more specific type is expected. In Java, this is achieved using the lower bounded wildcard:
+ Contravariant - can accept List<Number>, List<Object>, etc.
+public void addIntegers(List<? super Integer> list) {
+    // Can WRITE Integers to this list
+    list.add(42); // Safe - Integer can be added to a list of any supertype
+    
+    // Limited READ capabilities
+    Object obj = list.get(0); // Can only read as Object, not as Integer
+    // Integer i = list.get(0); // Compilation error!
+}
+
+List<Number> numbers = new ArrayList<>();
+addIntegers(numbers); // Works fine
+Contravariant collections allow for write operations of the specific type but limit read operations.
+
+The PECS Principle
+There's a helpful  "PECS" - Producer Extends, Consumer Super:
+
+Use <? extends T> when you need to get values out of a structure (producer)
+Use <? super T> when you need to put values into a structure (consumer)
+
+Example of Combining Both
+public static <T> void copy(List<? extends T> source, List<? super T> destination) {
+    for (T item : source) {
+        destination.add(item);
+    }
+}
+
+// Usage
+List<Integer> integers = Arrays.asList(1, 2, 3);
+List<Number> numbers = new ArrayList<>();
+List<Object> objects = new ArrayList<>();
+
+copy(integers, numbers); // Copy from Integer list to Number list
+copy(integers, objects); // Copy from Integer list to Object list
+copy(numbers, objects);  // Copy from Number list to Object list
+This is a typical pattern in Java generics, where source is covariant (producer) and destination is contravariant (consumer).

@@ -1,0 +1,366 @@
+Day 1
+1. Create NEW workspace for advance java
+2. import day1.1 in your new workspace
+3. Edit the location of mysql connector jar 
+(Its supplied in - "day1-data\help\jdbc help\jdbc drivers\mysql-connector-j-8.0.33.jar")
+4. Revise 
+-TestConnection.java 
+ for establishing singleton DB connection
+- DisplayUserDetails.java
+ for Statement n ResultSet processing
+- TestPreparedStatement.java
+ for PreparedStatement n ResultSet processing
+
+5. As hands on 
+Mandatory 
+- try solving above objectives , completely from scratch.
+
+Optional exercise
+Display user details (id , first name , last name ,dob) for specific role , sorted in desc order as per dob.
+
+6. Mandatory reading H.W
+"day1-data\help\day1-sequence.rtf"
+"day1-data\help\jdbc help\readmes\JDBC sequence.txt"
+"day1-data\help\JDBC objectives n steps.txt"
+Diagrams - 
+"day1-data\help\jdbc help\diagrams\jdbc-whiteboard.png"
+"day1-data\help\jdbc help\diagrams\jdbc overview.png"
+"day1-data\help\jdbc help\diagrams\ORM overview.png"
+"day1-data\help\jdbc help\diagrams\DB Layers.png"
+
+
+Day 2 (Morning)
+
+1. import day2.1 in your workspace
+1.1 Edit classpath for mysql connector jar
+1.2 Edit DBUtils - password
+1.3 Revise user sign up
+
+2. Copy flights table n its records in DB
+Refer - "day2_help\flights.sql.rtf"
+
+Solve - 
+2.1 Display available flights in the asc order of price
+User  inputs
+Source , destination , departure date 
+Display available flights in the asc order of price
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+List<Flight> getAvailableFlights(Source , destination , departure date ) throws SQLException
+DAO Impl class
+fields - cn , pst1
+ctor - open cn , create pst1
+clean up - close psts n cn
+CRUD method - set IN params , exec query -> RST -> List<Flight> 
+Tester dao instance , dao clean up , call DAO' method
+
+2.2 
+Add stops to specific flight n modify arrival time (chage route information)
+User Inputs - flight id , no of stops , arrival time
+
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+String modifyFlightDetails(flight id , no of stops , arrival time)throws SQLException
+DAO Impl class
+fields - cn , pst1, pst2
+ctor - open cn , create pst1,pst2
+clean up - close psts n cn
+CRUD method - set IN params , exec update -> update count -> chk it with 1 -> ret mesg
+Tester dao instance , dao clean up , call DAO' method
+
+2.3 
+Delete flight details by airline n route(source n destination)
+User Inputs - airline , source , destination
+
+Table - flights
+POJO - Flight
+DBUtils - copy
+DAO i/f
+String deleteFlightRoutes(airline , source , destination)throws SQLException
+DAO Impl class
+fields - cn , pst1, pst2,pst3
+ctor - open cn , create pst1:select,pst2:update,pst3: delete query
+clean up - close psts n cn
+CRUD method - set IN params , exec update -> update count ->  ret mesg , saying how many routes are cancelled
+
+Tester dao instance , dao clean up , call DAO' method
+
+Day 2 (evening)
+
+1. Add Apache Tomcat web server (9.0.88) in the new workspace (created for web java)
+Refer - "day2_eve_data\day2_help\Development Steps.txt"
+
+2. Create dynamic web project 
+eg - test_web
+
+3. Add index.html under <src>/<main>/<webapp> folder
+
+4. Run web appliction on the server n test the response on external brwoser
+(chrome | edge)
+
+5. Complete pending JDBC tasks
+
+6. Refer to stored function 
+Refer - "day1-data\help\jdbc help\sql\sql cmds.txt" to add "accounts" table DDL n copy stored function.
+Execute it from JDBC application with layers
+Tester - DAO - POJO - DBUtils - DB
+
+
+Day 3 (morning)
+
+1. Create dynamic web project (day3_lab) . Test it with HTML(index.html) contents.
+2. Create n deploy the servlet using annotation.
+(Understand annotation)
+3. Create n deploy the servlet using xml tags
+4.  Create 1 servlet with default (lazy) loading n another one with eager loading.
+Compare these two.
+
+5. Servlet JDBC integration
+(Objective - User signin)
+
+Day 3 (evening)
+
+1. import day3_voting in your workspace (same as you were importing core java projects)
+Trace n revise (code walk through) , entire request -resp flow .
+
+2. Mandatory Hands on
+
+2.1 Create new dynamic web project
+- day3_flghts
+2.2 Add welcome file
+- choose_fligts.html
+- Add HTML form with 3 inputs
+-source(text) , destination(text) , departure date (date)
+
+2.3. Submit the form to the Servlet
+- ShowAvailableFlights (servlet)
+- perform JDBC integration , get list of available flights n send this list to the web client.
+
+
+Day 4
+
+NO new assignments !
+1. Complete pending work , as much as possible .
+
+2. import day4_voting 
+Do code walk through along with readmes , diagrams n Java EE docs
+
+Important readmes n diagrams
+
+"day4-data\day4_help\page navigation\page navigation techniques.txt"
+"day4-data\day4_help\page navigation\page navigation summary.png"
+"day4-data\day4_help\server side state management techniques\regarding session tracking.txt"
+"day4-data\day4_help\server side state management techniques\cookie.png"
+
+
+Day 5 
+1. import day5_voting in your workspace.
+1.1 Trace entire voter's flow with HttpSession based session tracking, from login -logout.
+
+2. NOTE 
+The help files are already shared under day4-data
+
+2.1 Revise - HttpSession API 
+Refer to - 
+"day4-data\day4_help\server side state management techniques\regarding session tracking.txt" 
+
+3. Mandatory Hands on
+3.1 Try to develop complete voter flow - on your own.
+
+OR
+
+3.2 Try to complete the admin flow of voting case study
+Refer - "case studies\voting assignment.png"
+
+OR (Best possible option to understand Servlets completely)
+Complete flight reservation 
+Refer 
+"case studies\Simple Flight Reservation.png"
+ 
+
+Day 6
+1. import day6.1 , to revise
+- Creation of web app , in DB independent manner , using ServletConfig
+- Refer to web.xml , LoginServlet
+- "day6_help\readmes\regarding servletconfig.txt"
+
+2. import day6.2 , to revise
+- Creation of web app , in DB independent manner , using ServletContext
+- Refer to web.xml , LoginServlet
+- "day6_help\readmes\regarding servletcontext.txt"
+
+3. import day6.3 , to revise
+- server pull (request dispatching) - forward technique
+
+4. import day6.4 , to revise
+- server pull (request dispatching) - include technique
+
+5. import day6.5 , to revise
+- web application listeners
+
+6. Mandatory Hands on -
+Create new dyn web application
+6.1 welcome page - operations.html
+inputs - 2 numbers(double) n drop down list for arithmetic ops - add | subtract | multiply | divide
+
+6.2 Submit the form to -
+ProcessForm page 
+Compute the operation on the numbers, forward client to results page (another servlet) n display result from there.
+
+OR 
+slightly better work -
+Accept - src a/c no , dest a/c no n transfer amount from user in the form
+Submit the form to ProcessFormServlet
+Use BankAccount DAO - call a stored procedure
+Forward client to results page , to display
+- updated src n dest balance to the web client.
+
+Try once with forward n then with include , to understand  forward vs include.
+
+7. Completely OPTIONAL but interesting work !!!
+- Display no of currently logged in users.
+Hint - web app listener.
+
+
+
+Day 7
+1. import day7.1 , to revise
+- basic JSP syntax
+
+2. Solve - mandatory
+"day7-data\JSP basic assignment.png" 
+- to apply scripting elements n EL syntax
+
+3. Optional assignment
+- solve yesterday's calculator assignment in JSP
+
+4. Mandatory - 
+4.1 Please download n extract 
+ template projects\hibernate_template_jdk11"
+4.2 Force update Maven project (as shown)
+- It should download hibernate dependencies from Maven Remote repo to local repo(.m2\repository)
+4.3 Run Maven goals 
+- clean package
+4.4 Confirm no errors !
+Keep it ready today itself !
+
+
+5. 
+Mandatory reading H.W
+servlet n JSP life cycle - digrams
+readme JSP
+
+Day 8
+1. import day8.1 
+ - Revise URL rewriting
+ - encodeURL n encodeRedirectURL
+
+2. import day8.2 
+ - Revise JSP directives
+  - page
+  - include
+ - JSP Actions
+  - forward 
+  - include
+  - param
+
+3. import day8.3 
+Mandatory Objective - User sign in
+ -Revise complete separation using the layers
+  -JSP : UI (presentation logic)
+  - Java Bean : Service layer (Business logic)
+  - JDBC based DAO (uses DBUtils to get the connection)
+  - DBUtils - openConnection , closeConnection , getConnection
+  - POJOS (Entity) - object representation of DB tables (ORM)
+  - ServletContextListener - to open n close DB connection
+
+4. We will continue with the same in lab
+Objective - Admin flow
+Voter sign up
+
+Day 9
+1. Later - in self study time 
+import day9.1 (dynamic web project) to revise ,
+ - Completion of admin flow
+ - Java Beans
+ - JSTL tags
+
+2. This will be the starting point of combined lab -
+I hope everyone has already imported 
+  - "\template projects\hibernate_template_jdk11"
+  - Continue with the same
+  - Later if you want you can create Maven based hibernate project  from scratch n test it out .
+    (Its Not really neccessary , since ultimately in Spring boot , the creation of the Maven project will be automatically done by Spring Starter tools)
+
+2.1 Create layered hibernate application 
+Objectives - 
+Sign up user
+Find user by id
+Find all users (if time permits !)
+.....
+Layers used - 
+ - Maven dependencies
+ - Tester (main based)
+ - Native Hibernate based DAO
+ - Hibernate Utils - to create singleton instance of the SessionFactory 
+   , representing DBCP
+ - MOST important layer - Hibernate / JPA managed entities
+  -with annotations
+ - DB
+
+2.2 new users table 
+column - id(PK) , first name , last name, email ,password , dob:date , role:enum,image :blob
+
+
+Day 10
+
+1. Mandatory assignment
+
+CRUD operations on Product (can be used later in eCommerce project)
+Typical product details -
+product id : Long (auto increment)
+name : string (unique) : varchar(20)
+product description : string : varchar(200)
+manufacture date : LocalDate
+price : double
+available quantity : int
+
+1.1 Continue with day9_lab
+1.2 Create Product Entity from above description
+1.3 Create Product DAO , implementation class  n testers for the following
+(After writing DAO method once on your own , please copy the boilerplate code)
+You can copy the testers from day10.1 n make necessary changes.
+
+Solve as many as possible ! No Pressure .... 
+ 1. Add a new product
+i/p - product details (except id)
+
+ 2. Display product details 
+     i/p - product id 
+ 3. Display   id , name , price  of all the products manufactured before specified date
+ 4. Change Product price
+   i/p - product name
+   o/p - message
+ 5. Apply discount to all products , whose available quantity > specified quantity
+	i/p - quantity n discount in %
+ 6. Delete specific product
+   i/p - product id 
+   o/p - message 
+
+
+
+
+2. During self study time -
+import day10.1 in your workspace as Existing Maven Project
+Edit DB password in hibernate.cfg.xml
+Open the testers n walk through the code , top to bottom (all layers)
+ 
+ - UserRegistration.java
+ - GetUserDetails.java
+ - GetAllUsers.java
+ - GetUsersByRoleAndDob.java
+ - GetUsersByRole.java

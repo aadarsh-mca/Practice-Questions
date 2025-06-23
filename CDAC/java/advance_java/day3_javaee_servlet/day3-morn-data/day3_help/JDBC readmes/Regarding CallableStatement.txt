@@ -1,0 +1,39 @@
+CallableStatement : i/f from java.sql
+Statement <--- PST  <--- CallableStatement
+why CST ?
+1. Use CST to execute stored procedures & stored funs exisitng on DB
+2. To pass IN,OUT,IN OUT type of params
+
+Steps to invoke & exec. the stored proc/fun
+1. Create CST
+API : Connection i/f
+public CallableStatement prepareCall(String invocationSyntax) throws SqlException
+invocationSyntax for stored proc : "{call procName(?,?.....?)}"
+invocationSyntax for stored fun : "{?=call funcName(?,?.....?)}"
+? : represents IN,OUT or IN OUT param
+{} : represent the esc seq. for the JDBC drvr. JDBC drvr will translate this invocation to a native DB invocation form.
+
+2. Set IN params : methods inherited from PST
+
+void setType(int placeHolderPos,Type value) throws SE
+
+3. Register OUT / IN OUT params (i.e specify the JDBC data type of the OUT/IN OUT param to JVM)
+Method of CST
+void registerOutParameter(int paramPosition,int type) throws SE
+
+paramPosition : placeHolder pos 1....
+type : java.sql.Types : class constant
+
+3.5 For 	IN OUT PARAM : invoke step 2 & 3 (ie. set IN val & register out param data type)
+
+4. Execute the stored proc or a fun
+
+public boolean execute() throws SE
+
+Ret val is ignored.
+
+5. Extract the results from OUT/IN OUT
+CallableStatement methods 
+Type getType(int paramPos) throws SE
+type : JDBC data type
+

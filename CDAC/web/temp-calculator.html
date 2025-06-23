@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <style>
+        .calculator-input-div, .calculator-operation-div {
+            margin: 20px;
+            justify-content: space-evenly;
+        }
+        #calculator-result-div {
+            border: 2px dotted black;
+            width: fit-content;
+            margin-left: 20px;
+            padding: 2px 15px;
+        }
+        .btn {
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-input-div d-flex">
+        <div class="calc-num-1">
+            <label for="num-1">Number 1</label>
+            <input id="input-num1" value="0" type="number" />
+        </div>
+    
+        <div class="calc-num-2">
+            <label for="num-2">Number 2</label>
+            <input id="input-num2" value="0" type="number" />
+        </div>
+    </div>
+
+    <div class="calculator-operation-div d-flex">
+        <button value="+" type="button" class="ops-btn btn btn-outline-success">
+            <i class="bi bi-plus-lg fs-1"></i>
+        </button>
+        <button value="-" type="button" class="ops-btn btn btn-outline-danger">
+            <i class="bi bi-dash-lg fs-1"></i>
+        </button>
+        <button value="*" type="button" class="ops-btn btn btn-outline-warning">
+            <i class="bi bi-x-lg fs-1"></i>
+        </button>
+        <button value="/" type="button" class="ops-btn btn btn-outline-info">
+            <i class="bi bi-slash-lg fs-1"></i>
+        </button>
+    </div>
+
+    <div id="calculator-result-div">Ans</div>
+    
+    <script>
+        window.onload = function () {
+            opsButtons = document.getElementsByClassName('ops-btn');
+
+            Array.from(opsButtons).forEach((button) => {
+                console.log(button);
+                
+                button.onclick = function () {
+                    console.log("Button val : " + this.value);
+                    calculate(this.value);
+                }
+            });
+        }
+
+        function calculate(symbol) {
+            num1 = parseInt(document.getElementById("input-num1").value);
+            num2 = parseInt(document.getElementById("input-num2").value);
+
+            result = 0;
+
+            switch(symbol) {
+                case '+':
+                    result = num1 + num2;
+                    symbol = "+";
+                    // symbol = 10;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    symbol = "-";
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    symbol = "×";
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    symbol = "÷";
+                    break;
+                default :
+                    alert("Invalid Operation !!!");
+            }
+
+            calcResult = document.getElementById("calculator-result-div");
+            calcResult.innerHTML = "" + num1 + " " + symbol + " " + num2 + " = " + result;
+            // calcResult.innerHTML = num1 + symbol + num2;
+        }
+    </script>
+</body>
+</html>

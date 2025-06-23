@@ -1,0 +1,20 @@
+Vehicle Project all available Endpoints :: 
+
+Name - Aadarsh Yadav
+Roll No. - 252001
+
+
+1. To get all users list
+	http://host:port/users
+
+2. To get User Detail with user id
+	http://host:port/users/{userId}
+
+3. To find all vehicle using user ID
+	http://host:port/vehicles?userId=
+
+4. To find all vehicle using user name
+	http://host:port/vehicles?username=
+
+5.To find all vehicle sold on particular date along with user detail
+	http://host:port/vehicles/{date}

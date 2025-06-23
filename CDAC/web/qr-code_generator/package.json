@@ -1,0 +1,16 @@
+{
+  "name": "qr-code_generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aadarsh Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^12.6.1",
+    "qr-image": "^3.2.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "testpackage",
+  "version": "1.0.0",
+  "description": "This is description of test package...",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aadarsh Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "sillyname": "^0.1.0",
+    "superheros": "^1.0.0"
+  }
+}

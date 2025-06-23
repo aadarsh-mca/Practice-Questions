@@ -1,0 +1,49 @@
+1. Display all users details , using JDBC
+
+2. Display user details(id , last name , dob)  born after specific date having specific role
+sql - select id,last_name,dob from users where dob > ? and role=?
+
+Dev Steps continued
+1. Create a PreparedStatement from Connection i/f
+API of Connection i/f
+public PreparedStatement prepareStatement(String sql) throws SQLException
+- Creates pre parsed n pre-compiled statement , wrapping the sql.
+Use case - parameterized (IN parameter) queries to avoid SQL injection attack or in case of repeatative queries for better perfomance.
+- sub i/f of Statement.
+
+1.5 In case of IN params , 
+set IN parameters , to be called per IN param.
+public void setType(int parameterIndex,Type value) throws SQLException
+type - JDBC data type (generic sql type)
+eg - pst.setDate(1,date);
+
+
+2. To execute select query
+API of PST
+public ResultSet executeQuery() throws SQLException
+
+3. To execute DDL | DML  query
+API of PST
+public int executeUpdate() throws SQLException
+
+4. Close DB resources.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

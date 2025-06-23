@@ -1,0 +1,51 @@
+Servlet JDBC integration steps
+
+1. Copy JDBC driver JAR under <WEB-INF>/lib or <tomcat>/lib
+- already done in the supplied Tomcat zip
+2. Copy layers from earlier project or if not done , create them 
+- DAO , Utils , pojos
+3. Create a Servlet
+3.1 Override init method
+ - open connection
+ - create dao instance
+3.2 Override doXXX method
+ - Invoke DAO's CRUD method
+3.3 Override destroy method
+ - invoke dao's clean up (to close DB resources)
+ - close connection
+-------------------------
+Centralized exception handling in Servlet
+- catch the exceptions 
+- re throw the exception to WC , by wrapping it in ServletException
+Ctor of javax.servlet.ServletException
+ServletException(String mesg,Throwable rootCause)
+eg - throw new ServletException("err in init",e);
+
+---------------
+
+How to read request parameters sent from clnt -> servlet
+API of ServletRequest i/f
+public String getParameter(String paramName)
+-rets param value or null if not found
+
+public String[] getParameterValues(String paramName)
+- rets array of param values or null if not found
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

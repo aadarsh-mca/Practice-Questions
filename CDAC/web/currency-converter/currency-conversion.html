@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+
+    <style>
+        body {
+            border: 2px dashed grey;
+            margin: 10px;
+            padding: 10px;
+            width: fit-content;
+        }
+
+        .hSpace {
+            margin: 0px 10px;
+        }
+        .vSpace {
+            margin: 10px 0px;
+        }
+
+        .input-field {
+            width: fit-content;
+        }
+
+        #currency-table {
+            border: 5px grey inset;
+            border-radius: 5px;
+            border-spacing: 10px;
+            border-collapse: separate;
+        }
+        #currency-table td {
+            border: 2px dashed grey;
+            padding: 2px 15px;
+        }
+    </style>
+       
+</head>
+<body>
+    <!-- <h1>Currency Converter</h1> -->
+    <div class="conversion-field d-flex">
+
+        <!-- convert FROM field -->
+        <div id="convert-from" class="d-flex">
+            <div>
+                <legend>From</legend>
+                <input id="convert-from-value" class="input-field" value="1" />  <!-- oninput="this.style.width = (this.value.length + 1) + 'ch'" -->
+            </div>
+
+            <div class="hSpace"></div>
+
+            <div class="btn-group">
+                <button id="convert-from-drop-btn" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select Currency
+                </button>
+        
+                <!-- <ul id="convert-from-currency-menu" class="dropdown-menu"> -->
+                <div class="currency-menu-div"></div>
+            </div>
+        </div>
+
+        <div class="hSpace"></div>
+
+         <!-- convert TO field -->
+        <div id="convert-to" class="d-flex">
+            <div>
+                <legend>To</legend>
+                <input id="convert-to-value" class="input-field" value="1" disabled />
+            </div>
+
+            <div class="hSpace"></div>
+
+            <div class="btn-group">
+                <button id="convert-to-drop-btn" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select Currency
+                </button>
+
+                <!-- <ul id="convert-to-currency-menu" class="dropdown-menu"> -->
+                <div class="currency-menu-div"></div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <div class="vSpace"></div>
+
+    <div class="vSpace"></div>
+
+    <div>
+        <hr/>
+        <div id="currency-table-div"></div>
+    </div>
+
+
+    <script type="module">
+        // import HttpFetcher from "./http-fetcher.js";
+        import StorageManager from "./storage-manager.js";
+        
+        const exchangeRateJson = StorageManager.getCurrencyRate();
+        let fromCurrencyCode;
+        let fromCurrencyRate;
+        let toCurrencyCode;
+        let toCurrencyRate;
+
+        const convertFromDropBtn = document.querySelector("#convert-from-drop-btn");
+        const convertToDropBtn = document.querySelector("#convert-to-drop-btn");
+        
+        const currencyMenuDiv = document.querySelectorAll(".currency-menu-div");
+
+        const currencyInputField = document.querySelector("#convert-from-value");
+        const currencyOutputField = document.querySelector("#convert-to-value");
+
+        // currencyInputField.disabled = true;
+
+        function getCurrencyListItem(value) {
+            // return `<ul id="currency-menu" class="dropdown-menu">
+                // return `<ul id="currency-menu" value='${value}' class="currency-menu dropdown-menu">
+                return `<ul value='${value}' class="currency-menu dropdown-menu">
+                    <li currency="INR" symbol="₹" class="dropdown-item">₹ - Indian Rupee</li>
+                    <li currency="USD" symbol="$" class="dropdown-item">$ - US Dollar</li>
+                    <li currency="EUR" symbol="€" class="dropdown-item">€ - European Euro</li>
+                    <li currency="GBP" symbol="£" class="dropdown-item">£ - British Pound</li>
+                    <li currency="JPY" symbol="¥" class="dropdown-item">¥ - Japanese Yen</li>
+                    <li currency="CNY" symbol="CN¥" class="dropdown-item">CN¥ - Chinese Yuan</li>
+                    <li currency="IDR" symbol="Rp" class="dropdown-item">Rp - Indonesian Rupiah</li>
+                    <li currency="SAR" symbol="SAR" class="dropdown-item">SAR - Saudi Riyal</li>
+                    <li currency="AED" symbol="AED" class="dropdown-item">AED - UAE Dirham</li>
+                    <li currency="KWD" symbol="KWD" class="dropdown-item">KWD - Kuwaiti Dinar</li>
+                </ul>`;
+        }
+
+        for(let div in currencyMenuDiv) {
+            if(div == 0) {
+                currencyMenuDiv[div].innerHTML = getCurrencyListItem("from");
+            } else if(div == 1) {
+                currencyMenuDiv[div].innerHTML = getCurrencyListItem("to");
+            }
+        }
+
+        // initialise ONLY after creating the currency-menu UI
+        const currencyMenu = document.querySelectorAll(".currency-menu");
+        const currencyTableDiv = document.querySelector("#currency-table-div");
+        
+        const currencySymbolMap = (function () {
+            const currencySymbolMap = new Map();
+
+            for(let currMenuList of currencyMenu[0].getElementsByTagName("li")) {
+                currencySymbolMap.set(currMenuList.getAttribute("currency"), currMenuList.getAttribute("symbol"));
+            }
+            return currencySymbolMap;
+        })();
+        console.log(currencySymbolMap); // currencySymbolMap
+
+        function createCurrencyTable(fromCurrency, toCurrency) {
+            console.log("selected currency --> " + fromCurrency);
+            
+            // const fromCurrencyValue = exchangeRateJson[fromCurrency];
+
+            let tableStr = "<table id='currency-table'>";
+            
+            for(var entry of Object.entries(exchangeRateJson)) {
+                if(currencySymbolMap.has(entry[0])) {
+                    tableStr += 
+                    `<tr> 
+                        <td>
+                            1 <strong>${currencySymbolMap.get(fromCurrency)}</strong>
+                        </td>
+                        <td>
+                            ${Number((entry[1] / fromCurrencyRate).toFixed(5))} <strong>${currencySymbolMap.get(entry[0])}</strong>
+                        </td>
+                    </tr>`;
+                }
+            }
+               
+            tableStr += "</table>";
+            return tableStr;
+        }
+
+        // console.log(currencyMenu);
+        currencyMenu.forEach((menus) => {
+            menus.addEventListener("click", (event) => {
+                console.log(event);
+                
+                const selectedCurrency = event.target.getAttribute("currency");
+                const selectedCurrencySymbol = event.target.getAttribute("symbol");
+                const currencyText = event.target.innerHTML;
+
+                console.log(selectedCurrencySymbol);
+                
+                if(event.target.parentNode.getAttribute("value") === "from") {
+                    convertFromDropBtn.innerHTML = currencyText;
+                    fromCurrencyCode = selectedCurrency;
+                    fromCurrencyRate = exchangeRateJson[fromCurrencyCode];
+                } else if(event.target.parentNode.getAttribute("value") === "to") {
+                    convertToDropBtn.innerHTML = currencyText;
+                    toCurrencyCode = selectedCurrency;
+                    toCurrencyRate = exchangeRateJson[toCurrencyCode];
+                }
+
+                if(fromCurrencyCode != null && toCurrencyCode != null) {
+                    const inputCurrencyValue = currencyInputField.value;
+                    console.log(`input value - ${inputCurrencyValue}`);
+
+                    const convertedCurrency = Number(((toCurrencyRate / fromCurrencyRate) * inputCurrencyValue).toFixed(5));
+                    
+                    console.log(convertedCurrency);
+                    currencyOutputField.value = convertedCurrency;
+                }
+                
+                let tableStr = createCurrencyTable(fromCurrencyCode, toCurrencyCode);
+                currencyTableDiv.innerHTML = tableStr;
+            });
+        });
+
+
+        currencyInputField.addEventListener("keyup", (event) => {
+            if(fromCurrencyCode != null && toCurrencyCode != null) {
+                console.log(event);
+
+                const convertedCurrency = Number(((toCurrencyRate / fromCurrencyRate) * event.target.value).toFixed(5));
+
+                currencyOutputField.value = convertedCurrency;
+            }
+        });
+
+    </script>
+</body>
+</html>

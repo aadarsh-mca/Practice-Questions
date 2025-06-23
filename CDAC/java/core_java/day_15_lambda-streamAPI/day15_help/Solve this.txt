@@ -1,0 +1,99 @@
+
+1. AL<? extends Emp> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 1,2,3,4
+
+
+2. AL<? super Mgr> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 1,2,5
+
+3. Solve (What will happen) - javac error or no error ?
+Given : Emp hierarchy
+Emp e =new Mgr(...);
+e=new Worker(...);
+List<Emp> emps=new ArrayList<>();
+emps.add(new Mgr(...));
+emps.add(new TempWorker(...));
+Ans - no error
+
+4. Solve (What will happen) - javac error or no error ?
+
+ArrayList<Emp> emps=new ArrayList<Mgr>();//javac err
+ArrayList<Object> emps=new ArrayList<Mgr>();//javac err
+List<Emp> emps=new Vector<Worker>();//javac err
+emps=new LinkedList<SalesMgr>();//javac err
+TO DO - Fix errors !
+
+
+
+5. Solve 
+List<?> anyList;
+anyList=new ArrayList<Mgr>();//no err
+anyList=new Vector<Worker>();//no err
+anyList=new LinkedList<SalesMgr>();//no err
+anyList=new HashSet<>();//err
+anyList=new Vector<Fruit>();//no err
+
+
+
+
+
+
+6. solve - 
+public static  void test1(List<? super Mgr> collection, Mgr... mgrs) {
+		for(Mgr e : mgrs)
+			collection.add(e);	
+}
+
+In the Tester - 
+List<Mgr> mgrs=new ArrayList<>(List.of(new Mgr(1000), new Mgr(2000)));
+GenericUtils.test1(mgrs, new Mgr(4000), new Mgr(5000));
+System.out.println(mgrs);
+
+
+IMPORTANT- 
+As per PECS - when any Collection acts as the consumer (i.e you want to add the elements to it) -user super keyword
+eg - ? super T
+Which type of elements can be actually added to this collection  - T or its sub types.
+If you try to retrieve the elements - ret type will : Object type of reference.
+
+
+? extends T - Collection acts as the producer(i.e you can only get the elements from it)
+The only element you can add to this collection - null
+
+
+First try this -
+Fruit f=new Mango();
+f.taste();
+((Mango)f).pulp();
+
+Mango m=new Fruit();//javac err
+Mango m=(Mango)new Fruit();//no javac err , run time err - ClasCastExc
+
+
+
+
+
+
+
+
+
+
+
+
+

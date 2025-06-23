@@ -1,0 +1,74 @@
+date
+cal
+cal -y
+cal -y 2020
+man cal
+pwd
+cd feb2025/dac
+pwd
+mkdir dir
+ls
+mkdir dir1 dir2 dir3
+ls
+mkdir -p d1/d2/d3
+ls
+ls d1
+ls d1/d2
+ls d1/d2/d3
+ls -R d1
+ls
+rmdir dir
+ls
+touch file.txt
+touch file1.txt file2.txt file3.txt
+ls
+ls -l
+cat > dac.txt
+ls
+cat dac.txt 
+cat > dac.txt
+cat dac.txt 
+cat >> dac.txt
+cat dac.txt 
+ls
+cp dac.txt copy.txt
+cat dac.txt 
+cat copy.txt 
+cp dac.txt dir3
+ls dir3
+cp dac.txt dir3/kdac.txt
+ls dir3
+cp -r dir3 cpy
+ls
+ls dir3
+ls cpy/
+ls
+rm copy.txt 
+ls
+rmdir cpy
+rm -r cpy
+ls
+mv file1.txt move.txt
+ls
+mv file2.txt dir2
+ls
+ls dir2
+ls
+mv d1 dir1
+ls
+ls dir1
+pwd
+cd .
+pwd
+cd ..
+pwd
+cd ~
+pwd
+cd -
+ls
+cd dac/
+ls
+ls -l
+ls -R
+ps
+history
