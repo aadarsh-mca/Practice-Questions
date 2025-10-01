@@ -3,6 +3,7 @@ package com.cdac.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -27,7 +28,7 @@ public class Restaurant extends BaseEntity{
 	//always init the collection - to avoid NullPointerException
 	//Restaurant 1---->* FoodItem
 	//Restaurant - one , parent table , inverse side
-	@OneToMany(mappedBy = "myRestaurant")
+	@OneToMany(mappedBy = "myRestaurant" /* , cascade = CascadeType.ALL, orphanRemoval = true */)
 	private List<FoodItem>foodItems=new ArrayList<>();
 	public Restaurant(String name, String address, String city, String description) {
 		super();

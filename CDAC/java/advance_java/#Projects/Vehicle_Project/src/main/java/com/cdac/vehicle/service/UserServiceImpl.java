@@ -7,6 +7,9 @@ import com.cdac.vehicle.exception.DuplicateResourceFoundException;
 import com.cdac.vehicle.exception.ResourceNotFoundException;
 import com.cdac.vehicle.repository.UserRepository;
 import com.cdac.vehicle.repository.VehicleRepository;
+import jakarta.servlet.GenericServlet;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.http.HttpServlet;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,10 @@ import java.util.List;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
+
+//    Servlet
+//    GenericServlet
+//    HttpServlet
 
     private final UserRepository userRepository;
     private final VehicleRepository vehicleRepository;

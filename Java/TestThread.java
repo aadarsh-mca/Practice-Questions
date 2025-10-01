@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.locks.ReentrantLock;
 
 class Resource {
     private static int a = 0;
@@ -20,7 +21,78 @@ class Resource {
 
 public class TestThread {
     
-    public static void main(String[] args) throws InterruptedException {
+    private Integer balance = 100;
+
+    // private ReentrantLock relock = new ReentrantLock();
+
+    void increaseBalance(TestThread obj) {
+        // synchronized(obj) {
+            balance += 10;
+
+            try {
+                new Thread(() -> {
+                    for (int i = 0; i < 5; i++) {
+                        System.out.print(".");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        // }
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> {
+            System.out.println("Thread 1 has started....");
+            try {
+                Thread.sleep(5000);
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println("Thread 1 has ended....");
+        });
+
+        Thread t2 = new Thread(() -> {
+            System.out.println("Thread 2 has started....");
+            t1.interrupt();
+            System.out.println("Thread 2 has ended....");
+        });
+
+        t1.start();
+        t2.start();
+    }
+
+    public static void main2(String[] args) {
+        TestThread obj = new TestThread();
+
+        Thread t1 = new Thread(() -> {
+            System.out.println("t1 started....");
+
+            obj.increaseBalance(obj);
+
+            System.out.println("t1 ended.... balance :: " + obj.balance);
+        });
+
+        Thread t2 = new Thread(() -> {
+            System.out.println("t2 started....");
+
+            obj.increaseBalance(obj);
+
+            System.out.println("t2 ended.... balance :: " + obj.balance);
+        });
+
+        t1.start();
+        t2.start();
+
+    }
+
+    public static void main1(String[] args) throws InterruptedException {
 
         Resource r1 = new Resource();
 
@@ -72,8 +144,11 @@ public class TestThread {
         t1.start();
         t2.start();
 
-        // t1.join();
-        // t2.join();
+        t1.join();
+        t2.join();
+
+        t1.wait();
+        t2.wait();
 
         System.out.println("\n===== [ Main finished !!! ] =====\n");
     }

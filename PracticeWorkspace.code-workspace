@@ -1,0 +1,45 @@
+{
+	"folders": [
+		{
+			"name": "Practice-Questions",
+			"path": "E:/Workspace/Practice-Questions"
+		},
+		{
+			"name": "Private-Web-Projects",
+			"path": "E:/Workspace/Private-Web-Projects"
+		},
+		{
+			"name": "Practice-Web-Dev",
+			"path": "E:/Workspace/Practice-Web-Dev"
+		},
+		{
+			"path": "Arduino-Projects"
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true,
+		"java.project.sourcePaths": [
+			"Java",
+			"CDAC/java/core_java/day_1/src"
+		],
+		"files.associations": {
+			"ctype.h": "c",
+			"string.h": "c",
+			"system_error": "cpp",
+			"xlocale": "cpp",
+			"iostream": "cpp",
+			"vector": "cpp",
+			"initializer_list": "cpp",
+			"list": "cpp",
+			"utility": "cpp",
+			"xhash": "cpp",
+			"xstring": "cpp",
+			"xtree": "cpp",
+			"xutility": "cpp",
+			"format": "cpp"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "Practice-Questions",
+		"git.ignoreLimitWarning": true,
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

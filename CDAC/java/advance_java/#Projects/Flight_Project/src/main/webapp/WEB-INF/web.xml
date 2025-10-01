@@ -5,6 +5,24 @@
     <welcome-file>search-flight.html</welcome-file>
   </welcome-file-list>
   
+  <!-- <context-param>
+  
+  </context-param> -->
+  
+  <!-- <servlet>
+  	<init-param>
+  	
+  	</init-param>
+  </servlet> -->
+  
+  
+  <!-- <listener>
+  	<listener-class>
+  	
+  	</listener-class>
+  </listener> -->
+  
+  
   <!-- Sevlet 
   <servlet>
   	<servlet-name>login-page</servlet-name>

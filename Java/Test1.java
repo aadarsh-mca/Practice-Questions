@@ -1,14 +1,26 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Reader;
+import java.lang.reflect.Method;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
@@ -25,6 +37,7 @@ import java.util.stream.Stream;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.swing.JFrame;
+import javax.swing.text.DateFormatter;
 
 import DSA.PQueue;
 
@@ -71,10 +84,45 @@ class IFunctions implements IDbFunction, IFileFunction {
     }
 }
 
+class Outer {
+    private int a = 10;
+
+    void show() {
+        System.out.println("Inside Outer class");
+    }
+
+    class Inner {
+        void show() {
+            System.out.println("Inside Inner class");
+            Outer.this.a = 10;
+        }
+    }
+}
+
+class Parent<T> {
+    T value;
+}
+
+class Child extends Parent<String> {
+    void display() {
+        System.out.println("Child -- display()");
+    }
+}
+
+class GrandChild extends Child {
+    void display(String name) {
+        System.out.println("GrandChild -- display(string) :: " + name);
+    }
+}
+
 public class Test1 {
 
+    static class Test12 {
+        
+    }
+
     class Pair {
-        public int num;
+        public static int num;
         public int freq;
 
         public Pair(int num, int freq) {
@@ -91,28 +139,51 @@ public class Test1 {
         System.out.println("\nSecret Key: " + encodedKey);
     }
 
+    public void display(int a, String b) {
+
+    }
+
+    public void display(String b, int a) {
+
+    }
+
     public static void main(String[] args) throws Exception {
         // SHA256Generator();
         
         int[] arr = new int[10];
+        int[] arr1 = {1, 2, 3, 4, 5};
         Set<List<Integer>> set = new HashSet<>();
         Map<Integer, Integer> map = new HashMap<>();
         List<Integer> list = new ArrayList<>(List.of(1,2,4,5,6,7,8,9));
         ArrayDeque<Integer> que = new ArrayDeque<>();
         Queue<Integer> pQue = new PriorityQueue<>();
+        StringBuilder strb = new StringBuilder();
+w
 
 
-        
-        System.out.println(list);
-
-        
 
 
-        // System.out.println(UUID.randomUUID());
-        // System.out.println(UUID.nameUUIDFromBytes("example@gmail.com".getBytes()));
-        // System.out.println(UUID.randomUUID().toString());
-        // System.out.println(UUID.nameUUIDFromBytes("test@gmail.com".getBytes()).toString());
-        // System.out.println(UUID.nameUUIDFromBytes("test123@gmail.com".getBytes()).toString());
+
+
+
+        String str1 = "abcabcabcabc";
+        String subStr = "abc";
+
+        // System.out.println(str1.contains(subStr));
+        // System.out.println(str1.);
+
+        // int[] arr11 = new int[26];
+        // int[] arr12 = new int[26];
+
+        // System.out.println(Arrays.equals(arr11, arr12));
+        // arr11[0] = 123;
+        // System.out.println(Arrays.equals(arr11, arr12));
+
+
+
+
+
+
     }
 
 

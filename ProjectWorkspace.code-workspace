@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "Practice-Flutter",
+			"path": "Practice-Flutter"
+		},
+		{
+			"name": "Private-Flutter-Projects",
+			"path": "Private-Flutter-Projects"
+		},
+		{
+			"path": "Public-Projects"
+		},
+		{
+			"path": "Java Projects"
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true
+	}
+}

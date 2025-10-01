@@ -25,6 +25,9 @@ public class UserAccountDaoImpl implements UserAccountDao {
 	private UserAccountDaoImpl() throws SQLException {
 		connection = DBUtils.getInstance().getConnection();
 		
+//		connection.createStatement()
+		connection.setAutoCommit(false);
+		
 		getUserSt = connection.prepareStatement("Select id, first_name, last_name, mobile, address, email From Flight_Users Where id=?");
 		
 		loginUserSt = connection.prepareStatement("Select * From Flight_Users Where email=? AND password=?");

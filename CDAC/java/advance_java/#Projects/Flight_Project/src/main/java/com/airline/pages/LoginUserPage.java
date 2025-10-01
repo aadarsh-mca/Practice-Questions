@@ -19,6 +19,9 @@ public class LoginUserPage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
+//		getServletContext()
+//		request.getRequestDispatcher("")
+		
 		try {
 			HttpSession session = request.getSession();
 			UserAccountDao userAccountDao = (UserAccountDao) session.getAttribute("user-account-dao");
